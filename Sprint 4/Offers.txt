@@ -1,0 +1,6 @@
+shoes
+15
+choclate
+4
+water
+10
