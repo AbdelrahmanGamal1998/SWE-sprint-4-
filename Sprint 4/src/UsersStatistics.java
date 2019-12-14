@@ -46,17 +46,20 @@ public String max() throws IOException {
 		}else {
 			x.put(s0,1);
 		}
-		}
 		
+		}	
 		i++;
+
 		if(i==5) {
 			i=0;
 		}
 	}
-	int maxnum=0;
+	int maxmum=0;
 	String name = null;
 	for(Map.Entry<String, Integer>entry:x.entrySet()) {
-		if(entry.getValue()>maxnum) {
+		if(entry.getValue()>maxmum)
+		{
+			maxmum=entry.getValue();
 			name=entry.getKey();
 		}
 		}
@@ -64,6 +67,8 @@ public String max() throws IOException {
 	return name;
 	
 	}
+
+	
 public String min() throws IOException {
 	File file = new File("SoldProducts.txt");  
 	BufferedReader br = new BufferedReader(new FileReader(file)); 
