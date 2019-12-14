@@ -177,7 +177,7 @@ while((s0 = br.readLine()) != null&(s1 = br.readLine()) != null&(s2 = br.readLin
 	           		while(read.hasNext()) {
 	           		 s0=read.nextLine();
 		             s1=read.nextLine();
-			         s2 = read.nextLine();
+			         s2 = read.nextLine();  
 			         s3 = read.nextLine();
 	                          if(s0.equalsIgnoreCase(v) ){
 	                           System.out.println("the product price is :");
