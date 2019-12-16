@@ -9,22 +9,20 @@ public class Collaborator extends TimerTask {
 	StoreOwner collaborator = new StoreOwner();
 	
 	Database Database1=new Database();
-	public void addProduct_bycollaborator() throws IOException {
-		File f = new File("Collaborator.txt");
 	
+public void addProduct_bycollaborator() throws IOException {
+		File f = new File("Collaborator.txt");
+	   Products1 Product_name = new Products1();
 		collaborator.addProduct();	
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
-		   LocalDateTime now = LocalDateTime.now();  
-		   System.out.println(dtf.format(now));  
-		   
-		   String a[]= {"Product added by collaborator", dtf.format(now)};
+		LocalDateTime now = LocalDateTime.now();
+		   String a[]= {"Product added by collaborator is "+ collaborator.StoreOwner_Add.getName(), dtf.format(now)};
 			Database1.Write(f, a);
-			
 			System.out.println("Product added by collaborator at :");
 			System.out.println(dtf.format(now));
 		
 	}
-	
+
 	
 	
 	

@@ -7,19 +7,20 @@ public class Main{
 
 public static void main(String[] args) throws IOException {
 	//Collaborator v=new Collaborator();
-	//Admin d = new Admin();
+	//Admin Q = new Admin();
 StoreOwner x = new StoreOwner();
 	//d.EditOffer();
-	//d.deleteOffer();
+//Q.deleteOffer();
+//x.deleteProduct();
 	//v.addProduct_bycollaborator();
 	//v.viewStatistics_bycollaborator();
 	//StoreOwner c = new StoreOwner();
     //c.check_History_of_collaborator();
 	//c.deleteProduct();
-   //x .EditProduct();
+  x .EditProduct();
 	  //c.deleteProduct();
-//}}
- User q = new User();
+}}
+/* User q = new User();
 	System.out.println("Welcome to 5od Fekra w Eshtery Bokra!"); 
 	System.out.println("New Account? Press 0 / Login? Press 1");
 	Scanner l = new Scanner(System.in);
@@ -58,3 +59,4 @@ StoreOwner x = new StoreOwner();
 
 	
 }
+*/
