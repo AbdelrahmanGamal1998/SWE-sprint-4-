@@ -114,20 +114,22 @@ public class Admin implements Products {
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 		BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
-		String lineToRemove = Get_the_deleted_offer_name();
+		String lineToRemove = Get_the_deleted_offer_name() ;
 		String s0;
 		String s1;
+	
 
-		while ((s0 = reader.readLine()) != null & (s1 = reader.readLine()) != null) {
+		while ((s0 = reader.readLine()) != null & (s1 = reader.readLine()) != null)
+				 {
 			// trim newline when comparing with lineToRemove
 			String trimmedLine0 = s0.trim();
 			String trimmedLine1 = s1.trim();
-
+		
 			if (trimmedLine0.equals(lineToRemove))
 				continue;
-			writer.write(s0 + System.getProperty("line.separator"));
-			writer.write(s1 + System.getProperty("line.separator"));
-
+			String a[] = { s0,s1 };
+			Database1.Write(tempFile, a);
+			
 		}
 		writer.close();
 		reader.close();
@@ -135,7 +137,6 @@ public class Admin implements Products {
 		boolean successful = tempFile.renameTo(inputFile);
 		System.out.println("Product Is deleted  Successfuly");
 	}
-
 	public void EditOffer() throws IOException {
 		System.out.println("Please enter the product name you want to Edit");
 		Scanner x1 = new Scanner(System.in);

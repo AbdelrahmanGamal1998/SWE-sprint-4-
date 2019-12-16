@@ -13,6 +13,8 @@ import java.awt.List;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 
 
@@ -21,21 +23,22 @@ public class StoreOwner  extends User   implements Products{
 	private Store Add_store;
 	private Admin Approve_products;	
 	
-	private Products1 StoreOwner_Add;
+	Products1 StoreOwner_Add = new Products1();
 	private Statistics viewers;
 	private Object inputFile;		
-	Database Database1= new Database(); 
+	Database Database1= new Database();
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+	LocalDateTime now = LocalDateTime.now();
 public void addStore() throws IOException {
 	Store Add_store = new Store();
 	Add_store.IsOnline();
 }
-	 
+
+
 public void addProduct() throws IOException {
 	// TODO Auto-generated method stub
-   
 	File f = new File("StoreProducts.txt");
-	
-	Products1 StoreOwner_Add = new Products1();
+	File file = new File("Collaborator.txt");
 	System.out.println("Enter name");
 	Scanner x = new Scanner(System.in);
 	StoreOwner_Add.setName(x.next());
@@ -52,7 +55,10 @@ public void addProduct() throws IOException {
 	if(Approve_products.approveProduct(StoreOwner_Add.getName())==true) {
 		String a[]= {StoreOwner_Add.getName(),StoreOwner_Add.getPrice() ,StoreOwner_Add.getBrand(),StoreOwner_Add.getCategory() };
 		Database1.Write(f, a);
-
+	
+		   String str[]= {"Product added by StoreOwner is "+ StoreOwner_Add.getName(), dtf.format(now)};
+			Database1.Write(file, str);
+			
 	System.out.println("Product Is Added Successfuly");
 	
 	
@@ -61,6 +67,8 @@ public void addProduct() throws IOException {
 		System.out.println("Product Is Not Approved");
 	}
 }
+
+
 
 
 public String deleteProduct1() {
@@ -92,10 +100,11 @@ public void deleteProduct() throws IOException {
 		String trimmedLine3 = s3.trim();
 		if (trimmedLine0.equals(lineToRemove))
 			continue;
-		writer.write(s0 + System.getProperty("line.separator"));
-		writer.write(s1 + System.getProperty("line.separator"));
-		writer.write(s2 + System.getProperty("line.separator"));
-		writer.write(s3 + System.getProperty("line.separator"));
+		String a[] = { s0,s1,s2,s3 };
+		Database1.Write(tempFile, a);
+		File file = new File("Collaborator.txt");
+		 String str[]= {"Product added by StoreOwner is "+ lineToRemove, dtf.format(now)};
+			Database1.Write(file, str);
 	}
 	writer.close();
 	reader.close();
@@ -103,7 +112,6 @@ public void deleteProduct() throws IOException {
 	boolean successful = tempFile.renameTo(inputFile);
 	System.out.println("Product Is deleted  Successfuly");
 }
-
 
 public void EditProduct() throws IOException {
 	System.out.println("Please enter the product name you want to Edit");
@@ -149,6 +157,9 @@ public void UpdatedProductPrice(String a, String b) throws IOException {
 		s4 = P.get(j).getCategory();
 		String str[]= {s1,s2,s3,s4 };
 		Database1.Write(file1, str);
+		File file = new File("Collaborator.txt");
+		 String s[]= {"Product Edited by StoreOwner is "+ a, dtf.format(now)};
+		 Database1.Write(file, s);
 	}
 
 }
