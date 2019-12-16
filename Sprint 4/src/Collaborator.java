@@ -8,21 +8,21 @@ public class Collaborator extends TimerTask {
 
 	StoreOwner collaborator = new StoreOwner();
 	
-
+	Database Database1=new Database();
 	public void addProduct_bycollaborator() throws IOException {
 		File f = new File("Collaborator.txt");
-		FileWriter h = new FileWriter(f, true);
+	
 		collaborator.addProduct();	
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 		   LocalDateTime now = LocalDateTime.now();  
 		   System.out.println(dtf.format(now));  
-			h.write("Product added by collaborator" );
-			h.write("\n");
-			h.write(dtf.format(now));
-			h.write("\n");
+		   
+		   String a[]= {"Product added by collaborator", dtf.format(now)};
+			Database1.Write(f, a);
+			
 			System.out.println("Product added by collaborator at :");
 			System.out.println(dtf.format(now));
-			h.close();
+		
 	}
 	
 	
@@ -30,17 +30,11 @@ public class Collaborator extends TimerTask {
 	
 	public void viewStatistics_bycollaborator() throws IOException {
 		File file = new File("Collaborator.txt");
-		FileWriter h2 = new FileWriter(file, true);
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 		   LocalDateTime now = LocalDateTime.now();  
-		   
-		
-		            h2.write("Statistacs viewed by collaborator" );
-					h2.write("\n");
-					h2.write(dtf.format(now));
-					h2.write("\n");
-					
-					h2.close();
+		   String a[]= {"Statistacs viewed by collaborator", dtf.format(now)};
+					Database1.Write(file, a);
+		            
 	}
 		
 		

@@ -14,7 +14,7 @@ public class User {
 	public String type_verify ;
 	private Controller User_verify;
 	private String User_type;
-
+	Database Database1= new Database();
 public String getUser_type() {
 		return User_type;
 }
@@ -98,10 +98,9 @@ public User login() throws IOException {
 
 public void createaccount() throws IOException{		
 		File f = new File("Users.txt");
-		FileWriter h = new FileWriter(f, true);
-		System.out.println("Enter name");
-		Scanner x = new Scanner(System.in);
-		this.setName(x.next());
+		System.out.println("Enter username");
+		Scanner Password_verify = new Scanner(System.in);
+		this.setUsername(Password_verify.next());
 		System.out.println("Enter password");
 		Scanner y = new Scanner(System.in);
 		this.setPass(y.next());
@@ -111,21 +110,15 @@ public void createaccount() throws IOException{
 		System.out.println("Enter email");
 		Scanner u = new Scanner(System.in);
 		this.setEmail(u.next());
-		System.out.println("Enter username");
-		Scanner Password_verify = new Scanner(System.in);
-		this.setUsername(Password_verify.next());
+		
 		System.out.println("Enter phoneno");
 		Scanner k = new Scanner(System.in);
 		this.setPhoneno(k.next());
-		h.write(this.getType());
-		h.write("\n");
-		h.write(this.getUsername());
-		h.write("\n");
-		h.write(this.getPass());
-		h.write("\n");
+		String a[]= {this.getType(), this.getUsername(), this.getPass()};
+		Database1.Write(f, a);
 		System.out.println("Account Created Successfuly");
 		System.out.println("Now You Can Login To Our Stores");
-		h.close();
+
 }
 
 public void BuyProduct(User u) throws IOException {
@@ -206,7 +199,7 @@ while((s0 = br.readLine()) != null&(s1 = br.readLine()) != null&(s2 = br.readLin
  		 int v5 = e5.nextInt();
  		if (v5==1) {
  			File file2 = new File("SoldProducts.txt");
- 			FileWriter h = new FileWriter(file2, true);
+ 		
  		System.out.println("Please Enter The Shipping address ?  ");
   	   Scanner e2 = new Scanner(System.in);
   		 String v2= e2.next();
@@ -231,19 +224,11 @@ while((s0 = br.readLine()) != null&(s1 = br.readLine()) != null&(s2 = br.readLin
    			 System.out.println("we will send you a confirmation mail ");
    			 
    			System.out.println("the product will be shipping 2 Working days Thanks for Using Our Website  ");
-   		
-   		h.write(u.getName());
-   		h.write("\n");
-   		h.write(v);
-		h.write("\n");
-		h.write(Dis);
-		h.write("\n");
-		h.write(s2);
-		h.write("\n");
-		h.write(s3);
-		h.write("\n");
+   			String a[]= {u.getName(),v,Dis,s2,s3};
+   			Database1.Write(file2, a);
+   	
 		System.out.println("The Product On The Cart ");
-		h.close();
+
    		
    		 }
    		 if (v3==2) {

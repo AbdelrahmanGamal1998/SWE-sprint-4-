@@ -13,3 +13,9 @@ joe
 user
 momo
 1200
+user
+MAGDA
+123
+StoreOwner
+tito
+123

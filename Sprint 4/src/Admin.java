@@ -26,6 +26,7 @@ public class Admin implements Products {
 	private ProductController AdminProd_Controller;
 	private UsersStatistics user;
 	private ProductsStatistics products;
+	Database Database1 = new Database();
 
 	public String getOfferName() {
 		return OfferName;
@@ -72,40 +73,34 @@ public class Admin implements Products {
 
 	public void addbrands() throws IOException {
 		File f = new File("AdminBrands");
-		FileWriter h = new FileWriter(f, true);
+
 		System.out.println("Enter Brand name");
 		Scanner x = new Scanner(System.in);
 		this.setBrandname(x.next());
 		System.out.println("Enter Brand category");
 		Scanner p = new Scanner(System.in);
 		this.setBrandcategory(p.next());
-		h.write(this.getBrandname());
-		h.write("\n");
-		h.write(this.getBrandcategory());
-		h.write("\n");
+		String a[] = { this.getBrandname(), this.getBrandcategory() };
+		Database1.Write(f, a);
 		System.out.println("Brand Is Added Successfuly");
-		h.close();
 
 	}
 
 	public void Offers() throws IOException {
 
 		File f = new File("Offers.txt");
-		FileWriter h = new FileWriter(f, true);
 		System.out.println("Enter name");
 		Scanner e = new Scanner(System.in);
 		String v = e.next();
 		System.out.println("Enter Offerd price");
 		Scanner j1 = new Scanner(System.in);
 		String a1 = j1.next();
-		h.write(v);
-		h.write("\n");
-		h.write(a1);
-		h.write("\n");
-		h.close();
+		String a[] = { v, a1 };
+		Database1.Write(f, a);
+
 	}
 
-	public String Get_the_deleted_offer_name(){
+	public String Get_the_deleted_offer_name() {
 		System.out.println("Please enter the Offer name you want to delete ");
 		Scanner x1 = new Scanner(System.in);
 		String deleted = x1.next();
@@ -122,19 +117,17 @@ public class Admin implements Products {
 		String lineToRemove = Get_the_deleted_offer_name();
 		String s0;
 		String s1;
-	
 
-		while ((s0 = reader.readLine()) != null & (s1 = reader.readLine()) != null )
-				 {
+		while ((s0 = reader.readLine()) != null & (s1 = reader.readLine()) != null) {
 			// trim newline when comparing with lineToRemove
 			String trimmedLine0 = s0.trim();
 			String trimmedLine1 = s1.trim();
-			
+
 			if (trimmedLine0.equals(lineToRemove))
 				continue;
 			writer.write(s0 + System.getProperty("line.separator"));
 			writer.write(s1 + System.getProperty("line.separator"));
-			
+
 		}
 		writer.close();
 		reader.close();
@@ -143,7 +136,6 @@ public class Admin implements Products {
 		System.out.println("Product Is deleted  Successfuly");
 	}
 
-
 	public void EditOffer() throws IOException {
 		System.out.println("Please enter the product name you want to Edit");
 		Scanner x1 = new Scanner(System.in);
@@ -151,8 +143,8 @@ public class Admin implements Products {
 		System.out.println("Please enter the new product price ");
 		Scanner x2 = new Scanner(System.in);
 		String edited2 = x2.next();
-		 UpdatedOfferPrice(edited, edited2);
-		 System.out.println(" The Price On this Offer Is Updated Successfuly");
+		UpdatedOfferPrice(edited, edited2);
+		System.out.println(" The Price On this Offer Is Updated Successfuly");
 	}
 
 	public void UpdatedOfferPrice(String a, String b) throws IOException {
@@ -183,20 +175,15 @@ public class Admin implements Products {
 		for (int j = 0; j < A.size(); j++) {
 			s1 = A.get(j).getOfferName();
 			s2 = A.get(j).getOfferprice();
-
-			h1.write(s1);
-			h1.write("\n");
-			h1.write(s2);
-			h1.write("\n");
-
+			String x[] = { s1, s2 };
+			Database1.Write(file1, x);
 		}
-		h1.close();
+
 	}
 
 	public void addProduct() throws IOException {
 		// TODO Auto-generated method stub
 		File f = new File("AdminProducts.txt");
-		FileWriter h = new FileWriter(f, true);
 		Products1 Add_product = new Products1();
 		System.out.println("Enter name");
 		Scanner x = new Scanner(System.in);
@@ -210,16 +197,11 @@ public class Admin implements Products {
 		System.out.println("Enter category");
 		Scanner p = new Scanner(System.in);
 		Add_product.setCategory(p.next());
-		h.write(Add_product.getName());
-		h.write("\n");
-		h.write(Add_product.getPrice());
-		h.write("\n");
-		h.write(Add_product.getBrand());
-		h.write("\n");
-		h.write(Add_product.getCategory());
-		h.write("\n");
+		String a[] = { Add_product.getName(), Add_product.getPrice(), Add_product.getBrand(),
+				Add_product.getCategory() };
+		Database1.Write(f, a);
 		System.out.println("Product Is Added Successfuly");
-		h.close();
+
 	}
 
 	public boolean approveStore(String w) throws IOException {
@@ -243,6 +225,7 @@ public class Admin implements Products {
 		System.out.println(user.sum_users());
 		System.out.println("Max Users : ");
 		System.out.println(user.max());
+
 		System.out.println("Average Users : ");
 		System.out.println(user.avg_users());
 		System.out.println("Min Users : ");

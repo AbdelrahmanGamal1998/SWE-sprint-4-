@@ -12,7 +12,7 @@ public int sum_users() throws IOException {
 		File file = new File("SoldProducts.txt"); 
 	 
 		BufferedReader br = new BufferedReader(new FileReader(file)); 
-		String s0; 
+		 String s0; 
 		 String s1;
 		 String s2;
 		 String s3;
@@ -67,7 +67,6 @@ public String max() throws IOException {
 	return name;
 	
 	}
-
 	
 public String min() throws IOException {
 	File file = new File("SoldProducts.txt");  
