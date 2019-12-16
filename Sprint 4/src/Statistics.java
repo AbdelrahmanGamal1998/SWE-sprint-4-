@@ -57,7 +57,7 @@ try {
 }
 System.out.println("the  Most Ordered Product Statistics");
 try {
-	System.out.println(t.maxproduct());
+	t.maxproduct();
 } catch (IOException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();

@@ -224,13 +224,13 @@ public class Admin implements Products {
 		UsersStatistics user = new UsersStatistics();
 		System.out.println("Sum Users: ");
 		System.out.println(user.sum_users());
-		System.out.println("Max Users : ");
-		System.out.println(user.max());
+		
+		user.max();
 
 		System.out.println("Average Users : ");
 		System.out.println(user.avg_users());
-		System.out.println("Min Users : ");
-		System.out.println(user.min());
+		
+	user.min();
 		System.out.println("Sum products: ");
 		System.out.println(user.sum_users());
 		System.out.println("Average Products : ");
@@ -239,10 +239,10 @@ public class Admin implements Products {
 
 	public void Products_statistics() throws IOException {
 		ProductsStatistics products = new ProductsStatistics();
-		System.out.println("Min Products : ");
-		System.out.println(products.minproduct());
-		System.out.println("Max Products : ");
-		System.out.println(products.maxproduct());
+	
+		products.minproduct();
+		
+	    products.maxproduct();
 	}
 
 }

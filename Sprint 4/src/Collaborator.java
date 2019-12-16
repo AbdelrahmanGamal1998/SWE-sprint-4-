@@ -57,7 +57,7 @@ public void addProduct_bycollaborator() throws IOException {
 		}
 		System.out.println("the  Most Ordered Product Statistics  by Collaborator");
 		try {
-			System.out.println(t.maxproduct());
+		t.maxproduct();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
