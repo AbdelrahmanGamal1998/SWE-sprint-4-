@@ -14,3 +14,7 @@ pepsi
 10
 oop
 drinks
+lo
+20
+pl
+pp

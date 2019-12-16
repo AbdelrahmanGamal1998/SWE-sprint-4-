@@ -24,7 +24,7 @@ public class StoreOwner  extends User   implements Products{
 	private Products1 StoreOwner_Add;
 	private Statistics viewers;
 	private Object inputFile;		
-      
+	Database Database1= new Database(); 
 public void addStore() throws IOException {
 	Store Add_store = new Store();
 	Add_store.IsOnline();
@@ -34,7 +34,7 @@ public void addProduct() throws IOException {
 	// TODO Auto-generated method stub
    
 	File f = new File("StoreProducts.txt");
-	FileWriter h = new FileWriter(f, true);
+	
 	Products1 StoreOwner_Add = new Products1();
 	System.out.println("Enter name");
 	Scanner x = new Scanner(System.in);
@@ -50,16 +50,11 @@ public void addProduct() throws IOException {
 	StoreOwner_Add.setCategory(p.next());
 	Admin Approve_products = new Admin();
 	if(Approve_products.approveProduct(StoreOwner_Add.getName())==true) {
-	h.write(StoreOwner_Add.getName());
-	h.write("\n");
-	h.write(StoreOwner_Add.getPrice());
-	h.write("\n");
-	h.write(StoreOwner_Add.getBrand());
-	h.write("\n");
-	h.write(StoreOwner_Add.getCategory());
-	h.write("\n");
+		String a[]= {StoreOwner_Add.getName(),StoreOwner_Add.getPrice() ,StoreOwner_Add.getBrand(),StoreOwner_Add.getCategory() };
+		Database1.Write(f, a);
+
 	System.out.println("Product Is Added Successfuly");
-	h.close();	
+	
 	
 	}
 	else {
@@ -147,29 +142,23 @@ public void UpdatedProductPrice(String a, String b) throws IOException {
 		}
 	}
 	File file1 = new File("StoreProducts.txt");
-	FileWriter h1 = new FileWriter(file1, true);
 	for (int j = 0; j < P.size(); j++) {
 		s1 = P.get(j).getName();
 		s2 = P.get(j).getPrice();
 		s3 = P.get(j).getBrand();
 		s4 = P.get(j).getCategory();
-		h1.write(s1);
-		h1.write("\n");
-		h1.write(s2);
-		h1.write("\n");
-		h1.write(s3);
-		h1.write("\n");
-		h1.write(s4);
-		h1.write("\n");
-
+		String str[]= {s1,s2,s3,s4 };
+		Database1.Write(file1, str);
 	}
-	h1.close();
+
 }
 
 public void StoreOwner_login() throws IOException { 
 	 User obj3 = new User();
     obj3.login(); 
     }
+
+
 public void Check_History() throws IOException {
 	String s0;
 	File file = new File("History.txt"); 

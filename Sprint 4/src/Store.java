@@ -13,7 +13,7 @@ public class Store  {
 	private String storeType;
 	private String storeAddress;
 	private Admin Approve_store;
-	
+	Database Database1=new Database();
 	
 public String getStoreType() {
 		return storeType;
@@ -41,7 +41,7 @@ public void setStoreAddress(String storeAddress) {
 		
 public void IsOnline() throws IOException {	
 		File f = new File("Store.txt");
-		FileWriter h = new FileWriter(f, true);
+	
 	    System.out.println("Online? if yes press 1");
 		Scanner x = new Scanner(System.in);
 		int z = x.nextInt();
@@ -55,12 +55,11 @@ public void IsOnline() throws IOException {
 			Admin Approve_store = new Admin();
 			Approve_store.approveStore(this.getStoreType());
 			if(Approve_store.approveStore(this.getStoreType()) == true) {
-			h.write(this.getStoreName());
-			h.write("\n");
-			h.write(this.getStoreType());
-			h.write("\n");
+				String a[]= {this.getStoreName(),this.getStoreType()};
+				Database1.Write(f, a);
+		
 			System.out.println("Store Created!");
-			h.close();
+			
 			}
 			else 
 				System.out.println("Store doesn't meet criteria!");
@@ -78,14 +77,11 @@ public void IsOnline() throws IOException {
 			Admin Approve_store = new Admin();
 			Approve_store.approveStore(this.getStoreType());
 			if(Approve_store.approveStore(this.getStoreType()) == true) {
-			h.write(this.getStoreName());
-			h.write("\n");
-			h.write(this.getStoreType());
-			h.write("\n");
-			h.write(this.getStoreAddress());
-			h.write("\n");
+				String a[]= {this.getStoreName(),this.getStoreType(),this.getStoreAddress()};
+				Database1.Write(f, a);
+			
 			System.out.println("Store Created!");
-			h.close();
+		
 			}
 			else 
 				System.out.println("Store doesn't meet criteria!");

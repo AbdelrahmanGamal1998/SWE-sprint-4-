@@ -8,7 +8,7 @@ public class Main{
 public static void main(String[] args) throws IOException {
 	//Collaborator v=new Collaborator();
 	//Admin d = new Admin();
-	//StoreOwner c = new StoreOwner();
+StoreOwner x = new StoreOwner();
 	//d.EditOffer();
 	//d.deleteOffer();
 	//v.addProduct_bycollaborator();
@@ -16,7 +16,7 @@ public static void main(String[] args) throws IOException {
 	//StoreOwner c = new StoreOwner();
     //c.check_History_of_collaborator();
 	//c.deleteProduct();
-     //c.EditProduct();
+   //x .EditProduct();
 	  //c.deleteProduct();
 //}}
  User q = new User();
