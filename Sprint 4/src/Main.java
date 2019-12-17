@@ -42,7 +42,5 @@ public static void main(String[] args) throws IOException {
 	else
 		System.out.println("Yagada3 2olna 0 aw 1 :D");
 
-	}
-
-	
+}
 }

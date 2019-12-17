@@ -18,17 +18,20 @@ import java.time.format.DateTimeFormatter;
 
 public class StoreOwner extends User implements Products {
 
-	private Store Add_store;
-	private Admin Approve_products;
+	Store Add_store = new Store();
+	Admin Approve_products = new Admin();
 	Products1 StoreOwner_Add = new Products1();
 	private Statistics viewers;
-	private Object inputFile;
 	Database Database1 = new Database();
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
+	User StoreOwn = new User();
+	
+public void Buy_Product(User u) throws IOException {
+	StoreOwn.BuyProduct(u);
+}
 
-	public void addStore() throws IOException {
-		Store Add_store = new Store();
+	public void addStore() throws IOException {	
 		Add_store.IsOnline();
 	}
 
@@ -48,7 +51,6 @@ public class StoreOwner extends User implements Products {
 		System.out.println("Enter category");
 		Scanner p = new Scanner(System.in);
 		StoreOwner_Add.setCategory(p.next());
-		Admin Approve_products = new Admin();
 		if (Approve_products.approveProduct(StoreOwner_Add.getName()) == true) {
 			String a[] = { StoreOwner_Add.getName(), StoreOwner_Add.getPrice(), StoreOwner_Add.getBrand(),
 					StoreOwner_Add.getCategory() };
@@ -232,8 +234,7 @@ public void UpdatedProductPrice(String a, String b) throws IOException {
 		
 		
 	public void StoreOwner_login() throws IOException {
-		User obj3 = new User();
-		obj3.login();
+		StoreOwn.login();
 	}
 
 	public void Check_History() throws IOException {

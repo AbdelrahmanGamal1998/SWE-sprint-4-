@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CustomerMain {
 
 public void CustomerMain() throws IOException {
-		User x = new User();
+		User x = new Customer();
 		x.setUser_type("User");
 		User curruse=new User();
 		curruse=x.login();

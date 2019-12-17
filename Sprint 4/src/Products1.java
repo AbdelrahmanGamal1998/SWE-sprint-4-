@@ -44,6 +44,4 @@ public void setCategory(String category) {
 	this.Category = category;
 }
 
-
-
 }
