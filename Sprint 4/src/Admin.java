@@ -18,7 +18,6 @@ public class Admin implements Products {
 	private String OfferName;
 	private String Offerprice;
 	private String brandname;
-
 	private String brandcategory;
 	private StoreController Admin_controller;
 	private User Admin_log;
