@@ -18,62 +18,60 @@ public class Admin implements Products {
 	private String OfferName;
 	private String Offerprice;
 	private String brandname;
-
 	private String brandcategory;
-	private StoreController Admin_controller;
-	private User Admin_log;
-	private Products1 Add_product;
-	private ProductController AdminProd_Controller;
-	private UsersStatistics user;
-	private ProductsStatistics products;
+	StoreController Admin_controller = new StoreController();
+	User Admin_log = new User();
+	Products1 Add_product = new Products1();
+	ProductController AdminProd_Controller = new ProductController();
+	UsersStatistics user = new UsersStatistics();
+	ProductsStatistics products = new ProductsStatistics();
 	Database Database1 = new Database();
 
-	public String getOfferName() {
+public String getOfferName() {
 		return OfferName;
-	}
+}
 
-	public void setOfferName(String offerName) {
+public void setOfferName(String offerName) {
 		OfferName = offerName;
-	}
+}
 
-	public String getOfferprice() {
+public String getOfferprice() {
 		return Offerprice;
-	}
+}
 
-	public void setOfferprice(String offerprice) {
+public void setOfferprice(String offerprice) {
 		Offerprice = offerprice;
-	}
+}
 
-	public String getBrandname() {
+public String getBrandname() {
 		return brandname;
-	}
+}
 
-	public void setBrandname(String brandname) {
+public void setBrandname(String brandname) {
 		this.brandname = brandname;
-	}
+}
 
-	public String getBrandcategory() {
+public String getBrandcategory() {
 		return brandcategory;
-	}
+}
 
-	public void setBrandcategory(String brandcategory) {
+public void setBrandcategory(String brandcategory) {
 		this.brandcategory = brandcategory;
-	}
+}
 
-	public Admin(String offerName, String offerprice) {
+public Admin(String offerName, String offerprice) {
 		super();
 		OfferName = offerName;
 		Offerprice = offerprice;
-	}
+}
 
-	public Admin() {
+public Admin() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
+}
 
-	public void addbrands() throws IOException {
+public void addbrands() throws IOException {
 		File f = new File("AdminBrands");
-
 		System.out.println("Enter Brand name");
 		Scanner x = new Scanner(System.in);
 		this.setBrandname(x.next());
@@ -83,11 +81,9 @@ public class Admin implements Products {
 		String a[] = { this.getBrandname(), this.getBrandcategory() };
 		Database1.Write(f, a);
 		System.out.println("Brand Is Added Successfuly");
+}
 
-	}
-
-	public void Offers() throws IOException {
-
+public void Offers() throws IOException {
 		File f = new File("Offers.txt");
 		System.out.println("Enter name");
 		Scanner e = new Scanner(System.in);
@@ -97,47 +93,39 @@ public class Admin implements Products {
 		String a1 = j1.next();
 		String a[] = { v, a1 };
 		Database1.Write(f, a);
+}
 
-	}
-
-	public String Get_the_deleted_offer_name() {
+public String Get_the_deleted_offer_name() {
 		System.out.println("Please enter the Offer name you want to delete ");
 		Scanner x1 = new Scanner(System.in);
 		String deleted = x1.next();
 		return deleted;
-	}
+}
 
-	public void deleteOffer() throws IOException {
+public void deleteOffer() throws IOException {
 		File inputFile = new File("Offers.txt");
 		File tempFile = new File("newFile.txt");
-
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 		BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
 		String lineToRemove = Get_the_deleted_offer_name() ;
 		String s0;
 		String s1;
-	
-
-		while ((s0 = reader.readLine()) != null & (s1 = reader.readLine()) != null)
-				 {
-			// trim newline when comparing with lineToRemove
+		while ((s0 = reader.readLine()) != null & (s1 = reader.readLine()) != null) { 
 			String trimmedLine0 = s0.trim();
 			String trimmedLine1 = s1.trim();
-		
 			if (trimmedLine0.equals(lineToRemove))
 				continue;
 			String a[] = { s0,s1 };
 			Database1.Write(tempFile, a);
-			
 		}
 		writer.close();
 		reader.close();
 		inputFile.delete();
 		boolean successful = tempFile.renameTo(inputFile);
 		System.out.println("Product Is deleted  Successfuly");
-	}
-	public void EditOffer() throws IOException {
+}
+
+public void EditOffer() throws IOException {
 		System.out.println("Please enter the product name you want to Edit");
 		Scanner x1 = new Scanner(System.in);
 		String edited = x1.next();
@@ -146,15 +134,14 @@ public class Admin implements Products {
 		String edited2 = x2.next();
 		UpdatedOfferPrice(edited, edited2);
 		System.out.println(" The Price On this Offer Is Updated Successfuly");
-	}
+}
 
-	public void UpdatedOfferPrice(String a, String b) throws IOException {
+public void UpdatedOfferPrice(String a, String b) throws IOException {
 		ArrayList<Admin> A = new ArrayList<Admin>();
 		File f = new File("Offers.txt");
 		FileReader r = new FileReader(f);
 		Scanner read = new Scanner(f);
 		String s1, s2 = null;
-
 		while (read.hasNext()) {
 			s1 = read.nextLine();
 			s2 = read.nextLine();
@@ -165,7 +152,6 @@ public class Admin implements Products {
 			writer.print("");
 			writer.close();
 		}
-
 		for (int i = 0; i < A.size(); i++) {
 			if (A.get(i).getOfferName().equals(a)) {
 				A.get(i).setOfferprice(b);
@@ -180,12 +166,11 @@ public class Admin implements Products {
 			Database1.Write(file1, x);
 		}
 
-	}
+}
 
-	public void addProduct() throws IOException {
+public void addProduct() throws IOException {
 		// TODO Auto-generated method stub
-		File f = new File("AdminProducts.txt");
-		Products1 Add_product = new Products1();
+		File f = new File("AdminProducts.txt");	
 		System.out.println("Enter name");
 		Scanner x = new Scanner(System.in);
 		Add_product.setName(x.next());
@@ -202,48 +187,37 @@ public class Admin implements Products {
 				Add_product.getCategory() };
 		Database1.Write(f, a);
 		System.out.println("Product Is Added Successfuly");
+}
 
-	}
-
-	public boolean approveStore(String w) throws IOException {
-		StoreController Admin_controller = new StoreController();
+public boolean approveStore(String w) throws IOException {
 		return Admin_controller.VerifyStore(w);
-	}
+}
 
-	public boolean approveProduct(String i) throws IOException {
-		ProductController AdminProd_Controller = new ProductController();
+public boolean approveProduct(String i) throws IOException {
 		return AdminProd_Controller.VerifyProduct(i);
-	}
+}
 
-	public void Admin_login() throws IOException {
-		User Admin_log = new User();
+public void Admin_login() throws IOException {
 		Admin_log.login();
-	}
+}
 
-	public void User_statistics() throws IOException {
-		UsersStatistics user = new UsersStatistics();
+public void User_statistics() throws IOException {
 		System.out.println("Sum Users: ");
-		System.out.println(user.sum_users());
-		
+		System.out.println(user.sum_users());		
 		user.max();
-
 		System.out.println("Average Users : ");
 		System.out.println(user.avg_users());
-		
-	user.min();
+	    user.min();
 		System.out.println("Sum products: ");
 		System.out.println(user.sum_users());
 		System.out.println("Average Products : ");
 		System.out.println(user.avg_users());
-	}
+}
 
-	public void Products_statistics() throws IOException {
-		ProductsStatistics products = new ProductsStatistics();
-	
+public void Products_statistics() throws IOException {	
 		products.minproduct();
-		
 	    products.maxproduct();
-	}
+}
 
 }
 

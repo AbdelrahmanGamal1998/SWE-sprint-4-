@@ -6,20 +6,7 @@ import java.util.Timer;
 public class Main{
 
 public static void main(String[] args) throws IOException {
-	//Collaborator v=new Collaborator();
-	//Admin Q = new Admin();
-StoreOwner x = new StoreOwner();
-	//d.EditOffer();
-//Q.deleteOffer();
-//x.deleteProduct();
-	//v.addProduct_bycollaborator();
-	//v.viewStatistics_bycollaborator();
-	//StoreOwner c = new StoreOwner();
-    //c.check_History_of_collaborator();
-	//c.deleteProduct();
- // x .EditProduct();
-	  //c.deleteProduct();
-//}}
+
  User q = new User();
 	System.out.println("Welcome to 5od Fekra w Eshtery Bokra!"); 
 	System.out.println("New Account? Press 0 / Login? Press 1");
@@ -39,7 +26,7 @@ StoreOwner x = new StoreOwner();
 	}
 	else if(o == 1) {
 		UserMain s = new UserMain();
-		s.UserMain();
+		s.CustomerMain();
 	
 	}
 	else if(o == 2) {

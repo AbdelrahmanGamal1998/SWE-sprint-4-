@@ -17,6 +17,6 @@ public boolean VerifyProduct(String i) throws IOException {
 		            }
 		}
 		return false;
-	}
+}
 
 }

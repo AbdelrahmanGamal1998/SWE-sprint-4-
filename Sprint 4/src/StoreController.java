@@ -19,5 +19,4 @@ public boolean VerifyStore(String w) throws IOException {
 		return false;
 }
 
-
 }

@@ -6,7 +6,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Collaborator_controller {
-	public void verify_Collaborator(String name ,String storename) throws IOException {
+	
+public void verify_Collaborator(String name ,String storename) throws IOException {
 		File f = new File("StoreOwner.txt");
 		FileReader r = new FileReader(f);
 		Scanner read = new Scanner(f);
@@ -38,5 +39,6 @@ public class Collaborator_controller {
 		        System.out.println("Invalid name & Store name ");
 		      
 		    }
-	}
+}
+
 }

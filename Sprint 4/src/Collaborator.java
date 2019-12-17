@@ -12,7 +12,6 @@ public class Collaborator extends TimerTask {
 	
 public void addProduct_bycollaborator() throws IOException {
 		File f = new File("Collaborator.txt");
-	   Products1 Product_name = new Products1();
 		collaborator.addProduct();	
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 		LocalDateTime now = LocalDateTime.now();
@@ -21,25 +20,19 @@ public void addProduct_bycollaborator() throws IOException {
 			System.out.println("Product added by collaborator at :");
 			System.out.println(dtf.format(now));
 		
-	}
-
+}
 	
-	
-	
-	public void viewStatistics_bycollaborator() throws IOException {
+public void viewStatistics_bycollaborator() throws IOException {
 		File file = new File("Collaborator.txt");
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 		   LocalDateTime now = LocalDateTime.now();  
 		   String a[]= {"Statistacs viewed by collaborator", dtf.format(now)};
 					Database1.Write(file, a);
 		            
-	}
-		
-		
-		
-	
+}
+			
 	@Override
-	public void run() {
+public void run() {
 		 try {
 			viewStatistics_bycollaborator();
 		} catch (IOException e1) {
@@ -64,9 +57,6 @@ public void addProduct_bycollaborator() throws IOException {
 		}
 	
 
-		}
-	 
-	
-	
 }
-
+		
+}

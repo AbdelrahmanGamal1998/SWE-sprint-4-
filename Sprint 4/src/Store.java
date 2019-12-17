@@ -12,36 +12,35 @@ public class Store  {
 	private String storeName;
 	private String storeType;
 	private String storeAddress;
-	private Admin Approve_store;
+	Admin Approve_store = new Admin();
 	Database Database1=new Database();
 	
 public String getStoreType() {
 		return storeType;
-	}
+}
 
 public void setStoreType(String storeType) {
 		this.storeType = storeType;
-	}
+}
 
 public String getStoreName() {
 		return storeName;
-	}
+}
 	
 public void setStoreName(String storeName) {
 		this.storeName = storeName;
-	}
+}
 	
 public String getStoreAddress() {
 		return storeAddress;
-	}
+}
 	
 public void setStoreAddress(String storeAddress) {
 		this.storeAddress = storeAddress;
-	}
+}
 		
 public void IsOnline() throws IOException {	
 		File f = new File("Store.txt");
-	
 	    System.out.println("Online? if yes press 1");
 		Scanner x = new Scanner(System.in);
 		int z = x.nextInt();
@@ -52,7 +51,6 @@ public void IsOnline() throws IOException {
 			System.out.println("Enter store Type");
 			Scanner q = new Scanner(System.in);
 			this.setStoreType(q.next());
-			Admin Approve_store = new Admin();
 			Approve_store.approveStore(this.getStoreType());
 			if(Approve_store.approveStore(this.getStoreType()) == true) {
 				String a[]= {this.getStoreName(),this.getStoreType()};
@@ -87,12 +85,6 @@ public void IsOnline() throws IOException {
 				System.out.println("Store doesn't meet criteria!");
 		}
 		
-	}
-
-
-
-
-
-
+}
 		
 }

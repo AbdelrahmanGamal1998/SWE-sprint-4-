@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -46,17 +48,18 @@ public User verify(String type ,String us,String ps) throws IOException {
 	
 	     
 }
+
+public boolean verify_Account(String username,String password) throws IOException {
+	File check = new File("Users.txt");
+	BufferedReader reader = new BufferedReader(new FileReader(check));
+	String s0,s1,s2;
+	while((s0 = reader.readLine())!=null & (s1 = reader.readLine())!=null & (s2 = reader.readLine())!=null) {
+		if(s1.equals(username)) {
+			System.out.println("UserName Is Used");
+			return false;
+		}
+	}
+	return true;
+}
 			  
-
-
-
-/*public void run() {	
-	     int x = (int)(Math.random()*((15-9)+1))+9;
-	     System.out.println("Number of Store views : " + x);
-	     int s = (int)(Math.random()*((8-2)+1))+2;
-	     System.out.println("Number of user buy a store’s produce : " + s);
-	     int t = (int)(Math.random()*((7-6)+1))+6;
-	     System.out.println("Number of sold products in store : " + t);
-	}*/
-
 }

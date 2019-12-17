@@ -7,10 +7,10 @@ import java.util.Map;
 import java.util.TimerTask;
 
 public class UsersStatistics  {
-Database database2=new Database();
+    Database database2=new Database();
+
 public int sum_users() throws IOException {
 		File file = new File("SoldProducts.txt"); 
-	 
 		BufferedReader br = new BufferedReader(new FileReader(file)); 
 		 String s0; 
 		 String s1;
@@ -22,16 +22,15 @@ public int sum_users() throws IOException {
 			sum_users++;
 	}
 		
-		return sum_users;
-		
-	}
+		return sum_users;		
+}
 
 
 public int avg_users() throws IOException {
 		int sum = sum_users();
 		return sum/2 ;
 		
-	}
+}
 
 public void max() throws IOException {
 	File file=new File("SoldProducts.txt");
@@ -42,4 +41,5 @@ public void min() throws IOException {
 	File file=new File("SoldProducts.txt");
 	System.out.println("Min Users : \n " + database2.Sort(0, file, "min"));
 }
+
 }

@@ -6,20 +6,25 @@ import java.io.IOException;
 import java.util.TimerTask;
 
 public class Statistics extends TimerTask{
+	
 	 private int products_views ;
- private int sold_products;
- private int orderd_Product;
- 
+     private int sold_products;
+     private int orderd_Product;
+     UsersStatistics user_stat = new UsersStatistics();
+     ProductsStatistics product_stat = new  ProductsStatistics();
  
 public int getOrderd_Product() {
 	return orderd_Product;
 }
+
 public void setOrderd_Product(int orderd_Product) {
 	this.orderd_Product = 0;
 }
+
 public int getProducts_views() {
 	return products_views;
 }
+
 public void setProducts_views(int products_views) {
 	this.products_views =0;
 }
@@ -27,6 +32,7 @@ public void setProducts_views(int products_views) {
 public int getSold_products() {
 	return sold_products;
 }
+
 public void setSold_products(int sold_products) {
 	
 	this.sold_products =0;
@@ -44,28 +50,25 @@ public void setSold_products(int sold_products) {
 	System.out.println(getStores_view());
 	
 }*/
+
 @Override
 public void run() {
-UsersStatistics v=new UsersStatistics();
-ProductsStatistics t=new  ProductsStatistics();
 System.out.println("the sold products Statistics");
 try {
-	System.out.println(v.sum_users());
+	System.out.println(user_stat.sum_users());
 } catch (IOException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();
 }
 System.out.println("the  Most Ordered Product Statistics");
 try {
-	t.maxproduct();
+	product_stat.maxproduct();
 } catch (IOException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();
 }
 System.out.println("the products view Statistics");
 System.out.println(getProducts_views());
-
 }
-
 
 }
