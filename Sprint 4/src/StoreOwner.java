@@ -31,9 +31,9 @@ public void Buy_Product(User u) throws IOException {
 	StoreOwn.BuyProduct(u);
 }
 
-	public void addStore() throws IOException {	
+public void addStore() throws IOException {	
 		Add_store.IsOnline();
-	}
+}
 
 	public void addProduct() throws IOException {
 		// TODO Auto-generated method stub
@@ -66,50 +66,6 @@ public void Buy_Product(User u) throws IOException {
 		}
 	}
 
-	/*public String deleteProduct1() {
-		System.out.println("Please enter the product name you want to delete ");
-		Scanner x1 = new Scanner(System.in);
-		String deleted = x1.next();
-		return deleted;
-	}
-
-	public void deleteProduct() throws IOException {
-		File inputFile = new File("StoreProducts.txt");
-		File tempFile = new File("newFile.txt");
-
-		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
-		BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
-
-		String lineToRemove = deleteProduct1();
-		String s0;
-		String s1;
-		String s2;
-		String s3;
-
-		while ((s0 = reader.readLine()) != null & (s1 = reader.readLine()) != null & (s2 = reader.readLine()) != null
-				& (s3 = reader.readLine()) != null) {
-			// trim newline when comparing with lineToRemove
-			String trimmedLine0 = s0.trim();
-			String trimmedLine1 = s1.trim();
-			String trimmedLine2 = s2.trim();
-			String trimmedLine3 = s3.trim();
-			if (trimmedLine0.equals(lineToRemove))
-				continue;
-			String a[] = { s0, s1, s2, s3 };
-			Database1.Write(tempFile, a);
-			File file = new File("Collaborator.txt");
-			String str[] = { "Product Deleted by StoreOwner is " + lineToRemove, dtf.format(now) };
-			Database1.Write(file, str);
-		}
-		writer.close();
-		reader.close();
-		inputFile.delete();
-		boolean successful = tempFile.renameTo(inputFile);
-		System.out.println("Product Is deleted  Successfuly");
-	}
-
-	
-*/
 	public String deleteProduct1() {
 		System.out.println("Please enter the product name you want to delete ");
 		Scanner x1 = new Scanner(System.in);
@@ -139,10 +95,8 @@ public void Buy_Product(User u) throws IOException {
 			String trimmedLine3 = s3.trim();
 			if (trimmedLine0.equals(lineToRemove))
 				continue;
-			writer.write(s0 + System.getProperty("line.separator"));
-			writer.write(s1 + System.getProperty("line.separator"));
-			writer.write(s2 + System.getProperty("line.separator"));
-			writer.write(s3 + System.getProperty("line.separator"));
+			String a[]= {s0,s1,s2,s3};
+			Database1.Write(tempFile, a);
 		}
 		writer.close();
 		reader.close();
@@ -150,6 +104,7 @@ public void Buy_Product(User u) throws IOException {
 		boolean successful = tempFile.renameTo(inputFile);
 		System.out.println("Product Is deleted  Successfuly");
 	}
+	
 	
 	public void EditProduct() throws IOException {
 		System.out.println("Please enter the product name you want to Edit");
@@ -161,10 +116,6 @@ public void Buy_Product(User u) throws IOException {
 		UpdatedProductPrice(edited, edited2);
 		System.out.println(" The Price Of This Product Is Updated Successfuly");
 	}
-
-
-
-	
 
 public void UpdatedProductPrice(String a, String b) throws IOException {
 		ArrayList<Products1> P = new ArrayList<Products1>();
@@ -205,33 +156,6 @@ public void UpdatedProductPrice(String a, String b) throws IOException {
 		}
 
 	}
-
-
-	
-	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 	public void StoreOwner_login() throws IOException {
 		StoreOwn.login();

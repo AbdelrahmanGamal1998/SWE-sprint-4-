@@ -43,7 +43,7 @@ public void BuyProduct(User u) throws IOException {
 		               if(s0.equalsIgnoreCase(v) ){
 		            	   System.out.println("the product price is :");
 		            	   //result = Integer.parseInt(s1);
-		            	   System.out.println(s1);
+		            	   System.out.println(s1 +" L.E");
 		            	
 		            break;
 		            	   }
@@ -62,7 +62,7 @@ public void BuyProduct(User u) throws IOException {
 		                          if(s0.equalsIgnoreCase(v) ){
 		                           System.out.println("the product price is :");
 		                           result = Integer.parseInt(s1);
-		                       	   System.out.println(s1); 
+		                       	   System.out.println(s1 + "L.E"); 
 		                       	   System.out.println("the product brand is :"); 
 		                       	   System.out.println(s2);
 		                       	   System.out.println("the product category is :"); 
@@ -77,6 +77,7 @@ public void BuyProduct(User u) throws IOException {
 	 		 int v1 = e1.nextInt();
 	 		int Discount = Calculate_offer(result,v1);
 	 		String Dis = String.valueOf(Discount);
+	 		System.out.println("Congratulation you got an offer : " +Dis +" L.E");
 	  		System.out.println("to buy this product press buy product  ");
 	 		System.out.println("buy product? press 1 ");
 	 		System.out.println("else press 2");
