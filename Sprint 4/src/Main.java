@@ -9,15 +9,16 @@ public static void main(String[] args) throws IOException {
 	//Collaborator v=new Collaborator();
 	//Admin Q = new Admin();
 StoreOwner x = new StoreOwner();
+//x.Undo();
 	//d.EditOffer();
 //Q.deleteOffer();
-//x.deleteProduct();
+x.deleteProduct();
 	//v.addProduct_bycollaborator();
 	//v.viewStatistics_bycollaborator();
 	//StoreOwner c = new StoreOwner();
-    //c.check_History_of_collaborator();
-	//c.deleteProduct();
- // x .EditProduct();
+//  x.Check_History();
+//	x.deleteProduct();
+// x .EditProduct();
 	  //c.deleteProduct();
 //}}
  User q = new User();

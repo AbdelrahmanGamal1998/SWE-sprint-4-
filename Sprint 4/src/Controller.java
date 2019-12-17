@@ -8,7 +8,8 @@ public class Controller /*extends TimerTask*/ {
 	
 public User verify(String type ,String us,String ps) throws IOException {
 		File f = new File("Users.txt");
-		FileReader r = new FileReader(f);
+		Database database3= new Database();
+	/*	FileReader r = new FileReader(f);
 		Scanner read = new Scanner(f);
 		String s = null ;
 		String x,y,z,s1 = null;
@@ -43,7 +44,25 @@ public User verify(String type ,String us,String ps) throws IOException {
 		        System.out.println("Invalid Username & Password!");
 		        return null;
 		    }
-	
+	*/
+		String a[]= { type,us,ps };
+		int value=database3.verify(f, a);
+		User u=new User();
+		u.setName(us);
+		
+		if(value==1) {
+			
+			 System.out.println("Access Granted! Welcome!");
+			 return u;
+		
+
+			
+		}
+		else {
+			
+			 System.out.println("Invalid Username & Password!");
+			 return null;
+		}
 	     
 }
 			  

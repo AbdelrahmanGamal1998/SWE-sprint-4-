@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ProductController {
+	Database database1=new Database();
 
 public boolean VerifyProduct(String i) throws IOException {
 		File f = new File("AdminProducts.txt");
-		FileReader r = new FileReader(f);
+		/*FileReader r = new FileReader(f);
 		Scanner read = new Scanner(f);
 		String s = null ;
 		while(read.hasNext()) {
@@ -18,5 +19,15 @@ public boolean VerifyProduct(String i) throws IOException {
 		}
 		return false;
 	}
-
+*/
+		String a[]= {i};
+		int value=database1.verify(f, a);
+		
+		if(value==1) {
+			
+			return true;
+		}
+		else  
+			return false;
+}
 }

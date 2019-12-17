@@ -40,3 +40,23 @@ Product added by StoreOwner is coca
 2019/12/16 22:34:54
 Product Edited by StoreOwner is pepsi
 2019/12/16 22:40:23
+Product added by StoreOwner is waterr
+2019/12/17 00:58:27
+Product added by StoreOwner is waterr
+2019/12/17 01:04:04
+Product added by StoreOwner is waterr
+2019/12/17 01:29:43
+Product added by StoreOwner is coca
+2019/12/17 16:04:09
+Product Edited by StoreOwner is coca
+2019/12/17 18:40:09
+Product Edited by StoreOwner is coca
+2019/12/17 18:40:09
+Product Edited by StoreOwner is coca
+2019/12/17 19:35:11
+Product Deleted by StoreOwner is coca
+2019/12/17 19:36:17
+Product Deleted by StoreOwner is coca
+2019/12/17 19:36:46
+Product Deleted by StoreOwner is coca
+2019/12/17 19:37:38
