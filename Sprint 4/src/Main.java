@@ -16,7 +16,7 @@ public static void main(String[] args) throws IOException {
 		q.createaccount();
 	}
 	else if(h==1) {
-	System.out.println("Admin? Press 0 / User? Press 1 / StoreOwner? Press 2");
+	System.out.println("Admin? Press 0 / Customer? Press 1 / StoreOwner? Press 2");
 	Scanner k = new Scanner(System.in);
 	int o = k.nextInt();
 	if(o == 0) {

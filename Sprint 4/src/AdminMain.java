@@ -10,8 +10,7 @@ public void AdminMain() throws IOException {
 	y.Admin_login();
 	int r=1;
 	while(r==1) {
-	System.out.println("Want to Add Products? Press 0 / Want to Add Brands? Press 1 / View Statistics? Press 2  /");
-	System.out.println("Want to Add Offer in Product? Press 3");
+	System.out.println("Want to Add Products? Press 0 / Want to Add Brands? Press 1 / View Statistics? Press 2  / Want to Add Offer? Press 3 / Want to Delete Offer? Press 4 / Want to Edit Offer? Press 5");
 	Scanner j = new Scanner(System.in);
 	  int a = j.nextInt();
 	  if(a==0) {
@@ -29,6 +28,12 @@ public void AdminMain() throws IOException {
 		  y.Offers();
 		  
 	  }
+	  else if(a==4) {
+		  y.deleteOffer();
+	  }
+	  else if(a==5) {
+		  y.EditOffer();
+	  }
 	  else 
 		  System.out.println("Fawa2 ya3am el hag 2olna Press 0 aw 1");
 	  
@@ -38,5 +43,6 @@ public void AdminMain() throws IOException {
 		 
 			 
 }
+	System.out.println("Thanks For Using Our Website!!");
 }
 }

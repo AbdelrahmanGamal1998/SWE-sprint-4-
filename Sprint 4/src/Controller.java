@@ -60,8 +60,8 @@ public User verify(String type ,String us,String ps) throws IOException {
 			
 		}
 		else {
-			
-			 System.out.println("Invalid Username & Password!");
+			System.out.println("Invalid Username & Password!");
+			System.exit(0);
 			 return null;
 		}
 	     

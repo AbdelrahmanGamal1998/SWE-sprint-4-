@@ -63,15 +63,15 @@ public void setType(String type) {
 
 public User login() throws IOException {
 	    User u=new User();
-	    Scanner input3 = new Scanner(System.in);
-		System.out.println("Enter Your type Admin? / Customer? / StoreOwner? ");
-		type_verify = input3.next();
 		Scanner input1 = new Scanner(System.in);
 		System.out.println("Enter Username : ");
 		Username_verify = input1.next();
 		Scanner input2 = new Scanner(System.in);
 	    System.out.println("Enter Password : ");	    
 	    Password_verify = input2.next();
+	    Scanner input3 = new Scanner(System.in);
+		System.out.println("Enter Your type Admin? / Customer? / StoreOwner? ");
+		type_verify = input3.next();
 		u=User_verify.verify(type_verify,Username_verify,Password_verify);
 		if(u!=null) {
 			return u;
@@ -96,11 +96,14 @@ public void createaccount() throws IOException{
 		System.out.println("Enter phoneno");
 		Scanner phoneno = new Scanner(System.in);
 		this.setPhoneno(phoneno.next());
+		if(User_verify.verify_Account(getUsername(),getPass())==true) {
 		String a[]= {this.getType(), this.getUsername(), this.getPass()};
 		Database1.Write(f, a);
 		System.out.println("Account Created Successfuly");
 		System.out.println("Now You Can Login To Our Stores");
-
+		}
+		else
+			System.out.println("Account Can't Be Created");
 }
 	
 }

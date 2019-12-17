@@ -71,7 +71,7 @@ public class Admin implements Products {
 	}
 
 	public void addbrands() throws IOException {
-		File f = new File("AdminBrands");
+		File f = new File("AdminBrands.txt");
 
 		System.out.println("Enter Brand name");
 		Scanner x = new Scanner(System.in);
