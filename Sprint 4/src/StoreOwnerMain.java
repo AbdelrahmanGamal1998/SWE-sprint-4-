@@ -6,13 +6,14 @@ import java.util.Timer;
 public class StoreOwnerMain {
 	
 public void StoreOwnerMain() throws IOException {
-	User x = new User();
+	User x = new StoreOwner();
 	x.setUser_type("StoreOwner");
 	StoreOwner z = new StoreOwner();
-	z.StoreOwner_login();
+	User i = new User();
+	x.login();
 	int r=1;
 	while(r==1) {
-	System.out.println("Want to Add Products? Press 0 / Want to Add Store? Press 1 / Want to show views? Press 2");
+	System.out.println("Want to Add Products? Press 0 / Want to Add Store? Press 1 / Want to show views? Press 2 / Buy Product? Press 3");
 	Scanner j = new Scanner(System.in);
 	  int a = j.nextInt();
 	  if(a==0) {
@@ -27,6 +28,9 @@ public void StoreOwnerMain() throws IOException {
    Timer timer = new Timer();
    timer.schedule(new Statistics(), 0, 600000);
 	 }
+	  else if(a==3) {
+		  i.BuyProduct(x);
+	  }
 	  else
 		  System.out.println("Ma saba7 el fool ba2a :D");
 	  

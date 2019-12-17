@@ -87,7 +87,7 @@ public void createaccount() throws IOException{
 		System.out.println("Enter password");
 		Scanner password = new Scanner(System.in);
 		this.setPass(password.next());
-		System.out.println("Enter Your type Admin? / User? / StoreOwner? ");
+		System.out.println("Enter Your type Admin? / Customer? / StoreOwner? ");
 		Scanner type = new Scanner(System.in);
 		this.setType(type.next());
 		System.out.println("Enter email");

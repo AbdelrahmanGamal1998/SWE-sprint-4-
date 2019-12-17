@@ -12,7 +12,7 @@ public class Store  {
 	private String storeName;
 	private String storeType;
 	private String storeAddress;
-	private Admin Approve_store;
+	Admin Approve_store = new Admin();
 	Database Database1=new Database();
 	
 public String getStoreType() {
@@ -52,7 +52,6 @@ public void IsOnline() throws IOException {
 			System.out.println("Enter store Type");
 			Scanner q = new Scanner(System.in);
 			this.setStoreType(q.next());
-			Admin Approve_store = new Admin();
 			Approve_store.approveStore(this.getStoreType());
 			if(Approve_store.approveStore(this.getStoreType()) == true) {
 				String a[]= {this.getStoreName(),this.getStoreType()};
@@ -74,7 +73,7 @@ public void IsOnline() throws IOException {
 			System.out.println("Enter store address");
 			Scanner u = new Scanner(System.in);
 			this.setStoreAddress(u.next());
-			Admin Approve_store = new Admin();
+			
 			Approve_store.approveStore(this.getStoreType());
 			if(Approve_store.approveStore(this.getStoreType()) == true) {
 				String a[]= {this.getStoreName(),this.getStoreType(),this.getStoreAddress()};

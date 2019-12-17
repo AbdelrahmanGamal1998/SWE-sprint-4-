@@ -7,12 +7,13 @@ import java.time.LocalDateTime;
 public class Collaborator extends TimerTask {
 
 	StoreOwner collaborator = new StoreOwner();
-	
+	UsersStatistics Collaborator_stat = new UsersStatistics();
+	ProductsStatistics Collaboratorprod_stat = new  ProductsStatistics();
 	Database Database1=new Database();
 	
 public void addProduct_bycollaborator() throws IOException {
 		File f = new File("Collaborator.txt");
-	   Products1 Product_name = new Products1();
+	   
 		collaborator.addProduct();	
 		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
 		LocalDateTime now = LocalDateTime.now();
@@ -46,18 +47,17 @@ public void addProduct_bycollaborator() throws IOException {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		UsersStatistics v=new UsersStatistics();
-		ProductsStatistics t=new  ProductsStatistics();
+		
 		System.out.println("the sold products Statistics by Collaborator");
 		try {
-			System.out.println(v.sum_users());
+			System.out.println(Collaborator_stat.sum_users());
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("the  Most Ordered Product Statistics  by Collaborator");
 		try {
-		t.maxproduct();
+			Collaboratorprod_stat.maxproduct();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

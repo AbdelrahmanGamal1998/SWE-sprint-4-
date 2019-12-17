@@ -19,12 +19,12 @@ public class Admin implements Products {
 	private String Offerprice;
 	private String brandname;
 	private String brandcategory;
-	private StoreController Admin_controller;
-	private User Admin_log;
-	private Products1 Add_product;
-	private ProductController AdminProd_Controller;
-	private UsersStatistics user;
-	private ProductsStatistics products;
+	StoreController Admin_controller = new StoreController();
+	User Admin_log = new User();
+	Products1 Add_product = new Products1();
+	ProductController AdminProd_Controller = new ProductController();
+	UsersStatistics user = new UsersStatistics();
+	ProductsStatistics products = new ProductsStatistics();
 	Database Database1 = new Database();
 
 	public String getOfferName() {
@@ -184,7 +184,6 @@ public class Admin implements Products {
 	public void addProduct() throws IOException {
 		// TODO Auto-generated method stub
 		File f = new File("AdminProducts.txt");
-		Products1 Add_product = new Products1();
 		System.out.println("Enter name");
 		Scanner x = new Scanner(System.in);
 		Add_product.setName(x.next());
@@ -205,22 +204,18 @@ public class Admin implements Products {
 	}
 
 	public boolean approveStore(String w) throws IOException {
-		StoreController Admin_controller = new StoreController();
 		return Admin_controller.VerifyStore(w);
 	}
 
 	public boolean approveProduct(String i) throws IOException {
-		ProductController AdminProd_Controller = new ProductController();
 		return AdminProd_Controller.VerifyProduct(i);
 	}
 
 	public void Admin_login() throws IOException {
-		User Admin_log = new User();
 		Admin_log.login();
 	}
 
 	public void User_statistics() throws IOException {
-		UsersStatistics user = new UsersStatistics();
 		System.out.println("Sum Users: ");
 		System.out.println(user.sum_users());
 		
@@ -237,7 +232,7 @@ public class Admin implements Products {
 	}
 
 	public void Products_statistics() throws IOException {
-		ProductsStatistics products = new ProductsStatistics();
+		
 	
 		products.minproduct();
 		
