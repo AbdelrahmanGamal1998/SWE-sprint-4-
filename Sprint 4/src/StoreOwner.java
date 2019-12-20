@@ -26,6 +26,8 @@ public class StoreOwner extends User implements Products {
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
 	User StoreOwn = new User();
+	Delete item = new Delete();
+	Edit price = new Edit();
 	
 public void Buy_Product(User u) throws IOException {
 	StoreOwn.BuyProduct(u);
@@ -66,12 +68,6 @@ public void addStore() throws IOException {
 		}
 	}
 
-	public String deleteProduct1() {
-		System.out.println("Please enter the product name you want to delete ");
-		Scanner x1 = new Scanner(System.in);
-		String deleted = x1.next();
-		return deleted;
-	}
 
 	public void deleteProduct() throws IOException {
 		File inputFile = new File("StoreProducts.txt");
@@ -80,7 +76,7 @@ public void addStore() throws IOException {
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 		BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
-		String lineToRemove = deleteProduct1();
+		String lineToRemove = item.Delete();
 		String s0;
 		String s1;
 		String s2;
@@ -104,26 +100,18 @@ public void addStore() throws IOException {
 		boolean successful = tempFile.renameTo(inputFile);
 		System.out.println("Product Is deleted  Successfuly");
 	}
-	
-	
-	public void EditProduct() throws IOException {
-		System.out.println("Please enter the product name you want to Edit");
-		Scanner x1 = new Scanner(System.in);
-		String edited = x1.next();
-		System.out.println("Please enter the new product price ");
-		Scanner x2 = new Scanner(System.in);
-		String edited2 = x2.next();
-		UpdatedProductPrice(edited, edited2);
-		System.out.println(" The Price Of This Product Is Updated Successfuly");
-	}
 
-public void UpdatedProductPrice(String a, String b) throws IOException {
+public void UpdatedProductPrice() throws IOException {
 		ArrayList<Products1> P = new ArrayList<Products1>();
 		File f = new File("StoreProducts.txt");
 		FileReader r = new FileReader(f);
 		Scanner read = new Scanner(f);
 		String s1, s4 = null;
 		String s2, s3 = null;
+		ArrayList<String> to_BeEdited = new ArrayList<String>();
+			to_BeEdited = price.EditPrice();
+		String a = to_BeEdited.get(0);
+		String b = to_BeEdited.get(1);
 
 		while (read.hasNext()) {
 			s1 = read.nextLine();
@@ -154,6 +142,7 @@ public void UpdatedProductPrice(String a, String b) throws IOException {
 			String s[] = { "Product Edited by StoreOwner is " + a, dtf.format(now) };
 			Database1.Write(file, s);
 		}
+		System.out.println("The Price Of This Product Is Updated Successfuly");
 
 	}
 		
