@@ -13,7 +13,7 @@ public void StoreOwnerMain() throws IOException {
 	StoreOwner z = new StoreOwner();
 	int r=1;
 	while(r==1) {
-	System.out.println("Want to Add Products? Press 0 / Want to Add Store? Press 1 / Want to show views? Press 2 / Want to Buy Product? Press 3 / Want to Delete Product? Press 4 / Want to Edit Product? Press 5 / Want to Check History and Undo Action? Press 6");
+	System.out.println("Want to Add Products? Press 0 / Want to Add Store? Press 1 / Want to show views? Press 2 / Want to Buy Product? Press 3 / Want to Delete Product? Press 4 / Want to Edit Product's Price? Press 5 / Want to Check History and Undo Action? Press 6");
 	Scanner j = new Scanner(System.in);
 	  int a = j.nextInt();
 	  if(a==0) {
@@ -35,7 +35,7 @@ public void StoreOwnerMain() throws IOException {
 		  z.deleteProduct();
 	  }
 	  else if(a==5) {
-		  z.EditProduct();
+		  z.UpdatedProductPrice();
 	  }
 	  else if(a==6) {
 		  z.Check_History();

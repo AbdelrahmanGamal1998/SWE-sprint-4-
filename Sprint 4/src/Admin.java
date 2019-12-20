@@ -26,6 +26,8 @@ public class Admin implements Products {
 	UsersStatistics user = new UsersStatistics();
 	ProductsStatistics products = new ProductsStatistics();
 	Database Database1 = new Database();
+	Delete offer = new Delete();
+	Edit offer_Price = new Edit();
 
 	public String getOfferName() {
 		return OfferName;
@@ -99,12 +101,6 @@ public class Admin implements Products {
 
 	}
 
-	public String Get_the_deleted_offer_name() {
-		System.out.println("Please enter the Offer name you want to delete ");
-		Scanner x1 = new Scanner(System.in);
-		String deleted = x1.next();
-		return deleted;
-	}
 
 	public void deleteOffer() throws IOException {
 		File inputFile = new File("Offers.txt");
@@ -113,7 +109,7 @@ public class Admin implements Products {
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 		BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
-		String lineToRemove = Get_the_deleted_offer_name() ;
+		String lineToRemove = offer.Delete();
 		String s0;
 		String s1;
 	
@@ -134,25 +130,19 @@ public class Admin implements Products {
 		reader.close();
 		inputFile.delete();
 		boolean successful = tempFile.renameTo(inputFile);
-		System.out.println("Product Is deleted  Successfuly");
+		System.out.println("Offer Is deleted  Successfuly");
 	}
-	public void EditOffer() throws IOException {
-		System.out.println("Please enter the product name you want to Edit");
-		Scanner x1 = new Scanner(System.in);
-		String edited = x1.next();
-		System.out.println("Please enter the new product price ");
-		Scanner x2 = new Scanner(System.in);
-		String edited2 = x2.next();
-		UpdatedOfferPrice(edited, edited2);
-		System.out.println(" The Price On this Offer Is Updated Successfuly");
-	}
-
-	public void UpdatedOfferPrice(String a, String b) throws IOException {
+	
+	public void UpdatedOfferPrice() throws IOException {
 		ArrayList<Admin> A = new ArrayList<Admin>();
 		File f = new File("Offers.txt");
 		FileReader r = new FileReader(f);
 		Scanner read = new Scanner(f);
 		String s1, s2 = null;
+		ArrayList<String> to_BeEdited = new ArrayList<String>();
+		to_BeEdited = offer_Price.EditPrice();
+	    String a = to_BeEdited.get(0);
+	    String b = to_BeEdited.get(1);
 
 		while (read.hasNext()) {
 			s1 = read.nextLine();
@@ -178,6 +168,7 @@ public class Admin implements Products {
 			String x[] = { s1, s2 };
 			Database1.Write(file1, x);
 		}
+		System.out.println("The Price Of this Offer Is Updated Successfuly");
 
 	}
 

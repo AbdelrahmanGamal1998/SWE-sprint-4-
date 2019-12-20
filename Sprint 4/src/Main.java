@@ -16,7 +16,7 @@ public static void main(String[] args) throws IOException {
 		q.createaccount();
 	}
 	else if(h==1) {
-	System.out.println("Admin? Press 0 / Customer? Press 1 / StoreOwner? Press 2");
+	System.out.println("Admin? Press 0 / Customer? Press 1 / StoreOwner? Press 2 / Collaborator? Press 3");
 	Scanner k = new Scanner(System.in);
 	int o = k.nextInt();
 	if(o == 0) {
@@ -33,6 +33,10 @@ public static void main(String[] args) throws IOException {
 		StoreOwnerMain c = new StoreOwnerMain();
 		c.StoreOwnerMain();
 		
+	}
+	else if(o == 3) {
+		CollaboratorMain m = new CollaboratorMain();
+		m.CollaboratorMain();
 	}
 
 	else

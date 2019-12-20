@@ -71,7 +71,7 @@ public User login() throws IOException {
 	    Password_verify = input2.next();
 	    Scanner input3 = new Scanner(System.in);
 		System.out.println("Enter Your type Admin? / Customer? / StoreOwner? ");
-		type_verify = input3.next();
+		type_verify = input3.next().toLowerCase();
 		u=User_verify.verify(type_verify,Username_verify,Password_verify);
 		if(u!=null) {
 			return u;
@@ -89,7 +89,7 @@ public void createaccount() throws IOException{
 		this.setPass(password.next());
 		System.out.println("Enter Your type Admin? / Customer? / StoreOwner? ");
 		Scanner type = new Scanner(System.in);
-		this.setType(type.next());
+		this.setType(type.next().toLowerCase());
 		System.out.println("Enter email");
 		Scanner email = new Scanner(System.in);
 		this.setEmail(email.next());

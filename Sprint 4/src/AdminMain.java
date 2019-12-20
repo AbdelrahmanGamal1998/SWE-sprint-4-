@@ -32,7 +32,7 @@ public void AdminMain() throws IOException {
 		  y.deleteOffer();
 	  }
 	  else if(a==5) {
-		  y.EditOffer();
+		  y.UpdatedOfferPrice();
 	  }
 	  else 
 		  System.out.println("Fawa2 ya3am el hag 2olna Press 0 aw 1");
