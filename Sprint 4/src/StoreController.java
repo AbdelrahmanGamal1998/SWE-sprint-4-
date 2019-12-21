@@ -4,11 +4,11 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class StoreController {
-	Database database1=new Database();
+	Database_verification Databaseverify = new Database_verification();
 public boolean VerifyStore(String w) throws IOException {
 		File f = new File("Types.txt");
 		String a[]= {w};
-		int value=database1.verify(f, a);
+		int value=Databaseverify.verify(f, a);
 		
 		if(value==1) {
 			

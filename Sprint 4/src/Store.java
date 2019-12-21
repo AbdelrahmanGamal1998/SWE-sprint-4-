@@ -12,7 +12,7 @@ public class Store {
 	private String storeType;
 	private String storeAddress;
 	Admin Approve_store = new Admin();
-	Database Database1 = new Database();
+	Database_write_infile Database1 = new Database_write_infile();
 
 	public String getStoreType() {
 		return storeType;

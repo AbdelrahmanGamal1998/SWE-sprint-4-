@@ -6,9 +6,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Handler;
 import java.util.Random;
-
-import test.Products;
-
 import java.awt.List;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
@@ -21,7 +18,7 @@ public class StoreOwner extends User implements Products {
 	Store Add_store = new Store();
 	Admin Approve_products = new Admin();
 	Products1 StoreOwner_Add = new Products1();
-	Database Database1 = new Database();
+	Database_write_infile Database1 = new Database_write_infile();
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
 	User StoreOwn = new User();
@@ -53,7 +50,7 @@ public class StoreOwner extends User implements Products {
 	public void addProduct() throws IOException {
 		// TODO Auto-generated method stub
 		File f = new File("StoreProducts.txt");
-		File file = new File("Collaborator.txt");
+		File file = new File("History.txt");
 		System.out.println("Enter name");
 		Scanner x = new Scanner(System.in);
 		StoreOwner_Add.setName(x.next());

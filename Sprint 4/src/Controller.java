@@ -9,9 +9,9 @@ public class Controller  {
 	
 public User verify(String type ,String us,String ps) throws IOException {
 		File f = new File("Users.txt");
-		Database database3= new Database();
+		Database_verification Databaseverify = new Database_verification();
 			String a[]= { type,us,ps };
-		int value=database3.verify(f, a);
+		int value=Databaseverify.verify(f, a);
 		User u=new User();
 		u.setName(us);
 		

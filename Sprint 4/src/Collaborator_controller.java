@@ -5,38 +5,40 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Collaborator_controller {
+ 
 	public static void verify_Collaborator(String name, String storename) throws IOException {
+		Database_verification Databaseverify = new Database_verification();
+		
 		File f = new File("Collaborator.txt");
-		FileReader r = new FileReader(f);
-		Scanner read = new Scanner(f);
-		String s1 = null;
-		String x, y, s2 = null;
-		while (read.hasNext()) {
-
-			s1 = read.nextLine();
-			s2 = read.nextLine();
-			if (s1.equals(name) && s1.equals(storename)) {
-				break;
-			}
+		String a[]= {name,storename};
+		int value=Databaseverify.verify_controller(f, a);
+		
+		if(value==1) {
+			
+			System.out.println("Access Granted! Welcome in :" + a[1]);
+			
+			
 		}
-		y = s1;
-		x = s2;
-		if (y.equals(name) && x.equals(storename)) {
-			System.out.println("Access Granted! Welcome in :" + storename);
-
-		}
-
-		else if (y.equals(name)) {
+		else if (value==2){
+			
 			System.out.println("Invalid Collaborator name !");
 			System.exit(0);
 
-		} else if (x.equals(storename)) {
+			
+		}
+		
+		else if (value==0) {
+			
 			System.out.println("Invalid Store name!");
 			System.exit(0);
-
-		} else {
+		}
+		
+		else {
+			
+			
 			System.out.println("Invalid name & Store name ");
 			System.exit(0);
 		}
-	}
+			
+}
 }
