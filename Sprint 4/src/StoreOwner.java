@@ -28,14 +28,29 @@ public class StoreOwner extends User implements Products {
 	User StoreOwn = new User();
 	Delete item = new Delete();
 	Edit price = new Edit();
-	
-public void Buy_Product(User u) throws IOException {
-	StoreOwn.BuyProduct(u);
-}
 
-public void addStore() throws IOException {	
+	// Collaborator add_Collaborator = new Collaborator();
+	public void Buy_Product(User u) throws IOException {
+		StoreOwn.BuyProduct(u);
+	}
+
+	public void add_Collaborator() throws IOException {
+		File f = new File("Collaborator.txt");
+		System.out.println("Please Enter Collaborator name");
+		Scanner e = new Scanner(System.in);
+		String v = e.next();
+		System.out.println("Please Enter the Collaborator Store Name ");
+		Scanner e1 = new Scanner(System.in);
+		String v1 = e1.next();
+		System.out.println(" Collaborator Added Successfuly");
+		String a[] = { v, v1 };
+		Database1.Write(f, a);
+
+	}
+
+	public void addStore() throws IOException {
 		Add_store.IsOnline();
-}
+	}
 
 	public void addProduct() throws IOException {
 		// TODO Auto-generated method stub
@@ -68,7 +83,6 @@ public void addStore() throws IOException {
 		}
 	}
 
-
 	public void deleteProduct() throws IOException {
 		File inputFile = new File("StoreProducts.txt");
 		File tempFile = new File("newFile.txt");
@@ -91,8 +105,9 @@ public void addStore() throws IOException {
 			String trimmedLine3 = s3.trim();
 			if (trimmedLine0.equals(lineToRemove))
 				continue;
-			String a[]= {s0,s1,s2,s3};
+			String a[] = { s0, s1, s2, s3 };
 			Database1.Write(tempFile, a);
+
 		}
 		writer.close();
 		reader.close();
@@ -101,7 +116,7 @@ public void addStore() throws IOException {
 		System.out.println("Product Is deleted  Successfuly");
 	}
 
-public void UpdatedProductPrice() throws IOException {
+	public void UpdatedProductPrice() throws IOException {
 		ArrayList<Products1> P = new ArrayList<Products1>();
 		File f = new File("StoreProducts.txt");
 		FileReader r = new FileReader(f);
@@ -109,7 +124,7 @@ public void UpdatedProductPrice() throws IOException {
 		String s1, s4 = null;
 		String s2, s3 = null;
 		ArrayList<String> to_BeEdited = new ArrayList<String>();
-			to_BeEdited = price.EditPrice();
+		to_BeEdited = price.EditPrice();
 		String a = to_BeEdited.get(0);
 		String b = to_BeEdited.get(1);
 
@@ -138,31 +153,31 @@ public void UpdatedProductPrice() throws IOException {
 			s4 = P.get(j).getCategory();
 			String str[] = { s1, s2, s3, s4 };
 			Database1.Write(file1, str);
-			File file = new File("Collaborator.txt");
+			File file = new File("History.txt");
 			String s[] = { "Product Edited by StoreOwner is " + a, dtf.format(now) };
 			Database1.Write(file, s);
 		}
 		System.out.println("The Price Of This Product Is Updated Successfuly");
 
 	}
-		
+
 	public void StoreOwner_login() throws IOException {
 		StoreOwn.login();
 	}
 
 	public void Check_History() throws IOException {
-		File file = new File("Collaborator.txt");
-        String s0;
+		File file = new File("History.txt");
+		String s0;
 		BufferedReader br = new BufferedReader(new FileReader(file));
 		while ((s0 = br.readLine()) != null) {
 
 			System.out.println(s0);
 		}
 
-		}
+	}
 
 	public boolean Undo() throws IOException {
-		File file = new File("Collaborator.txt");
+		File file = new File("History.txt");
 		String s1, s2 = null;
 		String s0;
 		System.out.println("Please enter the product that you want to undo  ");

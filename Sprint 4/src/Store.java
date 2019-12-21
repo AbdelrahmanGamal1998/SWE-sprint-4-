@@ -6,46 +6,45 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.TimerTask;
 
-
-public class Store  {
+public class Store {
 
 	private String storeName;
 	private String storeType;
 	private String storeAddress;
 	Admin Approve_store = new Admin();
-	Database Database1=new Database();
-	
-public String getStoreType() {
+	Database Database1 = new Database();
+
+	public String getStoreType() {
 		return storeType;
 	}
 
-public void setStoreType(String storeType) {
+	public void setStoreType(String storeType) {
 		this.storeType = storeType;
 	}
 
-public String getStoreName() {
+	public String getStoreName() {
 		return storeName;
 	}
-	
-public void setStoreName(String storeName) {
+
+	public void setStoreName(String storeName) {
 		this.storeName = storeName;
 	}
-	
-public String getStoreAddress() {
+
+	public String getStoreAddress() {
 		return storeAddress;
 	}
-	
-public void setStoreAddress(String storeAddress) {
+
+	public void setStoreAddress(String storeAddress) {
 		this.storeAddress = storeAddress;
 	}
-		
-public void IsOnline() throws IOException {	
+
+	public void IsOnline() throws IOException {
 		File f = new File("Store.txt");
-	
-	    System.out.println("Online? if yes press 1");
+
+		System.out.println("Online? if yes press 1");
 		Scanner x = new Scanner(System.in);
 		int z = x.nextInt();
-		if(z==1) {
+		if (z == 1) {
 			System.out.println("Enter store name");
 			Scanner y = new Scanner(System.in);
 			this.setStoreName(y.next());
@@ -53,17 +52,15 @@ public void IsOnline() throws IOException {
 			Scanner q = new Scanner(System.in);
 			this.setStoreType(q.next());
 			Approve_store.approveStore(this.getStoreType());
-			if(Approve_store.approveStore(this.getStoreType()) == true) {
-				String a[]= {this.getStoreName(),this.getStoreType()};
+			if (Approve_store.approveStore(this.getStoreType()) == true) {
+				String a[] = { this.getStoreName(), this.getStoreType() };
 				Database1.Write(f, a);
-		
-			System.out.println("Store Created!");
-			
-			}
-			else 
+
+				System.out.println("Store Created!");
+
+			} else
 				System.out.println("Store doesn't meet criteria!");
-		}
-		else {
+		} else {
 			System.out.println("Enter store name");
 			Scanner e = new Scanner(System.in);
 			this.setStoreName(e.next());
@@ -73,25 +70,18 @@ public void IsOnline() throws IOException {
 			System.out.println("Enter store address");
 			Scanner u = new Scanner(System.in);
 			this.setStoreAddress(u.next());
-			
+
 			Approve_store.approveStore(this.getStoreType());
-			if(Approve_store.approveStore(this.getStoreType()) == true) {
-				String a[]= {this.getStoreName(),this.getStoreType(),this.getStoreAddress()};
+			if (Approve_store.approveStore(this.getStoreType()) == true) {
+				String a[] = { this.getStoreName(), this.getStoreType(), this.getStoreAddress() };
 				Database1.Write(f, a);
-			
-			System.out.println("Store Created!");
-		
-			}
-			else 
+
+				System.out.println("Store Created!");
+
+			} else
 				System.out.println("Store doesn't meet criteria!");
 		}
-		
+
 	}
 
-
-
-
-
-
-		
 }
