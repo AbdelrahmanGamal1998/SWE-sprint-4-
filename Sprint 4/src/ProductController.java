@@ -8,18 +8,6 @@ public class ProductController {
 
 public boolean VerifyProduct(String i) throws IOException {
 		File f = new File("AdminProducts.txt");
-		/*FileReader r = new FileReader(f);
-		Scanner read = new Scanner(f);
-		String s = null ;
-		while(read.hasNext()) {
-		        s = read.nextLine();
-		            if(s.equalsIgnoreCase(i)){
-		            	return true;
-		            }
-		}
-		return false;
-	}
-*/
 		String a[]= {i};
 		int value=database1.verify(f, a);
 		

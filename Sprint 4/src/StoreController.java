@@ -7,20 +7,6 @@ public class StoreController {
 	Database database1=new Database();
 public boolean VerifyStore(String w) throws IOException {
 		File f = new File("Types.txt");
-		/*FileReader r = new FileReader(f);
-		Scanner read = new Scanner(f);
-		String s = null ;
-		while(read.hasNext()) {
-		        s = read.nextLine();
-		            if(s.equalsIgnoreCase(w)){
-		            	return true;
-		            }
-		}
-		return false;
-}
-*/
-
-		
 		String a[]= {w};
 		int value=database1.verify(f, a);
 		

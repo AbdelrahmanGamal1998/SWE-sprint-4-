@@ -28,13 +28,15 @@ public class Collaborator_controller {
 
 		else if (y.equals(name)) {
 			System.out.println("Invalid Collaborator name !");
+			System.exit(0);
 
 		} else if (x.equals(storename)) {
 			System.out.println("Invalid Store name!");
+			System.exit(0);
 
 		} else {
 			System.out.println("Invalid name & Store name ");
-
+			System.exit(0);
 		}
 	}
 }

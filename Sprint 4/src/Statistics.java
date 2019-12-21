@@ -37,18 +37,6 @@ public void setSold_products(int sold_products) {
 	this.sold_products =0;
 }
 
-//verride
-/*public void run() {
-	System.out.println("the orderd barnds Statistics");
-	System.out.println(getOrderd_brand());
-	System.out.println("the Productsviews Statistics");
-	System.out.println(getProducts_views());
-	System.out.println("Our Sold Products Statistics");
-	System.out.println(getSold_products());
-	System.out.println("Our Stores View Statistics");
-	System.out.println(getStores_view());
-	
-}*/
 @Override
 public void run() {
 

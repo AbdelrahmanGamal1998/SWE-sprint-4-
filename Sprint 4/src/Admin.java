@@ -231,22 +231,3 @@ public class Admin implements Products {
 	}
 
 }
-
-/*
- * public Products search(String name) throws FileNotFoundException,
- * IOException{ int count = 1; Integer intInstance = new Integer(count); String
- * numberAsString = intInstance.toString(); BufferedReader reader=new
- * BufferedReader(new
- * FileReader("F:\\College\\Software Engineering 2 project code\\SWE - copy"));
- * String row=reader.readLine(); while(row!=null){ String[]
- * fields=row.split(" "); String CurrentProduct=fields[0];
- * if(name.equals(CurrentProduct)){ System.out.println(row); }
- * row=reader.readLine(); } DateTimeFormatter dtf =
- * DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss"); LocalDateTime now =
- * LocalDateTime.now(); PrintWriter writer =new PrintWriter(new
- * FileWriter("",true)); String newRow=this.getName(); newRow =
- * newRow.concat(" "); newRow=newRow.concat(name); newRow = newRow.concat(" ");
- * newRow=newRow.concat(dtf.format(now)); newRow = newRow.concat(" ");
- * newRow=newRow.concat(numberAsString); writer.println(newRow); writer.close();
- * return null; }
- */

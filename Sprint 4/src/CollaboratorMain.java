@@ -16,8 +16,6 @@ public class CollaboratorMain {
 			} else if (a == 1) {
 				h.run();
 			}
-			
-			
 			else
 				System.out.println("Maho Mafesh 7aga tanya :D");
 

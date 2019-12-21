@@ -23,8 +23,6 @@ public void StoreOwnerMain() throws IOException {
 		  z.addStore();
 	  }
 	  else if(a==2) {
-		  //z.getviews();
-	
    Timer timer = new Timer();
    timer.schedule(new Statistics(), 0, 600000);
 	 }
