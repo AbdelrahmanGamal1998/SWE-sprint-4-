@@ -1,8 +1,4 @@
-water
-15
-ss
-ss
 coca
-10
-sss
-sss
+12
+ss
+ss
