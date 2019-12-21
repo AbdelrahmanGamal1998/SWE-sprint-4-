@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public abstract class Buy_Offer {
 	private String User_type;
-	Database Database1= new Database();
+	Database_write_infile Database1= new Database_write_infile();
 	
 public String getUser_type() {
 		return User_type;

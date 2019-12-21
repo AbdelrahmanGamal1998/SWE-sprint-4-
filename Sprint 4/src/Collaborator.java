@@ -11,7 +11,7 @@ public class Collaborator extends TimerTask {
 	StoreOwner collaborator = new StoreOwner();
 	UsersStatistics Collaborator_stat = new UsersStatistics();
 	ProductsStatistics Collaboratorprod_stat = new ProductsStatistics();
-	Database Database1 = new Database();
+	Database_write_infile Database1 = new Database_write_infile();
 	User collaborator_log = new User();
 	
 	Collaborator_controller Collaborator_cont = new Collaborator_controller();

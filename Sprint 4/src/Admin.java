@@ -11,8 +11,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-import test.Products;
-
 public class Admin implements Products {
 
 	private String OfferName;
@@ -25,7 +23,7 @@ public class Admin implements Products {
 	ProductController AdminProd_Controller = new ProductController();
 	UsersStatistics user = new UsersStatistics();
 	ProductsStatistics products = new ProductsStatistics();
-	Database Database1 = new Database();
+	Database_write_infile Database1 = new Database_write_infile();
 	Delete offer = new Delete();
 	Edit offer_Price = new Edit();
 

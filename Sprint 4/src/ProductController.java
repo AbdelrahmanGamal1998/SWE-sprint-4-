@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ProductController {
-	Database database1=new Database();
+	Database_verification Databaseverify = new Database_verification();
 
 public boolean VerifyProduct(String i) throws IOException {
 		File f = new File("AdminProducts.txt");
 		String a[]= {i};
-		int value=database1.verify(f, a);
+		int value=Databaseverify.verify(f, a);
 		
 		if(value==1) {
 			

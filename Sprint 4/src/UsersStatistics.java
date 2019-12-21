@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.TimerTask;
 
 public class UsersStatistics  {
-Database database2=new Database();
+	Database_map_file databasemap=new Database_map_file();
 public int sum_users() throws IOException {
 		File file = new File("SoldProducts.txt"); 
 	 
@@ -35,11 +35,11 @@ public int avg_users() throws IOException {
 
 public void max() throws IOException {
 	File file=new File("SoldProducts.txt");
-	System.out.println("Max Users : \n " + database2.Sort(0, file, "MAX"));	
+	System.out.println("Max Users : \n " + databasemap.Sort(0, file, "MAX"));	
 }
 	
 public void min() throws IOException {
 	File file=new File("SoldProducts.txt");
-	System.out.println("Min Users : \n " + database2.Sort(0, file, "min"));
+	System.out.println("Min Users : \n " + databasemap.Sort(0, file, "min"));
 }
 }
