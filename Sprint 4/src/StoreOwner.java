@@ -21,7 +21,6 @@ public class StoreOwner extends User implements Products {
 	Store Add_store = new Store();
 	Admin Approve_products = new Admin();
 	Products1 StoreOwner_Add = new Products1();
-	private Statistics viewers;
 	Database Database1 = new Database();
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
@@ -29,7 +28,6 @@ public class StoreOwner extends User implements Products {
 	Delete item = new Delete();
 	Edit price = new Edit();
 
-	// Collaborator add_Collaborator = new Collaborator();
 	public void Buy_Product(User u) throws IOException {
 		StoreOwn.BuyProduct(u);
 	}
@@ -113,6 +111,9 @@ public class StoreOwner extends User implements Products {
 		reader.close();
 		inputFile.delete();
 		boolean successful = tempFile.renameTo(inputFile);
+		File file = new File("History.txt");
+		String s[] = { "Product Deleted by StoreOwner is " + lineToRemove, dtf.format(now) };
+		Database1.Write(file, s);
 		System.out.println("Product Is deleted  Successfuly");
 	}
 
@@ -205,13 +206,3 @@ public class StoreOwner extends User implements Products {
 		}
 	}
 }
-
-/*
- * public void getviews() throws FileNotFoundException, IOException { int x =
- * (int)(Math.random()*((15-9)+1))+9;
- * System.out.println("Number of Store views : " + x); int s =
- * (int)(Math.random()*((8-2)+1))+2;
- * System.out.println("Number of user buy a store’s produce : " + s); int t =
- * (int)(Math.random()*((7-6)+1))+6;
- * System.out.println("Number of sold products in store : " + t); }
- */
