@@ -62,7 +62,7 @@ public class StoreOwner extends User implements Products {
 		StoreOwner_Add.setBrand(u.next());
 		System.out.println("Enter category");
 		Scanner p = new Scanner(System.in);
-		StoreOwner_Add.setCategory(p.next());
+		StoreOwner_Add.setCategory(p.next().toLowerCase());
 		if (Approve_products.approveProduct(StoreOwner_Add.getName()) == true) {
 			String a[] = { StoreOwner_Add.getName(), StoreOwner_Add.getPrice(), StoreOwner_Add.getBrand(),
 					StoreOwner_Add.getCategory() };

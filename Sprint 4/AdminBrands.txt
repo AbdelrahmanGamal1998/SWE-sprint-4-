@@ -1,2 +1,6 @@
 nike
 shoes
+iphone
+apple
+bershka
+clothes
