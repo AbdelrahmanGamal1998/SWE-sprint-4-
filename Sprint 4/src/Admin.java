@@ -78,7 +78,7 @@ public class Admin implements Products {
 		this.setBrandname(x.next());
 		System.out.println("Enter Brand category");
 		Scanner p = new Scanner(System.in);
-		this.setBrandcategory(p.next());
+		this.setBrandcategory(p.next().toLowerCase());
 		String a[] = { this.getBrandname(), this.getBrandcategory() };
 		Database1.Write(f, a);
 		System.out.println("Brand Is Added Successfuly");
