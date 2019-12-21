@@ -2,11 +2,14 @@
 /AdminMain.class
 /Buy_Offer.class
 /Collaborator.class
+/CollaboratorMain.class
 /Collaborator_controller.class
 /Controller.class
 /Customer.class
 /CustomerMain.class
 /Database.class
+/Delete.class
+/Edit.class
 /Main.class
 /ProductController.class
 /Products1.class
@@ -19,6 +22,3 @@
 /User.class
 /UsersStatistics.class
 /test/
-/CollaboratorMain.class
-/Delete.class
-/Edit.class
