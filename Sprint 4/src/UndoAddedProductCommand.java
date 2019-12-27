@@ -8,7 +8,7 @@ public class UndoAddedProductCommand  implements Command {
 	}
 	@Override
 	public void execute() throws IOException {
-		StoreOwner.deleteProduct();
+		StoreOwner.StoreOwner_Deleteproduct();
 		
 	}
 

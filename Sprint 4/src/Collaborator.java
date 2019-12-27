@@ -11,30 +11,24 @@ public class Collaborator extends TimerTask {
 	StoreOwner collaborator = new StoreOwner();
 	UsersStatistics Collaborator_stat = new UsersStatistics();
 	ProductsStatistics Collaboratorprod_stat = new ProductsStatistics();
-	Database_write_infile Database1 = new Database_write_infile();
-	User collaborator_log = new User();
-	
+	Database_write_infile fileWrite = new Database_write_infile();
 	Collaborator_controller Collaborator_cont = new Collaborator_controller();
+	History history = new History();
+	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+	LocalDateTime now = LocalDateTime.now();
 
-	public void addProduct_bycollaborator() throws IOException {
-		File f = new File("History.txt");
-
-		collaborator.addProduct();
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-		LocalDateTime now = LocalDateTime.now();
+	public void addProduct_bycollaborator(Scanner name,Scanner price,Scanner brand,Scanner category) throws IOException {
+		collaborator.addProduct(name,price,brand,category);
 		String a[] = { "Product added by collaborator is " + collaborator.StoreOwner_Add.getName(), dtf.format(now) };
-		Database1.Write(f, a);
+		history.write_Historyfile(a);
 		System.out.println("Product added by collaborator at :");
 		System.out.println(dtf.format(now));
 
 	}
 
 	public void viewStatistics_bycollaborator() throws IOException {
-		File file = new File("History.txt");
-		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-		LocalDateTime now = LocalDateTime.now();
 		String a[] = { "Statistacs viewed by collaborator", dtf.format(now) };
-		Database1.Write(file, a);
+		history.write_Historyfile(a);
 
 	}
 
@@ -64,20 +58,8 @@ public class Collaborator extends TimerTask {
 
 	}
 
-	public void Collabrorator_login() throws IOException {
-
-		
-		System.out.println("Please Enter Username : ");
-		Scanner e = new Scanner(System.in);
-		String v = e.next();
-		System.out.println("Please Enter Store Name : ");
-		Scanner e1 = new Scanner(System.in);
-		String v1 = e1.next();
-		Collaborator_cont.verify_Collaborator(v,v1);
-
+	public void Collabrorator_login(String username,String store_Name) throws IOException {
+		Collaborator_cont.verify_Collaborator(username,store_Name);
 	}
-
-	
-
 	
 }

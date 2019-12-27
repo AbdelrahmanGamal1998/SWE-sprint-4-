@@ -10,7 +10,7 @@ public class UndoDeletedProduct implements Command{
 
 	@Override
 	public void execute() throws IOException {
-		StoreOwner.addProduct();
+		StoreOwner.addProduct(null, null, null, null);
 		
 	}
 }

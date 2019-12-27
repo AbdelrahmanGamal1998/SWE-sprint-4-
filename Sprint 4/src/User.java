@@ -13,6 +13,7 @@ public class User extends Buy_Offer {
 	public String Password_verify ;
 	public String type_verify ;
 	Controller User_verify = new Controller();
+	Database_write_infile write = new Database_write_infile();
 
 public String getName() {
 		return name;
@@ -98,7 +99,7 @@ public void createaccount() throws IOException{
 		this.setPhoneno(phoneno.next());
 		if(User_verify.verify_Account(getUsername(),getPass())==true) {
 		String a[]= {this.getType(), this.getUsername(), this.getPass()};
-		Database1.Write(f, a);
+		write.Write(f, a);
 		System.out.println("Account Created Successfuly");
 		System.out.println("Now You Can Login To Our Stores");
 		}

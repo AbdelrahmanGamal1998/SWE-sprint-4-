@@ -10,7 +10,7 @@ public class UndoEditedProductPrice implements Command {
 
 	@Override
 	public void execute() throws IOException {
-		Products1 s=new Products1();
+		Products s=new Products();
 		s.setName("coca");
 		s.setPrice("ss");
 		s.setBrand(null);

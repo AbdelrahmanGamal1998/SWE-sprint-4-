@@ -14,10 +14,22 @@ public void AdminMain() throws IOException {
 	Scanner j = new Scanner(System.in);
 	  int a = j.nextInt();
 	  if(a==0) {
-		  y.addProduct();
+		  System.out.println("Enter name");
+		  Scanner name = new Scanner(System.in);
+		  System.out.println("Enter price");
+		  Scanner price = new Scanner(System.in);
+		  System.out.println("Enter Brand");
+		  Scanner brand = new Scanner(System.in);
+		  System.out.println("Enter category");
+		  Scanner category = new Scanner(System.in);
+		  y.addProduct(name,price,brand,category);
 	  }
 	  else if(a==1) {
-		  y.addbrands();
+		  System.out.println("Enter Brand name");
+		  Scanner brand_Name = new Scanner(System.in);
+		  System.out.println("Enter Brand category");
+		  Scanner brand_Category = new Scanner(System.in);
+		  y.addbrands(brand_Name,brand_Category);
 	  }
 	  else if(a==2) {  
 		    y.User_statistics();
@@ -25,14 +37,20 @@ public void AdminMain() throws IOException {
 		 
 	  }
 	  else if(a==3) {
-		  y.Offers();
+		  System.out.println("Enter name");
+		  Scanner e = new Scanner(System.in);
+		  String name = e.next();
+		  System.out.println("Enter Offerd price");
+		  e = new Scanner(System.in);
+		  String price = e.next();
+		  y.Add_offer(name,price);
 		  
 	  }
 	  else if(a==4) {
-		  y.deleteOffer();
+		  y.Delete_offer();
 	  }
 	  else if(a==5) {
-		  y.UpdatedOfferPrice();
+		  y.Update_offer();
 	  }
 	  else 
 		  System.out.println("Fawa2 ya3am el hag 2olna Press 0 aw 1");
