@@ -17,7 +17,15 @@ public void StoreOwnerMain() throws IOException {
 	Scanner j = new Scanner(System.in);
 	  int a = j.nextInt();
 	  if(a==0) {
-		  z.addProduct();
+		  System.out.println("Enter name");
+		  Scanner name = new Scanner(System.in);
+		  System.out.println("Enter price");
+		  Scanner price = new Scanner(System.in);
+		  System.out.println("Enter Brand");
+		  Scanner brand = new Scanner(System.in);
+		  System.out.println("Enter category");
+		  Scanner category = new Scanner(System.in);
+		  z.addProduct(name,price,brand,category);
 	  }
 	  else if(a==1) {
 		  z.addStore();
@@ -30,10 +38,10 @@ public void StoreOwnerMain() throws IOException {
 		  x.BuyProduct(curruse);
 	  }
 	  else if(a==4) {
-		  z.deleteProduct();
+		  z.StoreOwner_Deleteproduct();
 	  }
 	  else if(a==5) {
-		  z.UpdatedProductPrice();
+		  z.StoreOwner_Updateproduct();
 		
 	  }
 	  
@@ -52,7 +60,14 @@ public void StoreOwnerMain() throws IOException {
 			  
 		  }
 	  }
-	  else if (a==7) {z.add_Collaborator();
+	  else if (a==7) {
+		  System.out.println("Please Enter Collaborator name");
+		  Scanner e = new Scanner(System.in);
+		  String Collaborator_name = e.next();
+		  System.out.println("Please Enter the Collaborator Store Name ");
+		  Scanner e1 = new Scanner(System.in);
+		  String Store_Name = e1.next();
+		  z.add_Collaborator(Collaborator_name,Store_Name);
 	  }
 	
 	  else

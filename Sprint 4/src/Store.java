@@ -40,7 +40,6 @@ public class Store {
 
 	public void IsOnline() throws IOException {
 		File f = new File("Store.txt");
-
 		System.out.println("Online? if yes press 1");
 		Scanner x = new Scanner(System.in);
 		int z = x.nextInt();
