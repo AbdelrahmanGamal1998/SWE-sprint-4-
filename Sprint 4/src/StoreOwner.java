@@ -13,8 +13,8 @@ import java.nio.file.Files;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class StoreOwner extends User implements Products {
-
+public class StoreOwner extends User implements Products     {
+        static  ArrayList<Products1> products = new ArrayList<>();
 	Store Add_store = new Store();
 	Admin Approve_products = new Admin();
 	Products1 StoreOwner_Add = new Products1();
@@ -115,7 +115,6 @@ public class StoreOwner extends User implements Products {
 	}
 
 	public void UpdatedProductPrice() throws IOException {
-		ArrayList<Products1> P = new ArrayList<Products1>();
 		File f = new File("StoreProducts.txt");
 		FileReader r = new FileReader(f);
 		Scanner read = new Scanner(f);
@@ -132,23 +131,35 @@ public class StoreOwner extends User implements Products {
 			s3 = read.nextLine();
 			s4 = read.nextLine();
 			Products1 x = new Products1(s1, s2, s3, s4);
-			P.add(x);
+			products.add(x);
+                        
+                        File filex = new File("Before Edit.txt");
+                        for (int j = 0; j < products.size(); j++) 
+                        {
+			s1 = products.get(j).getName();
+			s2 = products.get(j).getPrice();
+			s3 = products.get(j).getBrand();
+			s4 = products.get(j).getCategory();
+			String str[] = { s1, s2, s3, s4 };
+			Database1.Write(filex, str);
+                        }
+                        
 			PrintWriter writer = new PrintWriter("StoreProducts.txt");
 			writer.print("");
 			writer.close();
 		}
 
-		for (int i = 0; i < P.size(); i++) {
-			if (P.get(i).getName().equals(a)) {
-				P.get(i).setPrice(b);
+		for (int i = 0; i < products.size(); i++) {
+			if (products.get(i).getName().equals(a)) {
+				products.get(i).setPrice(b);
 			}
 		}
 		File file1 = new File("StoreProducts.txt");
-		for (int j = 0; j < P.size(); j++) {
-			s1 = P.get(j).getName();
-			s2 = P.get(j).getPrice();
-			s3 = P.get(j).getBrand();
-			s4 = P.get(j).getCategory();
+		for (int j = 0; j < products.size(); j++) {
+			s1 = products.get(j).getName();
+			s2 = products.get(j).getPrice();
+			s3 = products.get(j).getBrand();
+			s4 = products.get(j).getCategory();
 			String str[] = { s1, s2, s3, s4 };
 			Database1.Write(file1, str);
 			File file = new File("History.txt");
@@ -156,6 +167,12 @@ public class StoreOwner extends User implements Products {
 			Database1.Write(file, s);
 		}
 		System.out.println("The Price Of This Product Is Updated Successfuly");
+		/*for (int i=0;i<products.size();i++)
+		{
+			System.out.println(products.get(i).getName());
+			System.out.println(products.get(i).getPrice());
+			
+		}*/
 
 	}
 
@@ -174,32 +191,70 @@ public class StoreOwner extends User implements Products {
 
 	}
 
-	public boolean Undo() throws IOException {
-		File file = new File("History.txt");
-		String s1, s2 = null;
-		String s0;
-		System.out.println("Please enter the product that you want to undo  ");
-		Scanner e = new Scanner(System.in);
-		String v = e.next();
-		boolean LineExists = false;
-		BufferedReader br = new BufferedReader(new FileReader(file));
-		StoreOwner c = new StoreOwner();
-		while ((s0 = br.readLine()) != null) {
+	public void undoEdit(Products1 x) throws IOException
+        {
+                File f = new File("Before Edit.txt");
+                FileReader r = new FileReader(f);
+		Scanner read = new Scanner(f);
+		String s1 = null, s4 = null;
+		String s2 = null, s3 = null;
+                while (read.hasNext()) {
+			s1 = read.nextLine();
+			s2 = read.nextLine();
+			s3 = read.nextLine();
+			s4 = read.nextLine();
+                
+                 if (x.getName().contentEquals(s1))
+                    {   x.setName(s1);
+                        x.setPrice(s2);
+                        x.setBrand(s3);
+                        x.setCategory(s4);
+                        System.out.println(x.getName());
+                        System.out.println(x.getPrice());
+                        System.out.println(x.getBrand());
+                        System.out.println(x.getCategory());
+                        break;
+                    }
+                        
+                    }
+               for (int i=0;i<products.size();i++)
+                {
+                if (x.getName().contentEquals(products.get(i).getName()))
+                {
+                products.get(i).setName(x.getName());
+                products.get(i).setPrice(x.getPrice());
+                products.get(i).setBrand(x.getBrand());
+                products.get(i).setCategory(x.getCategory());
+                //System.out.println(products.get(i).getName());
+                //System.out.println(products.get(i).getPrice());
+                
+                }
+            
+                 
+                 
+     			PrintWriter writer = new PrintWriter("StoreProducts.txt");
+     			writer.print("");
+     			writer.close();
+                 
+     			File file1 = new File("StoreProducts.txt");
 
-			if (s0.equalsIgnoreCase("Product added by collaborator is " + v)
-					|| s0.equalsIgnoreCase("Product added by StoreOwner is " + v)) {
-				LineExists = true;
-				break;
-			}
+          
+     			
+     			for (int j = 0; j < products.size(); j++) {
+			   s1= products.get(j).getName();
+		        s2=products.get(j).getPrice();
+		        s3=products.get(j).getBrand();
+			    s4=products.get(j).getCategory();
+			 /* System.out.println(products.get(j).getName());
+              System.out.println(products.get(j).getPrice());*/
+          	  String str[] = { s1, s2, s3, s4 };
+			  Database1.Write(file1, str);
+                }
+              
+                }
+   
+        }
 
-		}
-		if (LineExists) {
-
-			c.deleteProduct();
-			return true;
-		} else {
-			c.addProduct();
-			return false;
-		}
+	
 	}
-}
+
