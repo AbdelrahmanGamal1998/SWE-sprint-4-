@@ -24,3 +24,8 @@
 /StoreOwnerMain.class
 /User.class
 /UsersStatistics.class
+/Command.class
+/UndoAddedProductCommand.class
+/UndoDeletedProduct.class
+/UndoEditedProductPrice.class
+/RemoteControlForCommandPattern.class

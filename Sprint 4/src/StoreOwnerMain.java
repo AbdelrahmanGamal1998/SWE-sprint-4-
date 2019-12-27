@@ -34,18 +34,26 @@ public void StoreOwnerMain() throws IOException {
 	  }
 	  else if(a==5) {
 		  z.UpdatedProductPrice();
+		
 	  }
 	  
 	  else if(a==6) {
-		  z.Check_History();
+
+
+//z.Check_History();
+		  
+		 
 		  System.out.println("Do You Want to Undo Action? Press 1");
 		  Scanner t = new Scanner(System.in);
 			int g = t.nextInt();
 		  if(g==1) {
-		  z.Undo();
+			 // z.undoEdit(s);
+		  //z.Undo();
+			  
 		  }
 	  }
-	  else if (a==7) {z.add_Collaborator();}
+	  else if (a==7) {z.add_Collaborator();
+	  }
 	
 	  else
 		  System.out.println("Ma saba7 el fool ba2a :D");
