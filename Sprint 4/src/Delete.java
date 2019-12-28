@@ -47,17 +47,9 @@ public class Delete {
 		reader.close();
 		inputFile.delete();
 		boolean successful = tempFile.renameTo(inputFile);
-		/*String s[] = { "Product Deleted by StoreOwner is " + lineToRemove, dtf.format(now) };
-		delete_History.write_Historyfile(s);*/
-		Deleted_Prtoduct_StoreOwner_write_in_history_file(lineToRemove);
+		delete_History.Deleted_Prtoduct_StoreOwner_write_in_history_file(lineToRemove);
 		System.out.println("Product Is deleted  Successfuly");
-	}
+}
 
-	public void Deleted_Prtoduct_StoreOwner_write_in_history_file(String linetoremove) throws IOException {
-	String productdeleted_in_history_file[] = { "Product Deleted by StoreOwner is " + linetoremove, dtf.format(now) };
-	delete_History.write_Historyfile(productdeleted_in_history_file);
-	}
-	
-	
 	
 }

@@ -22,14 +22,14 @@ public void AdminMain() throws IOException {
 		  Scanner brand = new Scanner(System.in);
 		  System.out.println("Enter category");
 		  Scanner category = new Scanner(System.in);
-		  y.addProduct(name,price,brand,category);
+		  y.Admin_addProduct(name, price, brand, category);
 	  }
 	  else if(a==1) {
 		  System.out.println("Enter Brand name");
 		  Scanner brand_Name = new Scanner(System.in);
 		  System.out.println("Enter Brand category");
 		  Scanner brand_Category = new Scanner(System.in);
-		  y.addbrands(brand_Name,brand_Category);
+		  y.Admin_brands(brand_Name, brand_Category);
 	  }
 	  else if(a==2) {  
 		    y.User_statistics();

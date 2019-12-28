@@ -5,10 +5,11 @@ import java.util.Scanner;
 public class CustomerMain {
 
 public void CustomerMain() throws IOException {
-		User x = new Customer();
+		Buy_Offer x = new Buy_Offer();
 		x.setUser_type("User");
+		User l = new Customer();
 		User curruse=new User();
-		curruse=x.login();
+		curruse=l.login();
 		int r=1;
 		while(r==1) {
 			System.out.println("Want to Buy Product? Press 1");
@@ -25,7 +26,6 @@ public void CustomerMain() throws IOException {
 					 r = m.nextInt();
 		}
 		System.out.println("Thanks For Using Our Website!!");
-	       
 	 }
 }
 

@@ -15,15 +15,12 @@ public class Admin {
 
 	private String OfferName;
 	private String Offerprice;
-	private String brandname;
-	private String brandcategory;
 	StoreController Admin_controller = new StoreController();
 	User Admin_log = new User();
-	Products Add_product = new Products();
 	ProductController AdminProd_Controller = new ProductController();
 	UsersStatistics user = new UsersStatistics();
 	ProductsStatistics products = new ProductsStatistics();
-	Database_write_infile write_File = new Database_write_infile();
+	Brands brand = new Brands();
 	Offer offer = new Offer();
 
 	public String getOfferName() {
@@ -40,22 +37,6 @@ public class Admin {
 
 	public void setOfferprice(String offerprice) {
 		Offerprice = offerprice;
-	}
-
-	public String getBrandname() {
-		return brandname;
-	}
-
-	public void setBrandname(String brandname) {
-		this.brandname = brandname;
-	}
-
-	public String getBrandcategory() {
-		return brandcategory;
-	}
-
-	public void setBrandcategory(String brandcategory) {
-		this.brandcategory = brandcategory;
 	}
 
 	public Admin(String offerName, String offerprice) {
@@ -81,29 +62,14 @@ public class Admin {
 		offer.UpdatedOfferPrice();
 	}
 
-	
-	
-	public void addbrands(Scanner brand_Name,Scanner brand_Category) throws IOException {
-		File f = new File("AdminBrands.txt");
-		this.setBrandname(brand_Name.next());
-		this.setBrandcategory(brand_Category.next().toLowerCase());
-		String a[] = { this.getBrandname(), this.getBrandcategory() };
-		write_File.Write(f, a);
-		System.out.println("Brand Is Added Successfuly");
-
+	public void Admin_brands(Scanner brand_Name,Scanner brand_Category) throws IOException {
+		brand.addbrands(brand_Name, brand_Category);
 	}
 
-	public void addProduct(Scanner name,Scanner price,Scanner brand,Scanner category) throws IOException {
-		File f = new File("AdminProducts.txt");
-		Add_product.setName(name.next());
-		Add_product.setPrice(price.next());
-		Add_product.setBrand(brand.next());
-		Add_product.setCategory(category.next());
-		String a[] = { Add_product.getName(), Add_product.getPrice(), Add_product.getBrand(),
-				Add_product.getCategory() };
-		write_File.Write(f, a);
-		System.out.println("Product Is Added Successfuly");
-
+	public void Admin_addProduct(Scanner name,Scanner price,Scanner brand,Scanner category) throws IOException {
+	   Products Add_product = new Products();
+	   String file_Name = "AdminProducts.txt";
+	   Add_product.addProduct(name, price, brand, category, file_Name);
 	}
 
 	public boolean approveStore(String w) throws IOException {
@@ -135,8 +101,7 @@ public class Admin {
 	}
 
 	public void Products_statistics() throws IOException {
-		products.minproduct();
-		
+		products.minproduct();	
 	    products.maxproduct();
 	}
 

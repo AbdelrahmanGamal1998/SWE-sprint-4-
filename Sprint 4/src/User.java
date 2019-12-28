@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.io.*;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
-public class User extends Buy_Offer {
+public class User {
 	private String name;
 	private String pass;
 	private String email;
