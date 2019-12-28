@@ -41,19 +41,19 @@ public class Store {
 	public void IsOnline() throws IOException {
 		File f = new File("Store.txt");
 		System.out.println("Online? if yes press 1");
-		Scanner x = new Scanner(System.in);
-		int z = x.nextInt();
+		Scanner input1 = new Scanner(System.in);
+		int z = input1.nextInt();
 		if (z == 1) {
 			System.out.println("Enter store name");
-			Scanner y = new Scanner(System.in);
-			this.setStoreName(y.next());
+			Scanner input2 = new Scanner(System.in);
+			this.setStoreName(input2.next());
 			System.out.println("Enter store Type");
-			Scanner q = new Scanner(System.in);
-			this.setStoreType(q.next());
+			Scanner input3 = new Scanner(System.in);
+			this.setStoreType(input3.next());
 			Approve_store.approveStore(this.getStoreType());
 			if (Approve_store.approveStore(this.getStoreType()) == true) {
-				String a[] = { this.getStoreName(), this.getStoreType() };
-				Database1.Write(f, a);
+				String  Store_info[] = { this.getStoreName(), this.getStoreType() };
+				Database1.Write(f,Store_info);
 
 				System.out.println("Store Created!");
 
@@ -61,19 +61,19 @@ public class Store {
 				System.out.println("Store doesn't meet criteria!");
 		} else {
 			System.out.println("Enter store name");
-			Scanner e = new Scanner(System.in);
-			this.setStoreName(e.next());
+			Scanner input11 = new Scanner(System.in);
+			this.setStoreName(input11.next());
 			System.out.println("Enter store Type");
-			Scanner t = new Scanner(System.in);
-			this.setStoreType(t.next());
+			Scanner input2 = new Scanner(System.in);
+			this.setStoreType(input2.next());
 			System.out.println("Enter store address");
-			Scanner u = new Scanner(System.in);
-			this.setStoreAddress(u.next());
+			Scanner input3 = new Scanner(System.in);
+			this.setStoreAddress(input3.next());
 
 			Approve_store.approveStore(this.getStoreType());
 			if (Approve_store.approveStore(this.getStoreType()) == true) {
-				String a[] = { this.getStoreName(), this.getStoreType(), this.getStoreAddress() };
-				Database1.Write(f, a);
+				String Store_info[] = { this.getStoreName(), this.getStoreType(), this.getStoreAddress() };
+				Database1.Write(f,Store_info );
 
 				System.out.println("Store Created!");
 

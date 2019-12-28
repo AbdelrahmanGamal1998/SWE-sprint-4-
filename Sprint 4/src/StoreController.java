@@ -5,10 +5,10 @@ import java.util.Scanner;
 
 public class StoreController {
 	Database_verification Databaseverify = new Database_verification();
-public boolean VerifyStore(String w) throws IOException {
+public boolean VerifyStore(String check_storetype) throws IOException {
 		File f = new File("Types.txt");
-		String a[]= {w};
-		int value=Databaseverify.verify(f, a);
+		String storetype[]= {check_storetype};
+		int value=Databaseverify.verify(f, storetype);
 		
 		if(value==1) {
 			
