@@ -12,7 +12,7 @@ public class User extends Buy_Offer {
 	public String Username_verify ;
 	public String Password_verify ;
 	public String type_verify ;
-	Controller User_verify = new Controller();
+	User_Controller User_verify = new User_Controller();
 	Database_write_infile write = new Database_write_infile();
 
 public String getName() {
@@ -71,7 +71,7 @@ public User login() throws IOException {
 	    System.out.println("Enter Password : ");	    
 	    Password_verify = input2.next();
 	    Scanner input3 = new Scanner(System.in);
-		System.out.println("Enter Your type Admin? / Customer? / StoreOwner? ");
+		System.out.println("Enter Your type Customer? / StoreOwner? ");
 		type_verify = input3.next().toLowerCase();
 		u=User_verify.verify(type_verify,Username_verify,Password_verify);
 		if(u!=null) {
@@ -88,7 +88,7 @@ public void createaccount() throws IOException{
 		System.out.println("Enter password");
 		Scanner password = new Scanner(System.in);
 		this.setPass(password.next());
-		System.out.println("Enter Your type Admin? / Customer? / StoreOwner? ");
+		System.out.println("Enter Your type Customer? / StoreOwner? ");
 		Scanner type = new Scanner(System.in);
 		this.setType(type.next().toLowerCase());
 		System.out.println("Enter email");
@@ -97,7 +97,7 @@ public void createaccount() throws IOException{
 		System.out.println("Enter phoneno");
 		Scanner phoneno = new Scanner(System.in);
 		this.setPhoneno(phoneno.next());
-		if(User_verify.verify_Account(getUsername(),getPass())==true) {
+		if(User_verify.verify_Account(getType(),getUsername(),getPass())==true) {
 		String a[]= {this.getType(), this.getUsername(), this.getPass()};
 		write.Write(f, a);
 		System.out.println("Account Created Successfuly");

@@ -19,13 +19,19 @@ public class Collaborator extends TimerTask {
 
 	public void addProduct_bycollaborator(Scanner name,Scanner price,Scanner brand,Scanner category) throws IOException {
 		collaborator.addProduct(name,price,brand,category);
-		String a[] = { "Product added by collaborator is " + collaborator.StoreOwner_Add.getName(), dtf.format(now) };
-		history.write_Historyfile(a);
-		System.out.println("Product added by collaborator at :");
-		System.out.println(dtf.format(now));
+		addedproduct_bycollaborator_write_in_historyt_file();
 
 	}
 
+
+	public void addedproduct_bycollaborator_write_in_historyt_file() throws IOException { 
+	String  productadded_in_history_file[] = { "Product added by collaborator is " + collaborator.StoreOwner_Add.getName(), dtf.format(now) };
+	history.write_Historyfile(productadded_in_history_file);
+	System.out.println("Product added by collaborator at :");
+	System.out.println(dtf.format(now));
+	}
+	
+	
 	public void viewStatistics_bycollaborator() throws IOException {
 		String a[] = { "Statistacs viewed by collaborator", dtf.format(now) };
 		history.write_Historyfile(a);

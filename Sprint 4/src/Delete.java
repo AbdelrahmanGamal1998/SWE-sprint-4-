@@ -14,13 +14,8 @@ public class Delete {
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
 	History delete_History = new History();
-	
-	public String Delete() {
-		System.out.println("Please enter the product name you want to delete ");
-		Scanner x1 = new Scanner(System.in);
-		String deleted = x1.next();
-		return deleted;
-	}
+	Delete_view Delete_view =new Delete_view (); 
+
 	
 	public void deleteProduct() throws IOException {
 		File inputFile = new File("StoreProducts.txt");
@@ -29,7 +24,7 @@ public class Delete {
 		BufferedReader reader = new BufferedReader(new FileReader(inputFile));
 		BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
-		String lineToRemove = Delete();
+		String lineToRemove = Delete_view.Delete();
 		String s0;
 		String s1;
 		String s2;
@@ -52,9 +47,17 @@ public class Delete {
 		reader.close();
 		inputFile.delete();
 		boolean successful = tempFile.renameTo(inputFile);
-		String s[] = { "Product Deleted by StoreOwner is " + lineToRemove, dtf.format(now) };
-		delete_History.write_Historyfile(s);
+		/*String s[] = { "Product Deleted by StoreOwner is " + lineToRemove, dtf.format(now) };
+		delete_History.write_Historyfile(s);*/
+		Deleted_Prtoduct_StoreOwner_write_in_history_file(lineToRemove);
 		System.out.println("Product Is deleted  Successfuly");
 	}
 
+	public void Deleted_Prtoduct_StoreOwner_write_in_history_file(String linetoremove) throws IOException {
+	String productdeleted_in_history_file[] = { "Product Deleted by StoreOwner is " + linetoremove, dtf.format(now) };
+	delete_History.write_Historyfile(productdeleted_in_history_file);
+	}
+	
+	
+	
 }

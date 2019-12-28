@@ -52,9 +52,9 @@ public class StoreOwner extends User {
 					StoreOwner_Add.getCategory() };
 			File_write.Write(f, a);
 
-			String str[] = { "Product added by StoreOwner is " + StoreOwner_Add.getName(), dtf.format(now) };
+			/*String str[] = { "Product added by StoreOwner is " + StoreOwner_Add.getName(), dtf.format(now) };
 			hist.write_Historyfile(str);
-
+*/              Added_Prtoduct_StoreOwner_write_in_history_file();
 			System.out.println("Product Is Added Successfuly");
 
 		} else {
@@ -62,6 +62,13 @@ public class StoreOwner extends User {
 		}
 	}
 
+	
+	
+	public void Added_Prtoduct_StoreOwner_write_in_history_file() throws IOException {
+	String str[] = { "Product added by StoreOwner is " + StoreOwner_Add.getName(), dtf.format(now) };
+	hist.write_Historyfile(str);
+	}
+	
 	public void StoreOwner_Deleteproduct() throws IOException {
 		item.deleteProduct();
 	}

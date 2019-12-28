@@ -81,6 +81,8 @@ public class Admin {
 		offer.UpdatedOfferPrice();
 	}
 
+	
+	
 	public void addbrands(Scanner brand_Name,Scanner brand_Category) throws IOException {
 		File f = new File("AdminBrands.txt");
 		this.setBrandname(brand_Name.next());
@@ -133,8 +135,6 @@ public class Admin {
 	}
 
 	public void Products_statistics() throws IOException {
-		
-	
 		products.minproduct();
 		
 	    products.maxproduct();
