@@ -12,13 +12,13 @@ public int sum_users() throws IOException {
 		File file = new File("SoldProducts.txt"); 
 	 
 		BufferedReader br = new BufferedReader(new FileReader(file)); 
-		 String s0; 
-		 String s1;
-		 String s2;
-		 String s3;
-		 String s4;
+		 String user; 
+		 String productname;
+		 String price;
+		 String brand;
+		 String category;
 		 int  sum_users=0;
-		while((s0 = br.readLine()) != null&(s1 = br.readLine()) != null&(s2 = br.readLine()) != null &(s3 = br.readLine()) != null&(s4 = br.readLine()) != null) {
+		while((user = br.readLine()) != null&(productname = br.readLine()) != null&(price = br.readLine()) != null &(brand = br.readLine()) != null&(category = br.readLine()) != null) {
 			sum_users++;
 	}
 		

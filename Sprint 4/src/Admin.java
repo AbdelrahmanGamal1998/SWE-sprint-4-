@@ -72,8 +72,8 @@ public class Admin {
 	   Add_product.addProduct(name, price, brand, category, file_Name);
 	}
 
-	public boolean approveStore(String w) throws IOException {
-		return Admin_controller.VerifyStore(w);
+	public boolean approveStore(String check_storetype) throws IOException {
+		return Admin_controller.VerifyStore(check_storetype);
 	}
 
 	public boolean approveProduct(String i) throws IOException {
