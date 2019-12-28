@@ -1,11 +1,11 @@
 import java.io.IOException;
 
 public class UndoEditedProductPrice implements Command {
-	private StoreOwner StoreOwner;
+	private Edit Undo;
 
-	public UndoEditedProductPrice(StoreOwner storeOwner) {
+	public UndoEditedProductPrice(Edit undo) {
 		super();
-		StoreOwner = storeOwner;
+		Undo = undo;
 	}
 
 	@Override
@@ -14,7 +14,7 @@ public class UndoEditedProductPrice implements Command {
 		s.setName("coca");
 		s.setPrice("ss");
 		s.setBrand(null);
-		s.setCategory(null); StoreOwner.undoEdit(s);
+		s.setCategory(null); Undo.undoEdit(s);
 		
 	}
 }
