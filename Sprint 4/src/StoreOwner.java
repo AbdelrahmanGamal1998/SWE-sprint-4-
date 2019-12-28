@@ -15,8 +15,8 @@ import java.time.format.DateTimeFormatter;
 
 public class StoreOwner extends User {
 	
+	private String product_Name;
 	Store Add_store = new Store();
-	Admin Approve_products = new Admin();
 	Products StoreOwner_Add = new Products();
 	Database_write_infile File_write = new Database_write_infile();
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -25,9 +25,18 @@ public class StoreOwner extends User {
 	Delete item = new Delete();
 	Edit update = new Edit();
 	History hist = new History();
+	Buy_Offer buuy = new Buy_Offer();
+	
+	public String getProduct_Name() {
+		return product_Name;
+	}
+
+	public void setProduct_Name(String product_Name) {
+		this.product_Name = product_Name;
+	}
 
 	public void Buy_Product(User u) throws IOException {
-		StoreOwn.BuyProduct(u);
+		buuy.BuyProduct(u);
 	}
 
 	public void add_Collaborator(String Collaborator_name,String Store_Name) throws IOException {
@@ -41,32 +50,11 @@ public class StoreOwner extends User {
 		Add_store.IsOnline();
 	}
 
-	public void addProduct(Scanner name,Scanner price,Scanner brand,Scanner category) throws IOException {
-		File f = new File("StoreProducts.txt");
-		StoreOwner_Add.setName(name.next());
-		StoreOwner_Add.setPrice(price.next());
-		StoreOwner_Add.setBrand(brand.next());
-		StoreOwner_Add.setCategory(category.next().toLowerCase());
-		if (Approve_products.approveProduct(StoreOwner_Add.getName()) == true) {
-			String a[] = { StoreOwner_Add.getName(), StoreOwner_Add.getPrice(), StoreOwner_Add.getBrand(),
-					StoreOwner_Add.getCategory() };
-			File_write.Write(f, a);
-
-			/*String str[] = { "Product added by StoreOwner is " + StoreOwner_Add.getName(), dtf.format(now) };
-			hist.write_Historyfile(str);
-*/              Added_Prtoduct_StoreOwner_write_in_history_file();
-			System.out.println("Product Is Added Successfuly");
-
-		} else {
-			System.out.println("Product Is Not Approved");
-		}
-	}
-
-	
-	
-	public void Added_Prtoduct_StoreOwner_write_in_history_file() throws IOException {
-	String str[] = { "Product added by StoreOwner is " + StoreOwner_Add.getName(), dtf.format(now) };
-	hist.write_Historyfile(str);
+	public void StoreOwner_addProduct(Scanner name,Scanner price,Scanner brand,Scanner category) throws IOException {
+		String file_Name = "StoreProducts.txt";
+		setProduct_Name(StoreOwner_Add.addProduct(name, price, brand, category, file_Name));
+		String str[] = { "Product added by StoreOwner is " + getProduct_Name(), dtf.format(now) };
+		hist.write_Historyfile(str);
 	}
 	
 	public void StoreOwner_Deleteproduct() throws IOException {

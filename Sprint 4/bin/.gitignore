@@ -5,14 +5,15 @@
 /CollaboratorMain.class
 /Collaborator_controller.class
 /Command.class
-/Controller.class
 /Customer.class
 /CustomerMain.class
 /Database_map_file.class
 /Database_verification.class
 /Database_write_infile.class
 /Delete.class
+/Delete_view.class
 /Edit.class
+/Edit_view.class
 /History.class
 /Main.class
 /Offer.class
@@ -29,7 +30,6 @@
 /UndoDeletedProduct.class
 /UndoEditedProductPrice.class
 /User.class
-/UsersStatistics.class
 /User_Controller.class
-/Delete_view.class
-/Edit_view.class
+/UsersStatistics.class
+/Brands.class

@@ -6,10 +6,11 @@ import java.util.Timer;
 public class StoreOwnerMain {
 	
 public void StoreOwnerMain() throws IOException {
-	User x = new StoreOwner();
+	Buy_Offer x = new Buy_Offer();
 	x.setUser_type("StoreOwner");
+	User k = new User();
 	User curruse=new User();
-	curruse=x.login();
+	curruse=k.login();
 	StoreOwner z = new StoreOwner();
 	int r=1;
 	while(r==1) {
@@ -25,7 +26,7 @@ public void StoreOwnerMain() throws IOException {
 		  Scanner brand = new Scanner(System.in);
 		  System.out.println("Enter category");
 		  Scanner category = new Scanner(System.in);
-		  z.addProduct(name,price,brand,category);
+		  z.StoreOwner_addProduct(name, price, brand, category);
 	  }
 	  else if(a==1) {
 		  z.addStore();

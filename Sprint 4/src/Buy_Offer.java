@@ -3,9 +3,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public abstract class Buy_Offer {
+public class Buy_Offer {
 	private String User_type;
 	Database_write_infile write = new Database_write_infile();
 
@@ -16,11 +17,9 @@ public abstract class Buy_Offer {
 	public void setUser_type(String user_type) {
 		this.User_type = user_type;
 	}
-
 	
-	
-	
-	public void BuyProduct(User u) throws IOException {
+public void BuyProduct(User u) throws IOException {
+	    ArrayList<String> to_beWritten = new ArrayList<String>();
 		int result = 0;
 		String line0 = null;
 		String line1 = null;
@@ -34,7 +33,8 @@ public abstract class Buy_Offer {
 		if (product != null) {
 			offer_File(line0, line1, line2, line3, product);
 		}
-		result = StoreProducts_file(line0, line1, line2, line3, product);
+		to_beWritten = StoreProducts_file(line0, line1, line2, line3, product);
+		result = Integer.parseInt(to_beWritten.get(0));
 		System.out.println("Please enter the amount You want  ");
 		Scanner e1 = new Scanner(System.in);
 		int amount = e1.nextInt();
@@ -56,17 +56,16 @@ public abstract class Buy_Offer {
 			if (agree == 1) {
 				System.out.println("we will send you a confirmation mail ");
 				System.out.println("the product will be shipping 2 Working days Thanks for Using Our Website  ");
-				String a[] = { u.getName(), product, Dis, line2, line3 };
+				String a[] = { u.getName(), product, Dis,to_beWritten.get(1) ,to_beWritten.get(2) };
 				write.Write(file2, a);
 				System.out.println("The Product On The Cart ");
 			} else
 				System.out.println("The product is discareded ,THANKS FOR USING OUR WEBSITE");
 		} else
 			System.out.println("THANKS FOR USING OUR WEBSITE");
+}
 
-	}
-
-	public void view_Products(String line0, String line1, String line2, String line3) throws IOException {
+public void view_Products(String line0, String line1, String line2, String line3) throws IOException {
 		System.out.println("Our Products are   ........ ");
 		File file = new File("StoreProducts.txt");
 		BufferedReader br = new BufferedReader(new FileReader(file));
@@ -74,7 +73,7 @@ public abstract class Buy_Offer {
 				& (line3 = br.readLine()) != null) {
 			System.out.println(line0);
 		}
-	}
+}
 
 	public void offer_File(String line0, String line1, String line2, String line3, String product) throws IOException {
 		File f5 = new File("Offers.txt");
@@ -91,16 +90,10 @@ public abstract class Buy_Offer {
 				break;
 			}
 		}
-	}
-
+}
 	
-	
-	
-	
-	
-	
-	public int StoreProducts_file(String line0, String line1, String line2, String line3, String product)
-			throws IOException {
+	public ArrayList<String> StoreProducts_file(String line0, String line1, String line2, String line3, String product)throws IOException {
+		ArrayList<String> info = new ArrayList<String>();	
 		File f = new File("StoreProducts.txt");
 		FileReader r = new FileReader(f);
 		Scanner read = new Scanner(f);
@@ -113,28 +106,22 @@ public abstract class Buy_Offer {
 			line3 = read.nextLine();
 			if (line0.equalsIgnoreCase(product)) {
 				System.out.println("the product price is :");
-				int result = Integer.parseInt(line1);
+				info.add(0, line1);
 				System.out.println(line1 + "L.E");
 				System.out.println("the product brand is :");
+				info.add(1, line2);
 				System.out.println(line2);
 				System.out.println("the product category is :");
+				info.add(2,line3);
 				System.out.println(line3);
 				System.out.println("------------------------");
-				return result;
+				return info;
 			}
 		}
-		return 0;
-	}
-
+		return null;
+}
 	
-	
-	
-	
-	
-	
-	
-	
-	public int Calculate_offer(int result, int amount) {
+public int Calculate_offer(int result, int amount) {
 		if (getUser_type() == "User") {
 			if (amount == 1) {
 				return (int) (result - (result * 0.05));

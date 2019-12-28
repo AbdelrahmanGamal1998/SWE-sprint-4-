@@ -8,6 +8,7 @@ import java.util.Map;
 public class ProductsStatistics {
 
 	Database_map_file databasemap=new Database_map_file();
+	
 public void  minproduct() throws IOException {
 	File file=new File("SoldProducts.txt");
 	System.out.println("Min Products :\n  " + databasemap.Sort(4, file, "min"));

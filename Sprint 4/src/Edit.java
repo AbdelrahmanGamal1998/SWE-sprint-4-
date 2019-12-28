@@ -65,25 +65,12 @@ public class Edit {
 			s4 = products.get(j).getCategory();
 			String str[] = { s1, s2, s3, s4 };
 			Filewrite.Write(file1, str);
-			/*String s[] = { "Product Edited by StoreOwner is " + a, dtf.format(now) };
-			edit_History.write_Historyfile(s);*/
-
-		 Edited_Prtoduct_StoreOwner_write_in_history_file(a);
-			
-			
-			
+			edit_History.Edited_Prtoduct_StoreOwner_write_in_history_file(a);
+	
 		}
 		System.out.println("The Price Of This Product Is Updated Successfuly");
 
 	}
-	
-	
-	//history file
-	public void Edited_Prtoduct_StoreOwner_write_in_history_file(String a) throws IOException {
-	String productedited_in_history_file[] = { "Product Edited by StoreOwner is " + a, dtf.format(now) };
-	edit_History.write_Historyfile(productedited_in_history_file);
-	}
-	
 	
 	public void undoEdit(Products x) throws IOException
     {
@@ -123,9 +110,7 @@ public class Edit {
             //System.out.println(products.get(i).getPrice());
             
             }
-        
-             
-             
+              
  			PrintWriter writer = new PrintWriter("StoreProducts.txt");
  			writer.print("");
  			writer.close();
@@ -148,7 +133,8 @@ public class Edit {
             }
 
     }
-
+	
+	
 
 
 }
