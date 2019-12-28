@@ -46,18 +46,14 @@ public void StoreOwnerMain() throws IOException {
 	  }
 	  
 	  else if(a==6) {
-
-
 //z.Check_History();
-		  
+		 
 		 
 		  System.out.println("Do You Want to Undo Action? Press 1");
 		  Scanner t = new Scanner(System.in);
 			int g = t.nextInt();
 		  if(g==1) {
-			 // z.undoEdit(s);
-		  //z.Undo();
-			  
+			z.StoreOwner_Undo();
 		  }
 	  }
 	  else if (a==7) {

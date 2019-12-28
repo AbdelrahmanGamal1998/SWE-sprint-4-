@@ -82,6 +82,71 @@ public class Edit {
 		System.out.println("The Price Of This Product Is Updated Successfuly");
 
 	}
+	
+	public void undoEdit(Products x) throws IOException
+    {
+            File f = new File("Before Edit.txt");
+            FileReader r = new FileReader(f);
+	Scanner read = new Scanner(f);
+	String s1 = null, s4 = null;
+	String s2 = null, s3 = null;
+            while (read.hasNext()) {
+		s1 = read.nextLine();
+		s2 = read.nextLine();
+		s3 = read.nextLine();
+		s4 = read.nextLine();
+            
+             if (x.getName().contentEquals(s1))
+                {   x.setName(s1);
+                    x.setPrice(s2);
+                    x.setBrand(s3);
+                    x.setCategory(s4);
+                    System.out.println(x.getName());
+                    System.out.println(x.getPrice());
+                    System.out.println(x.getBrand());
+                    System.out.println(x.getCategory());
+                    break;
+                }
+                    
+                }
+           for (int i=0;i<products.size();i++)
+            {
+            if (x.getName().contentEquals(products.get(i).getName()))
+            {
+            products.get(i).setName(x.getName());
+            products.get(i).setPrice(x.getPrice());
+            products.get(i).setBrand(x.getBrand());
+            products.get(i).setCategory(x.getCategory());
+            //System.out.println(products.get(i).getName());
+            //System.out.println(products.get(i).getPrice());
+            
+            }
+        
+             
+             
+ 			PrintWriter writer = new PrintWriter("StoreProducts.txt");
+ 			writer.print("");
+ 			writer.close();
+             
+ 			File file1 = new File("StoreProducts.txt");
+
+      
+ 			
+ 			for (int j = 0; j < products.size(); j++) {
+		   s1= products.get(j).getName();
+	        s2=products.get(j).getPrice();
+	        s3=products.get(j).getBrand();
+		    s4=products.get(j).getCategory();
+		 /* System.out.println(products.get(j).getName());
+          System.out.println(products.get(j).getPrice());*/
+      	  String str[] = { s1, s2, s3, s4 };
+      	Filewrite.Write(file1, str);
+            }
+          
+            }
+
+    }
+
 
 
 }
