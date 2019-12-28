@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.TimerTask;
 
-public class Controller  {
+public class User_Controller  {
 	
 public User verify(String type ,String us,String ps) throws IOException {
 		File f = new File("Users.txt");
@@ -31,7 +31,7 @@ public User verify(String type ,String us,String ps) throws IOException {
 	     
 }
 
-public boolean verify_Account(String username,String password) throws IOException {
+public boolean verify_Account(String type,String username,String password) throws IOException {
 	File check = new File("Users.txt");
 	BufferedReader reader = new BufferedReader(new FileReader(check));
 	String s0,s1,s2;

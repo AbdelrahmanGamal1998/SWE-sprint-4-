@@ -4,8 +4,5 @@ pepsi
 5
 iphone
 400
-tv
-2000
 iwatch
 300
-

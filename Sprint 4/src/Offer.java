@@ -11,9 +11,9 @@ import java.util.Scanner;
 public class Offer {
 	
 	Database_write_infile write = new Database_write_infile();
-	Delete offer = new Delete();
+	Delete_view  offer = new Delete_view ();
 	Edit offer_Price = new Edit();
-
+	Edit_view Edit_view=new Edit_view();
 	public void Offers(String name,String price) throws IOException {
 		File f = new File("Offers.txt");
 		String a[] = { name, price };
@@ -58,7 +58,7 @@ public class Offer {
 		Scanner read = new Scanner(f);
 		String s1, s2 = null;
 		ArrayList<String> to_BeEdited = new ArrayList<String>();
-		to_BeEdited = offer_Price.EditPrice();
+		to_BeEdited = Edit_view.EditPrice();
 	    String a = to_BeEdited.get(0);
 	    String b = to_BeEdited.get(1);
 

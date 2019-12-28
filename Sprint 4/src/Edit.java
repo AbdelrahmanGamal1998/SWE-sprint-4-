@@ -14,19 +14,8 @@ public class Edit {
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
 	History edit_History = new History();
-
-	public ArrayList<String> EditPrice() throws IOException {
-		ArrayList<String> edit = new ArrayList<String>();
-		System.out.println("Please enter the offerd product name you want to Edit");
-		Scanner x1 = new Scanner(System.in);
-		String edited = x1.next();
-		System.out.println("Please enter the new offerd product price ");
-		Scanner x2 = new Scanner(System.in);
-		String edited2 = x2.next();
-		edit.add(0, edited);
-		edit.add(1,edited2);
-		return edit;
-	}
+	Edit_view Edit_view=new Edit_view();
+	
 	
 	public void UpdatedProductPrice() throws IOException {
 		File f = new File("StoreProducts.txt");
@@ -35,7 +24,7 @@ public class Edit {
 		String s1, s4 = null;
 		String s2, s3 = null;
 		ArrayList<String> to_BeEdited = new ArrayList<String>();
-		to_BeEdited = EditPrice();
+		to_BeEdited = Edit_view.EditPrice();
 		String a = to_BeEdited.get(0);
 		String b = to_BeEdited.get(1);
 
@@ -76,12 +65,25 @@ public class Edit {
 			s4 = products.get(j).getCategory();
 			String str[] = { s1, s2, s3, s4 };
 			Filewrite.Write(file1, str);
-			String s[] = { "Product Edited by StoreOwner is " + a, dtf.format(now) };
-			edit_History.write_Historyfile(s);
+			/*String s[] = { "Product Edited by StoreOwner is " + a, dtf.format(now) };
+			edit_History.write_Historyfile(s);*/
+
+		 Edited_Prtoduct_StoreOwner_write_in_history_file(a);
+			
+			
+			
 		}
 		System.out.println("The Price Of This Product Is Updated Successfuly");
 
 	}
+	
+	
+	//history file
+	public void Edited_Prtoduct_StoreOwner_write_in_history_file(String a) throws IOException {
+	String productedited_in_history_file[] = { "Product Edited by StoreOwner is " + a, dtf.format(now) };
+	edit_History.write_Historyfile(productedited_in_history_file);
+	}
+	
 	
 	public void undoEdit(Products x) throws IOException
     {
