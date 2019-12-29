@@ -23,8 +23,8 @@ public class Collaborator extends TimerTask {
 	}
 		
 	public void viewStatistics_bycollaborator() throws IOException {
-		String a[] = { "Statistacs viewed by collaborator", dtf.format(now) };
-		history.write_Historyfile(a);
+		String arr[] = { "Statistacs viewed by collaborator", dtf.format(now) };
+		history.write_Historyfile(arr);
 
 	}
 
@@ -32,24 +32,24 @@ public class Collaborator extends TimerTask {
 	public void run() {
 		try {
 			viewStatistics_bycollaborator();
-		} catch (IOException e1) {
+		} catch (IOException exception) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			exception.printStackTrace();
 		}
 
 		System.out.println("the sold products Statistics by Collaborator");
 		try {
 			System.out.println(Collaborator_stat.sum_users());
-		} catch (IOException e) {
+		} catch (IOException excp) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			excp.printStackTrace();
 		}
 		System.out.println("the  Most Ordered Product Statistics  by Collaborator");
 		try {
 			Collaboratorprod_stat.maxproduct();
-		} catch (IOException e) {
+		} catch (IOException excpp) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			excpp.printStackTrace();
 		}
 
 	}

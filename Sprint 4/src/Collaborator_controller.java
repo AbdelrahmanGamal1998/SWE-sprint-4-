@@ -9,13 +9,13 @@ public class Collaborator_controller {
 	public static void verify_Collaborator(String name, String storename) throws IOException {
 		Database_verification Databaseverify = new Database_verification();
 		
-		File f = new File("Collaborator.txt");
-		String a[]= {name,storename};
-		int value=Databaseverify.verify_controller(f, a);
+		File file = new File("Collaborator.txt");
+		String arr[]= {name,storename};
+		int value=Databaseverify.verify_controller(file, arr);
 		
 		if(value==1) {
 			
-			System.out.println("Access Granted! Welcome in :" + a[1]);
+			System.out.println("Access Granted! Welcome in :" + arr[1]);
 			
 			
 		}

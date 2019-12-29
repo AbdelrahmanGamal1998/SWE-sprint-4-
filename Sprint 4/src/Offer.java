@@ -9,15 +9,16 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Offer {
-	
+
 	Database_write_infile write = new Database_write_infile();
-	Delete_view  offer = new Delete_view ();
+	Delete_view offer = new Delete_view();
 	Edit offer_Price = new Edit();
-	Edit_view Edit_view=new Edit_view();
-	public void Offers(String name,String price) throws IOException {
-		File f = new File("Offers.txt");
-		String a[] = { name, price };
-		write.Write(f, a);
+	Edit_view Edit_view = new Edit_view();
+
+	public void Offers(String name, String price) throws IOException {
+		File file = new File("Offers.txt");
+		String arr[] = { name, price };
+		write.Write(file, arr);
 	}
 
 	public void deleteOffer() throws IOException {
@@ -30,19 +31,17 @@ public class Offer {
 		String lineToRemove = offer.Delete();
 		String s0;
 		String s1;
-	
 
-		while ((s0 = reader.readLine()) != null & (s1 = reader.readLine()) != null)
-				 {
+		while ((s0 = reader.readLine()) != null & (s1 = reader.readLine()) != null) {
 			// trim newline when comparing with lineToRemove
 			String trimmedLine0 = s0.trim();
 			String trimmedLine1 = s1.trim();
-		
+
 			if (trimmedLine0.equals(lineToRemove))
 				continue;
-			String a[] = { s0,s1 };
-			write.Write(tempFile, a);
-			
+			String arr[] = { s0, s1 };
+			write.Write(tempFile, arr);
+
 		}
 		writer.close();
 		reader.close();
@@ -50,7 +49,7 @@ public class Offer {
 		boolean successful = tempFile.renameTo(inputFile);
 		System.out.println("Offer Is deleted  Successfuly");
 	}
-	
+
 	public void UpdatedOfferPrice() throws IOException {
 		ArrayList<Admin> A = new ArrayList<Admin>();
 		File f = new File("Offers.txt");
@@ -59,8 +58,8 @@ public class Offer {
 		String s1, s2 = null;
 		ArrayList<String> to_BeEdited = new ArrayList<String>();
 		to_BeEdited = Edit_view.EditPrice();
-	    String a = to_BeEdited.get(0);
-	    String b = to_BeEdited.get(1);
+		String a = to_BeEdited.get(0);
+		String b = to_BeEdited.get(1);
 
 		while (read.hasNext()) {
 			s1 = read.nextLine();

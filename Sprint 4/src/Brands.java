@@ -25,11 +25,11 @@ public class Brands {
 	}
 	
 	public void addbrands(Scanner brand_Name,Scanner brand_Category) throws IOException {
-		File f = new File("AdminBrands.txt");
+		File file = new File("AdminBrands.txt");
 		this.setBrandname(brand_Name.next());
 		this.setBrandcategory(brand_Category.next().toLowerCase());
-		String a[] = { this.getBrandname(), this.getBrandcategory() };
-		write_File.Write(f, a);
+		String arr[] = { this.getBrandname(), this.getBrandcategory() };
+		write_File.Write(file, arr);
 		System.out.println("Brand Is Added Successfuly");
 
 	}

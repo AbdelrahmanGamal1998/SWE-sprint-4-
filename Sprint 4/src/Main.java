@@ -7,36 +7,36 @@ public class Main{
 
 public static void main(String[] args) throws IOException {
 
- User q = new User();
+ User user = new User();
 	System.out.println("Welcome to 5od Fekra w Eshtery Bokra!"); 
 	System.out.println("New Account? Press 0 / Login? Press 1");
-	Scanner l = new Scanner(System.in);
-	int h = l.nextInt();
-	if(h==0) {
-		q.createaccount();
+	Scanner CHoice = new Scanner(System.in);
+	int INput_choice = CHoice.nextInt();
+	if(INput_choice==0) {
+		user.createaccount();
 	}
-	else if(h==1) {
+	else if(INput_choice==1) {
 	System.out.println("Admin? Press 0 / Customer? Press 1 / StoreOwner? Press 2 / Collaborator? Press 3");
-	Scanner k = new Scanner(System.in);
-	int o = k.nextInt();
-	if(o == 0) {
-		AdminMain d = new AdminMain();
-		d.AdminMain();
+	Scanner Type = new Scanner(System.in);
+	int Input_Type = Type.nextInt();
+	if(Input_Type == 0) {
+		AdminMain adminMain = new AdminMain();
+		adminMain.AdminMain();
 		
 	}
-	else if(o == 1) {
-		CustomerMain s = new CustomerMain();
-		s.CustomerMain();
+	else if(Input_Type == 1) {
+		CustomerMain cust_Main = new CustomerMain();
+		cust_Main.CustomerMain();
 	
 	}
-	else if(o == 2) {
-		StoreOwnerMain c = new StoreOwnerMain();
-		c.StoreOwnerMain();
+	else if(Input_Type == 2) {
+		StoreOwnerMain Store_Main = new StoreOwnerMain();
+		Store_Main.StoreOwnerMain();
 		
 	}
-	else if(o == 3) {
-		CollaboratorMain m = new CollaboratorMain();
-		m.CollaboratorMain();
+	else if(Input_Type == 3) {
+		CollaboratorMain Collaborator_main = new CollaboratorMain();
+		Collaborator_main.CollaboratorMain();
 	}
 
 	else

@@ -52,16 +52,16 @@ public void setCategory(String category) {
 
 public String addProduct(Scanner name,Scanner price,Scanner brand,Scanner category,String file_Name) throws IOException {
 	Admin Approve_products = new Admin();
-	File f = new File(file_Name);
+	File file = new File(file_Name);
 	setName(name.next());
 	setPrice(price.next());
 	setBrand(brand.next());
 	setCategory(category.next().toLowerCase());
 	if(file_Name == "StoreProducts.txt") {
 		if (Approve_products.approveProduct(getName()) == true) {
-			String a[] = { getName(),getPrice(),getBrand(),
+			String arr[] = { getName(),getPrice(),getBrand(),
 					getCategory() };
-			File_write.Write(f, a);              
+			File_write.Write(file, arr);              
 			System.out.println("Product Is Added Successfuly");
 			String product_Name = getName();
 			return product_Name;
@@ -72,9 +72,9 @@ public String addProduct(Scanner name,Scanner price,Scanner brand,Scanner catego
 		}
 	}
 	else if(file_Name == "AdminProducts.txt") {
-		String a[] = { getName(),getPrice(),getBrand(),
+		String arr1[] = { getName(),getPrice(),getBrand(),
 				getCategory() };
-		File_write.Write(f, a);
+		File_write.Write(file, arr1);
 		System.out.println("Product Is Added Successfuly");
 	}
 	else

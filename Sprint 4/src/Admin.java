@@ -76,8 +76,8 @@ public class Admin {
 		return Admin_controller.VerifyStore(check_storetype);
 	}
 
-	public boolean approveProduct(String i) throws IOException {
-		return AdminProd_Controller.VerifyProduct(i);
+	public boolean approveProduct(String approve) throws IOException {
+		return AdminProd_Controller.VerifyProduct(approve);
 	}
 
 	public void Admin_login() throws IOException {

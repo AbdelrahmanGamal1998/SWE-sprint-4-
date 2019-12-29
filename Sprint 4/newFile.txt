@@ -1,11 +1,7 @@
 pepsi
-34
+50
 ss
 ss
-coca
-10
-sss
-sss
 edelo
 45
 off
@@ -14,10 +10,6 @@ waterr
 10
 bottle
 nestle
-dora
-10
-sha3by
-shwar3
 dora
 10
 sha3by

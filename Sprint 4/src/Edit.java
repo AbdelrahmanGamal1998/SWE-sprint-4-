@@ -18,32 +18,32 @@ public class Edit {
 	
 	
 	public void UpdatedProductPrice() throws IOException {
-		File f = new File("StoreProducts.txt");
-		FileReader r = new FileReader(f);
-		Scanner read = new Scanner(f);
-		String s1, s4 = null;
-		String s2, s3 = null;
+		File fiLe = new File("StoreProducts.txt");
+		FileReader FrEader = new FileReader(fiLe);
+		Scanner read = new Scanner(fiLe);
+		String Name_line, Category_line = null;
+		String Price_line, Brand_line = null;
 		ArrayList<String> to_BeEdited = new ArrayList<String>();
 		to_BeEdited = Edit_view.EditPrice();
-		String a = to_BeEdited.get(0);
-		String b = to_BeEdited.get(1);
+		String NameOfProduct = to_BeEdited.get(0);
+		String NewPrice = to_BeEdited.get(1);
 
 		while (read.hasNext()) {
-			s1 = read.nextLine();
-			s2 = read.nextLine();
-			s3 = read.nextLine();
-			s4 = read.nextLine();
-			Products x = new Products(s1, s2, s3, s4);
+			Name_line = read.nextLine();
+			Price_line = read.nextLine();
+			Brand_line = read.nextLine();
+			Category_line = read.nextLine();
+			Products x = new Products(Name_line, Price_line, Brand_line, Category_line);
 			products.add(x);
                         
                         File filex = new File("Before Edit.txt");
                         for (int j = 0; j < products.size(); j++) 
                         {
-			s1 = products.get(j).getName();
-			s2 = products.get(j).getPrice();
-			s3 = products.get(j).getBrand();
-			s4 = products.get(j).getCategory();
-			String str[] = { s1, s2, s3, s4 };
+			Name_line = products.get(j).getName();
+			Price_line = products.get(j).getPrice();
+			Brand_line = products.get(j).getBrand();
+			Category_line = products.get(j).getCategory();
+			String str[] = { Name_line, Price_line, Brand_line, Category_line };
 			Filewrite.Write(filex, str);
                         }
                         
@@ -53,59 +53,59 @@ public class Edit {
 		}
 
 		for (int i = 0; i < products.size(); i++) {
-			if (products.get(i).getName().equals(a)) {
-				products.get(i).setPrice(b);
+			if (products.get(i).getName().equals(NameOfProduct)) {
+				products.get(i).setPrice(NewPrice);
 			}
 		}
 		File file1 = new File("StoreProducts.txt");
 		for (int j = 0; j < products.size(); j++) {
-			s1 = products.get(j).getName();
-			s2 = products.get(j).getPrice();
-			s3 = products.get(j).getBrand();
-			s4 = products.get(j).getCategory();
-			String str[] = { s1, s2, s3, s4 };
+			Name_line = products.get(j).getName();
+			Price_line = products.get(j).getPrice();
+			Brand_line = products.get(j).getBrand();
+			Category_line = products.get(j).getCategory();
+			String str[] = { Name_line, Price_line, Brand_line, Category_line };
 			Filewrite.Write(file1, str);
-			edit_History.Edited_Prtoduct_StoreOwner_write_in_history_file(a);
+			edit_History.Edited_Prtoduct_StoreOwner_write_in_history_file(NameOfProduct);
 	
 		}
 		System.out.println("The Price Of This Product Is Updated Successfuly");
 
 	}
 	
-	public void undoEdit(Products x) throws IOException
+	public void undoEdit(Products product) throws IOException
     {
-            File f = new File("Before Edit.txt");
-            FileReader r = new FileReader(f);
-	Scanner read = new Scanner(f);
-	String s1 = null, s4 = null;
-	String s2 = null, s3 = null;
+            File file = new File("Before Edit.txt");
+            FileReader FREADER = new FileReader(file);
+	Scanner read = new Scanner(file);
+	String Name_line = null, Category_line = null;
+	String Price_line = null, Brand_line = null;
             while (read.hasNext()) {
-		s1 = read.nextLine();
-		s2 = read.nextLine();
-		s3 = read.nextLine();
-		s4 = read.nextLine();
+		Name_line = read.nextLine();
+		Price_line = read.nextLine();
+		Brand_line = read.nextLine();
+		Category_line = read.nextLine();
             
-             if (x.getName().contentEquals(s1))
-                {   x.setName(s1);
-                    x.setPrice(s2);
-                    x.setBrand(s3);
-                    x.setCategory(s4);
-                    System.out.println(x.getName());
-                    System.out.println(x.getPrice());
-                    System.out.println(x.getBrand());
-                    System.out.println(x.getCategory());
+             if (product.getName().contentEquals(Name_line))
+                {   product.setName(Name_line);
+                    product.setPrice(Price_line);
+                    product.setBrand(Brand_line);
+                    product.setCategory(Category_line);
+                    System.out.println(product.getName());
+                    System.out.println(product.getPrice());
+                    System.out.println(product.getBrand());
+                    System.out.println(product.getCategory());
                     break;
                 }
                     
                 }
            for (int i=0;i<products.size();i++)
             {
-            if (x.getName().contentEquals(products.get(i).getName()))
+            if (product.getName().contentEquals(products.get(i).getName()))
             {
-            products.get(i).setName(x.getName());
-            products.get(i).setPrice(x.getPrice());
-            products.get(i).setBrand(x.getBrand());
-            products.get(i).setCategory(x.getCategory());
+            products.get(i).setName(product.getName());
+            products.get(i).setPrice(product.getPrice());
+            products.get(i).setBrand(product.getBrand());
+            products.get(i).setCategory(product.getCategory());
             //System.out.println(products.get(i).getName());
             //System.out.println(products.get(i).getPrice());
             
@@ -120,13 +120,13 @@ public class Edit {
       
  			
  			for (int j = 0; j < products.size(); j++) {
-		   s1= products.get(j).getName();
-	        s2=products.get(j).getPrice();
-	        s3=products.get(j).getBrand();
-		    s4=products.get(j).getCategory();
+		   Name_line= products.get(j).getName();
+	        Price_line=products.get(j).getPrice();
+	        Brand_line=products.get(j).getBrand();
+		    Category_line=products.get(j).getCategory();
 		 /* System.out.println(products.get(j).getName());
           System.out.println(products.get(j).getPrice());*/
-      	  String str[] = { s1, s2, s3, s4 };
+				String str[] = { Name_line, Price_line, Brand_line, Category_line };
       	Filewrite.Write(file1, str);
             }
           

@@ -6,9 +6,9 @@ import java.util.Scanner;
 public class StoreController {
 	Database_verification Databaseverify = new Database_verification();
 public boolean VerifyStore(String check_storetype) throws IOException {
-		File f = new File("Types.txt");
+		File file = new File("Types.txt");
 		String storetype[]= {check_storetype};
-		int value=Databaseverify.verify(f, storetype);
+		int value=Databaseverify.verify(file, storetype);
 		
 		if(value==1) {
 			

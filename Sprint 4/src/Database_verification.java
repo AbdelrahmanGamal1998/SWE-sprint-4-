@@ -1,5 +1,4 @@
 
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -7,28 +6,28 @@ import java.util.Scanner;
 
 public class Database_verification {
 
-	String s1 = null;
-	String s2 = null;
-	String s3 = null;
-	String s4=null;
-	public int verify(File f, String[] a) throws FileNotFoundException {
-		
-		FileReader r = new FileReader(f);
-		Scanner read = new Scanner(f);
-	
+	String line1 = null;
+	String line2 = null;
+	String line3 = null;
+	String line4 = null;
 
-		if (a.length == 3) {
+	public int verify(File file, String[] arr) throws FileNotFoundException {
+
+		FileReader Freader = new FileReader(file);
+		Scanner read = new Scanner(file);
+
+		if (arr.length == 3) {
 
 			while (read.hasNext()) {
-				s1 = read.nextLine();
-				s2 = read.nextLine();
-				s3 = read.nextLine();
-				if (s1.equals(a[0]) && s2.equals(a[1]) && s3.equals(a[2])) {
+				line1 = read.nextLine();
+				line2 = read.nextLine();
+				line3 = read.nextLine();
+				if (line1.equals(arr[0]) && line2.equals(arr[1]) && line3.equals(arr[2])) {
 					break;
 				}
 			}
 
-			if (s1.equalsIgnoreCase(a[0]) && s2.equals(a[1]) && s3.equals(a[2])) {
+			if (line1.equalsIgnoreCase(arr[0]) && line2.equals(arr[1]) && line3.equals(arr[2])) {
 
 				return 1;
 
@@ -41,16 +40,16 @@ public class Database_verification {
 
 		}
 
-		else if (a.length == 1) {
+		else if (arr.length == 1) {
 
 			while (read.hasNext()) {
-				s1 = read.nextLine();
-				if (s1.equalsIgnoreCase(a[0])) {
+				line1 = read.nextLine();
+				if (line1.equalsIgnoreCase(arr[0])) {
 					break;
 				}
 			}
 
-			if (s1.equalsIgnoreCase(a[0])) {
+			if (line1.equalsIgnoreCase(arr[0])) {
 				return 1;
 			} else {
 				return 0;
@@ -59,47 +58,37 @@ public class Database_verification {
 		return 0;
 
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	public int verify_controller (File f, String[] a) throws FileNotFoundException {
-	
-	FileReader r = new FileReader(f);
-	Scanner read = new Scanner(f);
-	String s1 = null;
-	String x, y, s2 = null;
-	while (read.hasNext()) {
 
-		s1 = read.nextLine();
-		s2 = read.nextLine();
-		if (s1.equals(a[0]) && s2.equals(a[1])) {
-			break;
+	public int verify_controller(File file1, String[] arr1) throws FileNotFoundException {
+
+		FileReader FReader = new FileReader(file1);
+		Scanner read = new Scanner(file1);
+		String line1 = null;
+		String x, y, line2 = null;
+		while (read.hasNext()) {
+
+			line1 = read.nextLine();
+			line2 = read.nextLine();
+			if (line1.equals(arr1[0]) && line2.equals(arr1[1])) {
+				break;
+			}
+		}
+		y = line1;
+		x = line2;
+		if (y.equals(arr1[0]) && x.equals(arr1[1])) {
+
+			return 1;
+
+		}
+
+		else if (y.equals(arr1[0])) {
+			return 0;
+		} else if (x.equals(arr1[1])) {
+			return 2;
+
+		} else {
+			return 4;
 		}
 	}
-	y = s1;
-	x = s2;
-	if (y.equals(a[0]) && x.equals(a[1])) {
-		
-		return 1;
 
-	}
-
-	else if (y.equals(a[0])) {
-		return 0;
-	} else if (x.equals(a[1])) {
-		return 2;
-
-	} else {
-		return 4;
-	}
-}
-	
-	
-	
-	
 }

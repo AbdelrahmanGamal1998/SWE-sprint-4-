@@ -39,21 +39,21 @@ public class Store {
 	}
 
 	public void IsOnline() throws IOException {
-		File f = new File("Store.txt");
+		File file = new File("Store.txt");
 		System.out.println("Online? if yes press 1");
 		Scanner input1 = new Scanner(System.in);
-		int z = input1.nextInt();
-		if (z == 1) {
+		int choice = input1.nextInt();
+		if (choice == 1) {
 			System.out.println("Enter store name");
-			Scanner input2 = new Scanner(System.in);
-			this.setStoreName(input2.next());
+			Scanner Sname = new Scanner(System.in);
+			this.setStoreName(Sname.next());
 			System.out.println("Enter store Type");
-			Scanner input3 = new Scanner(System.in);
-			this.setStoreType(input3.next());
+			Scanner Stype = new Scanner(System.in);
+			this.setStoreType(Stype.next());
 			Approve_store.approveStore(this.getStoreType());
 			if (Approve_store.approveStore(this.getStoreType()) == true) {
 				String  Store_info[] = { this.getStoreName(), this.getStoreType() };
-				Database1.Write(f,Store_info);
+				Database1.Write(file,Store_info);
 
 				System.out.println("Store Created!");
 
@@ -61,19 +61,19 @@ public class Store {
 				System.out.println("Store doesn't meet criteria!");
 		} else {
 			System.out.println("Enter store name");
-			Scanner input11 = new Scanner(System.in);
-			this.setStoreName(input11.next());
+			Scanner SName = new Scanner(System.in);
+			this.setStoreName(SName.next());
 			System.out.println("Enter store Type");
-			Scanner input2 = new Scanner(System.in);
-			this.setStoreType(input2.next());
+			Scanner SType = new Scanner(System.in);
+			this.setStoreType(SType.next());
 			System.out.println("Enter store address");
-			Scanner input3 = new Scanner(System.in);
-			this.setStoreAddress(input3.next());
+			Scanner SAddress = new Scanner(System.in);
+			this.setStoreAddress(SAddress.next());
 
 			Approve_store.approveStore(this.getStoreType());
 			if (Approve_store.approveStore(this.getStoreType()) == true) {
 				String Store_info[] = { this.getStoreName(), this.getStoreType(), this.getStoreAddress() };
-				Database1.Write(f,Store_info );
+				Database1.Write(file,Store_info );
 
 				System.out.println("Store Created!");
 
