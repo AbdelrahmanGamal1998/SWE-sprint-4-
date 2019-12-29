@@ -8,8 +8,8 @@ public class AdminMain {
 public void AdminMain() throws IOException {
 	Admin Admin  = new Admin();
 	Admin.Admin_login();
-	int r=1;
-	while(r==1) {
+	int loop=1;
+	while(loop==1) {
 	System.out.println("Want to Add Products? Press 0 / Want to Add Brands? Press 1 / View Statistics? Press 2  / Want to Add Offer? Press 3 / Want to Delete Offer? Press 4 / Want to Edit Offer? Press 5");
 	Scanner botton = new Scanner(System.in);
 	  int botton1 = botton.nextInt();
@@ -57,7 +57,7 @@ public void AdminMain() throws IOException {
 	  
 	 System.out.println("Do you wish to perform another operation? Press 1 / Exit? Press 2");
 	 Scanner botton2 = new Scanner(System.in);
-		 r = botton2.nextInt();
+		 loop = botton2.nextInt();
 		 
 			 
 }
