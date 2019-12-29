@@ -11,14 +11,14 @@ public class UsersStatistics  {
 public int sum_users() throws IOException {
 		File file = new File("SoldProducts.txt"); 
 	 
-		BufferedReader br = new BufferedReader(new FileReader(file)); 
+		BufferedReader Breader = new BufferedReader(new FileReader(file)); 
 		 String user; 
 		 String productname;
 		 String price;
-		 String brand;
+		 String Breaderand;
 		 String category;
 		 int  sum_users=0;
-		while((user = br.readLine()) != null&(productname = br.readLine()) != null&(price = br.readLine()) != null &(brand = br.readLine()) != null&(category = br.readLine()) != null) {
+		while((user = Breader.readLine()) != null&(productname = Breader.readLine()) != null&(price = Breader.readLine()) != null &(Breaderand = Breader.readLine()) != null&(category = Breader.readLine()) != null) {
 			sum_users++;
 	}
 		

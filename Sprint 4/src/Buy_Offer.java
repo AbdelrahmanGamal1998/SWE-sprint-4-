@@ -18,7 +18,7 @@ public class Buy_Offer {
 		this.User_type = user_type;
 	}
 	
-public void BuyProduct(User u) throws IOException {
+public void BuyProduct(User user) throws IOException {
 	    ArrayList<String> to_beWritten = new ArrayList<String>();
 		int result = 0;
 		String line0 = null;
@@ -26,38 +26,38 @@ public void BuyProduct(User u) throws IOException {
 		String line2 = null;
 		String line3 = null;
 		view_Products(line0, line1, line2, line3);
-		System.out.println("PLEASE choose a SPECIFIC Product ");
-		Scanner e = new Scanner(System.in);
-		String product = e.next();
+		System.out.println("PLEASE Choose a SPECIFIC Product ");
+		Scanner choicee = new Scanner(System.in);
+		String product = choicee.next();
 		System.out.println("This Products Details is   ");
 		if (product != null) {
 			offer_File(line0, line1, line2, line3, product);
 		}
 		to_beWritten = StoreProducts_file(line0, line1, line2, line3, product);
 		result = Integer.parseInt(to_beWritten.get(0));
-		System.out.println("Please enter the amount You want  ");
-		Scanner e1 = new Scanner(System.in);
-		int amount = e1.nextInt();
+		System.out.println("Please Enter The Amount You Want  ");
+		Scanner amountt = new Scanner(System.in);
+		int amount = amountt.nextInt();
 		int Discount = Calculate_offer(result, amount);
 		String Dis = String.valueOf(Discount);
 		System.out.println("Congratulation you got an offer : " + Dis + " L.E");
 		System.out.println("To Buy The Product?Press 1 ");
-		Scanner e5 = new Scanner(System.in);
-		int choice = e5.nextInt();
+		Scanner choiice = new Scanner(System.in);
+		int choice = choiice.nextInt();
 		if (choice == 1) {
 			File file2 = new File("SoldProducts.txt");
 			System.out.println("Please Enter The Shipping address ?  ");
-			Scanner e2 = new Scanner(System.in);
-			String Shipping_Address = e2.next();
+			Scanner Addr = new Scanner(System.in);
+			String Shipping_Address = Addr.next();
 			System.out.println("-------------------");
 			System.out.println("If You Agree To Our Product Agreement?Press 1 ");
-			Scanner e3 = new Scanner(System.in);
-			int agree = e3.nextInt();
+			Scanner Agreement = new Scanner(System.in);
+			int agree = Agreement.nextInt();
 			if (agree == 1) {
 				System.out.println("we will send you a confirmation mail ");
 				System.out.println("the product will be shipping 2 Working days Thanks for Using Our Website  ");
-				String a[] = { u.getName(), product, Dis,to_beWritten.get(1) ,to_beWritten.get(2) };
-				write.Write(file2, a);
+				String arr[] = { user.getName(), product, Dis,to_beWritten.get(1) ,to_beWritten.get(2) };
+				write.Write(file2, arr);
 				System.out.println("The Product On The Cart ");
 			} else
 				System.out.println("The product is discareded ,THANKS FOR USING OUR WEBSITE");
@@ -68,17 +68,17 @@ public void BuyProduct(User u) throws IOException {
 public void view_Products(String line0, String line1, String line2, String line3) throws IOException {
 		System.out.println("Our Products are   ........ ");
 		File file = new File("StoreProducts.txt");
-		BufferedReader br = new BufferedReader(new FileReader(file));
-		while ((line0 = br.readLine()) != null & (line1 = br.readLine()) != null & (line2 = br.readLine()) != null
-				& (line3 = br.readLine()) != null) {
+		BufferedReader breader = new BufferedReader(new FileReader(file));
+		while ((line0 = breader.readLine()) != null & (line1 = breader.readLine()) != null & (line2 = breader.readLine()) != null
+				& (line3 = breader.readLine()) != null) {
 			System.out.println(line0);
 		}
 }
 
 	public void offer_File(String line0, String line1, String line2, String line3, String product) throws IOException {
-		File f5 = new File("Offers.txt");
-		FileReader r5 = new FileReader(f5);
-		Scanner read5 = new Scanner(f5);
+		File file5 = new File("Offers.txt");
+		FileReader freader = new FileReader(file5);
+		Scanner read5 = new Scanner(file5);
 		System.out.println("This Product After offer");
 		while (read5.hasNext()) {
 			line0 = read5.nextLine();
@@ -94,9 +94,9 @@ public void view_Products(String line0, String line1, String line2, String line3
 	
 	public ArrayList<String> StoreProducts_file(String line0, String line1, String line2, String line3, String product)throws IOException {
 		ArrayList<String> info = new ArrayList<String>();	
-		File f = new File("StoreProducts.txt");
-		FileReader r = new FileReader(f);
-		Scanner read = new Scanner(f);
+		File fille = new File("StoreProducts.txt");
+		FileReader Freader = new FileReader(fille);
+		Scanner read = new Scanner(fille);
 		System.out.println("------------------------");
 		System.out.println("This Product Before offer");
 		while (read.hasNext()) {

@@ -25,22 +25,22 @@ public class Delete {
 		BufferedWriter writer = new BufferedWriter(new FileWriter(tempFile));
 
 		String lineToRemove = Delete_view.Delete();
-		String s0;
-		String s1;
-		String s2;
-		String s3;
+		String line0;
+		String line1;
+		String line2;
+		String line3;
 
-		while ((s0 = reader.readLine()) != null & (s1 = reader.readLine()) != null & (s2 = reader.readLine()) != null
-				& (s3 = reader.readLine()) != null) {
+		while ((line0 = reader.readLine()) != null & (line1 = reader.readLine()) != null & (line2 = reader.readLine()) != null
+				& (line3 = reader.readLine()) != null) {
 			// trim newline when comparing with lineToRemove
-			String trimmedLine0 = s0.trim();
-			String trimmedLine1 = s1.trim();
-			String trimmedLine2 = s2.trim();
-			String trimmedLine3 = s3.trim();
+			String trimmedLine0 = line0.trim();
+			String trimmedLine1 = line1.trim();
+			String trimmedLine2 = line2.trim();
+			String trimmedLine3 = line3.trim();
 			if (trimmedLine0.equals(lineToRemove))
 				continue;
-			String a[] = { s0, s1, s2, s3 };
-			File.Write(tempFile, a);
+			String arr[] = { line0, line1, line2, line3 };
+			File.Write(tempFile, arr);
 
 		}
 		writer.close();

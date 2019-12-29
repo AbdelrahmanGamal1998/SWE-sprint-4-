@@ -4,3 +4,5 @@ body
 nike
 aly
 bershka
+seko
+hm

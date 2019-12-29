@@ -7,9 +7,9 @@ public class ProductController {
 	Database_verification Databaseverify = new Database_verification();
 
 public boolean VerifyProduct(String i) throws IOException {
-		File f = new File("AdminProducts.txt");
-		String a[]= {i};
-		int value=Databaseverify.verify(f, a);
+		File file = new File("AdminProducts.txt");
+		String arr[]= {i};
+		int value=Databaseverify.verify(file, arr);
 		
 		if(value==1) {
 			

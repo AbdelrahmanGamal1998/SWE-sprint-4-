@@ -63,7 +63,7 @@ public void setType(String type) {
 }
 
 public User login() throws IOException {
-	    User u=new User();
+	    User user=new User();
 		Scanner input1 = new Scanner(System.in);
 		System.out.println("Enter Username : ");
 		Username_verify = input1.next();
@@ -73,15 +73,15 @@ public User login() throws IOException {
 	    Scanner input3 = new Scanner(System.in);
 		System.out.println("Enter Your type Customer? / StoreOwner? ");
 		type_verify = input3.next().toLowerCase();
-		u=User_verify.verify(type_verify,Username_verify,Password_verify);
-		if(u!=null) {
-			return u;
+		user=User_verify.verify(type_verify,Username_verify,Password_verify);
+		if(user!=null) {
+			return user;
 		}
 		return null;
 }
 	 
 public void createaccount() throws IOException{		
-		File f = new File("Users.txt");
+		File file = new File("Users.txt");
 		System.out.println("Enter username");
 		Scanner username = new Scanner(System.in);
 		this.setUsername(username.next());
@@ -98,8 +98,8 @@ public void createaccount() throws IOException{
 		Scanner phoneno = new Scanner(System.in);
 		this.setPhoneno(phoneno.next());
 		if(User_verify.verify_Account(getType(),getUsername(),getPass())==true) {
-		String a[]= {this.getType(), this.getUsername(), this.getPass()};
-		write.Write(f, a);
+		String arr[]= {this.getType(), this.getUsername(), this.getPass()};
+		write.Write(file, arr);
 		System.out.println("Account Created Successfuly");
 		System.out.println("Now You Can Login To Our Stores");
 		}

@@ -26,3 +26,7 @@ edelo
 45
 off
 offff
+dora
+10
+sha3by
+shwar3

@@ -37,3 +37,6 @@ ahmed
 storeowner
 fatma
 4567
+customer
+lili
+159

@@ -35,15 +35,15 @@ public class StoreOwner extends User {
 		this.product_Name = product_Name;
 	}
 
-	public void Buy_Product(User u) throws IOException {
-		buuy.BuyProduct(u);
+	public void Buy_Product(User user) throws IOException {
+		buuy.BuyProduct(user);
 	}
 
 	public void add_Collaborator(String Collaborator_name,String Store_Name) throws IOException {
-		File f = new File("Collaborator.txt");
+		File file = new File("Collaborator.txt");
 		System.out.println(" Collaborator Added Successfuly");
-		String a[] = {Collaborator_name,Store_Name};
-		File_write.Write(f, a);
+		String arr[] = {Collaborator_name,Store_Name};
+		File_write.Write(file, arr);
 	}
 
 	public void addStore() throws IOException {
@@ -71,20 +71,20 @@ public class StoreOwner extends User {
 
 	public void Check_History() throws IOException {
 		File file = new File("History.txt");
-		String s0;
-		BufferedReader br = new BufferedReader(new FileReader(file));
-		while ((s0 = br.readLine()) != null) {
-			System.out.println(s0);
+		String ReadLineInFile;
+		BufferedReader bReader = new BufferedReader(new FileReader(file));
+		while ((ReadLineInFile = bReader.readLine()) != null) {
+			System.out.println(ReadLineInFile);
 		}
 	}
 	
 	public void StoreOwner_Undo() throws IOException {
-		 Products s = new Products();
-		  s.setName("coca");
-		  s.setPrice("15");
-		  s.setBrand(null);
-		  s.setCategory(null);
-		update.undoEdit(s);
+		 Products product = new Products();
+		 product.setName("coca");
+		 product.setPrice("15");
+		 product.setBrand(null);
+		 product.setCategory(null);
+		update.undoEdit(product);
 	}
 	
 }

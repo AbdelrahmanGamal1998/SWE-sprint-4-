@@ -1,5 +1,3 @@
-coca
-2
 pepsi
 5
 iphone

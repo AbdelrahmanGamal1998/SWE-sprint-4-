@@ -10,14 +10,14 @@ public class History {
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
 	
-	public void write_Historyfile(String a[]) throws IOException {
+	public void write_Historyfile(String arr[]) throws IOException {
 		File file = new File("History.txt");
-		fileWrite.Write(file, a);
+		fileWrite.Write(file, arr);
 
 	}
 	
-	public void Edited_Prtoduct_StoreOwner_write_in_history_file(String a) throws IOException {
-		String productedited_in_history_file[] = { "Product Edited by StoreOwner is " + a, dtf.format(now) };
+	public void Edited_Prtoduct_StoreOwner_write_in_history_file(String ProductEdited) throws IOException {
+		String productedited_in_history_file[] = { "Product Edited by StoreOwner is " + ProductEdited, dtf.format(now) };
 		write_Historyfile(productedited_in_history_file);
 		}
 
