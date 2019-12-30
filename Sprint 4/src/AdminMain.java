@@ -15,21 +15,21 @@ public class AdminMain {
 			Scanner button = new Scanner(System.in);
 			int button1 = button.nextInt();
 			if (button1 == 0) {
-				System.out.println("Enter name");
+				System.out.println("Enter product name");
 				Scanner input_name = new Scanner(System.in);
 				String name = input_name.next();
-				System.out.println("Enter price");
+				System.out.println("Enter product price");
 				Scanner input_price = new Scanner(System.in);
 				String price = input_price.next();
-				System.out.println("Enter Brand");
+				System.out.println("Enter product Brand");
 				Scanner input_brand = new Scanner(System.in);
 				String brand = input_brand.next();
-				System.out.println("Enter category");
+				System.out.println("Enter product category");
 				Scanner input_category = new Scanner(System.in);
 				String category = input_category.next();
 				Admin.Admin_addProduct(name, price, brand, category);
 			} else if (button1 == 1) {
-				System.out.println("Enter Brand name");
+				System.out.println("Enter product Brand name");
 				Scanner brand_Name = new Scanner(System.in);
 				System.out.println("Enter Brand category");
 				Scanner brand_Category = new Scanner(System.in);
