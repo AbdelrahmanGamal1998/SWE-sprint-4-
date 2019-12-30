@@ -9,13 +9,40 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Offer {
-
+	private String OfferName;
+	private String Offerprice;
+	
+	
 	Database_write_infile write = new Database_write_infile();
 	Delete_view offer = new Delete_view();
-	Edit offer_Price = new Edit();
+	StoreOwner_Edit offer_Price = new StoreOwner_Edit();
+	Edit_offer_view Edit_offer_view=new Edit_offer_view();
+	public String getOfferName() {
+		return OfferName;
+	}
+
+	public void setOfferName(String offerName) {
+		OfferName = offerName;
+	}
+
+	public String getOfferprice() {
+		return Offerprice;
+	}
+
+	public void setOfferprice(String offerprice) {
+		Offerprice = offerprice;
+	}
+
 	Edit_view Edit_view = new Edit_view();
 
-	public void Offers(String name, String price) throws IOException {
+	
+	
+	
+	
+	
+	
+	
+	public void add_Offers(String name, String price) throws IOException {
 		File file = new File("Offers.txt");
 		String arr[] = { name, price };
 		write.Write(file, arr);
@@ -51,13 +78,13 @@ public class Offer {
 	}
 
 	public void UpdatedOfferPrice() throws IOException {
-		ArrayList<Admin> A = new ArrayList<Admin>();
+		ArrayList<Offer> A = new ArrayList<Offer>();
 		File f = new File("Offers.txt");
 		FileReader r = new FileReader(f);
 		Scanner read = new Scanner(f);
 		String s1, s2 = null;
 		ArrayList<String> to_BeEdited = new ArrayList<String>();
-		to_BeEdited = Edit_view.EditPrice();
+		to_BeEdited = Edit_offer_view.Edit_offer_Price();
 		String a = to_BeEdited.get(0);
 		String b = to_BeEdited.get(1);
 
@@ -65,7 +92,7 @@ public class Offer {
 			s1 = read.nextLine();
 			s2 = read.nextLine();
 
-			Admin x = new Admin(s1, s2);
+			Offer x = new Offer(s1, s2);
 			A.add(x);
 			PrintWriter writer = new PrintWriter("Offers.txt");
 			writer.print("");
@@ -87,6 +114,17 @@ public class Offer {
 		}
 		System.out.println("The Price Of this Offer Is Updated Successfuly");
 
+	}
+
+	public Offer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Offer(String offerName, String offerprice) {
+		super();
+		OfferName = offerName;
+		Offerprice = offerprice;
 	}
 
 }

@@ -7,11 +7,11 @@ import java.util.Scanner;
 public class Collaborator_controller {
  
 	public static void verify_Collaborator(String name, String storename) throws IOException {
-		Database_verification Databaseverify = new Database_verification();
+		Collaborator_verification Collaborator_verification =new Collaborator_verification ();
 		
 		File file = new File("Collaborator.txt");
 		String arr[]= {name,storename};
-		int value=Databaseverify.verify_controller(file, arr);
+		int value=Collaborator_verification.verify_collaborator(file, arr);
 		
 		if(value==1) {
 			

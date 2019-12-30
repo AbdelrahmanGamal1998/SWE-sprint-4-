@@ -31,9 +31,21 @@ public void AdminMain() throws IOException {
 		  Scanner brand_Category = new Scanner(System.in);
 		  Admin.Admin_brands(brand_Name, brand_Category);
 	  }
-	  else if(button1==2) {  
-		  Admin.User_statistics();
-		  Admin.Products_statistics();
+	  else if(button1==2) { 
+		  System.out.println("Sum Users: ");
+		  Admin.Sum_User_statistics();
+		  System.out.println("Average Users : ");
+		  Admin.Average_User_statistics();
+		  
+		  Admin.Maxiumum_User_statistics();
+		  
+		  Admin.Min_User_statistics();
+		  System.out.println("Sum products: ");
+		  Admin.Sum_Products_statistics();
+			System.out.println("Average Products : ");
+		  Admin.Average_Products_statistics();
+		  Admin.max_Products_statistics();
+		  Admin.min_Products_statistics();
 		 
 	  }
 	  else if(button1==3) {
@@ -49,7 +61,7 @@ public void AdminMain() throws IOException {
 	  else if(button1==4) {
 		  Admin.Delete_offer();
 	  }
-	  else if(button1==5) {
+	else if(button1==5) {
 		  Admin.Update_offer();
 	  }
 	  else 

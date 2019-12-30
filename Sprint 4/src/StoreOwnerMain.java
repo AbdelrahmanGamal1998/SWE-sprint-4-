@@ -7,6 +7,7 @@ public class StoreOwnerMain {
 
 	public void StoreOwnerMain() throws IOException {
 		Buy_Offer offer = new Buy_Offer();
+		StoreOwner_Edit storeowmer_Edit=new StoreOwner_Edit();
 		offer.setUser_type("StoreOwner");
 		User user = new User();
 		User curruse = new User();
@@ -15,7 +16,7 @@ public class StoreOwnerMain {
 		int r = 1;
 		while (r == 1) {
 			System.out.println(
-					"Want to Add Products? Press 0 / Want to Add Store? Press 1 / Want to show views? Press 2 / Want to Buy Product? Press 3 / Want to Delete Product? Press 4 / Want to Edit Product's Price? Press 5 / Want to Check History and Undo Action? Press 6 /Want to add Collaborator press 7?");
+					"Want to Add Products? Press 0 / Want to Add Store? Press 1 / Want to show views? Press 2 / Want to Buy Product? Press 3 / Want to Delete Product? Press 4 / Want to Edit Product's Price? Press 5 / Want to Check History and Undo Action? Press 6 /Want to add Collaborator press 7? /Want to view press 8");
 			Scanner StoreOwnerChoice = new Scanner(System.in);
 			int a = StoreOwnerChoice.nextInt();
 			if (a == 0) {
@@ -32,7 +33,7 @@ public class StoreOwnerMain {
 				storeowmer.addStore();
 			} else if (a == 2) {
 				Timer timer = new Timer();
-				timer.schedule(new Statistics(), 0, 600000);
+				timer.schedule(new StoreOwner_Statistics(), 0, 600000);
 			} else if (a == 3) {
 				offer.BuyProduct(curruse);
 			} else if (a == 4) {
@@ -43,13 +44,14 @@ public class StoreOwnerMain {
 			}
 
 			else if (a == 6) {
-//storeowmer.Check_History();
-
+        
+				
 				System.out.println("Do You Want to Undo Action? Press 1");
 				Scanner UndoAction = new Scanner(System.in);
 				int g = UndoAction.nextInt();
 				if (g == 1) {
-					storeowmer.StoreOwner_Undo();
+					storeowmer_Edit.undoEdit() ;
+					//storeowmer.StoreOwner_Undo();
 				}
 			} else if (a == 7) {
 				System.out.println("Please Enter Collaborator name");
@@ -60,6 +62,11 @@ public class StoreOwnerMain {
 				String Store_Name = CollaboratorSname.next();
 				storeowmer.add_Collaborator(Collaborator_name, Store_Name);
 			}
+			else if (a == 8) {
+				storeowmer.View_History();
+
+			}
+
 
 			else
 				System.out.println("Ma saba7 el fool ba2a :D");
