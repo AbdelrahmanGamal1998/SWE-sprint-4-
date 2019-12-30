@@ -11,12 +11,12 @@ import java.util.Scanner;
 public class Offer {
 	private String OfferName;
 	private String Offerprice;
-	
-	
+
 	Database_write_infile write = new Database_write_infile();
 	Delete_view offer = new Delete_view();
 	StoreOwner_Edit offer_Price = new StoreOwner_Edit();
-	Edit_offer_view Edit_offer_view=new Edit_offer_view();
+	Edit_offer_view Edit_offer_view = new Edit_offer_view();
+
 	public String getOfferName() {
 		return OfferName;
 	}
@@ -35,13 +35,6 @@ public class Offer {
 
 	Edit_view Edit_view = new Edit_view();
 
-	
-	
-	
-	
-	
-	
-	
 	public void add_Offers(String name, String price) throws IOException {
 		File file = new File("Offers.txt");
 		String arr[] = { name, price };

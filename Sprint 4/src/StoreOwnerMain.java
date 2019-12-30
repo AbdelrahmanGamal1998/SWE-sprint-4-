@@ -13,10 +13,12 @@ public class StoreOwnerMain {
 		User curruse = new User();
 		curruse = user.login();
 		StoreOwner storeowmer = new StoreOwner();
+		RemoteControlForCommandPattern remotecontrol;
 		int r = 1;
 		while (r == 1) {
 			System.out.println(
-					"Want to Add Products? Press 0 / Want to Add Store? Press 1 / Want to show views? Press 2 / Want to Buy Product? Press 3 / Want to Delete Product? Press 4 / Want to Edit Product's Price? Press 5 / Want to Check History and Undo Action? Press 6 /Want to add Collaborator press 7? /Want to view press 8");
+					"Want to Add Products? Press 0 / Want to Add Store? Press 1 / Want to show views? Press 2 / Want to Buy Product? Press 3 / Want to Delete Product? Press 4 / Want to Edit Product's Price? Press 5 / Want to Check History and Undo Action? Press 6 /Want to add Collaborator press 7? /Want to view press 8"
+					+ "/ Want Undo Add ? Press 9 / Want Undo Delete ? Press 10 / Want Undo Edit ? Press 11");
 			Scanner StoreOwnerChoice = new Scanner(System.in);
 			int a = StoreOwnerChoice.nextInt();
 			if (a == 0) {
@@ -65,6 +67,18 @@ public class StoreOwnerMain {
 			else if (a == 8) {
 				storeowmer.View_History();
 
+			}
+			else if(a==9) {
+				remotecontrol=new RemoteControlForCommandPattern(new UndoAddedProductCommand(storeowmer));
+				remotecontrol.ButtonPressed();
+			}
+            else if(a==10) {
+            	remotecontrol=new RemoteControlForCommandPattern(new UndoDeletedProduct(storeowmer));
+				remotecontrol.ButtonPressed();
+			}
+            else if(a==11) {
+            	remotecontrol=new RemoteControlForCommandPattern(new UndoEditedProductPrice(storeowmer_Edit));
+				remotecontrol.ButtonPressed();
 			}
 
 

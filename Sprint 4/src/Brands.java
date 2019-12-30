@@ -7,7 +7,7 @@ public class Brands {
 	private String brandname;
 	private String brandcategory;
 	Database_write_infile write_File = new Database_write_infile();
-	
+
 	public String getBrandname() {
 		return brandname;
 	}
@@ -23,8 +23,8 @@ public class Brands {
 	public void setBrandcategory(String brandcategory) {
 		this.brandcategory = brandcategory;
 	}
-	
-	public void addbrands(Scanner brand_Name,Scanner brand_Category) throws IOException {
+
+	public void addbrands(Scanner brand_Name, Scanner brand_Category) throws IOException {
 		File file = new File("AdminBrands.txt");
 		this.setBrandname(brand_Name.next());
 		this.setBrandcategory(brand_Category.next().toLowerCase());

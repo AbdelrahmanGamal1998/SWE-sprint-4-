@@ -8,6 +8,10 @@ public class RemoteControlForCommandPattern {
 		Button = button;
 	}
 
+	public RemoteControlForCommandPattern() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Command getButton() {
 		return Button;
 	}
