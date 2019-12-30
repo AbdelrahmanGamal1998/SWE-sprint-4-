@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Buy_Offer {
 	private String User_type;
 	Database_write_infile write = new Database_write_infile();
+	Offer offer_file = new Offer();
 
 	public String getUser_type() {
 		return User_type;
@@ -31,7 +32,7 @@ public class Buy_Offer {
 		String product = choicee.next();
 		System.out.println("This Products Details is   ");
 		if (product != null) {
-			offer_File(line0, line1, line2, line3, product);
+			offer_file.offer_File(line0, line1, line2, line3, product);
 		}
 		to_beWritten = StoreProducts_file(line0, line1, line2, line3, product);
 		result = Integer.parseInt(to_beWritten.get(0));
@@ -72,23 +73,6 @@ public class Buy_Offer {
 		while ((line0 = breader.readLine()) != null & (line1 = breader.readLine()) != null
 				& (line2 = breader.readLine()) != null & (line3 = breader.readLine()) != null) {
 			System.out.println(line0);
-		}
-	}
-
-	public void offer_File(String line0, String line1, String line2, String line3, String product) throws IOException {
-		File file5 = new File("Offers.txt");
-		FileReader freader = new FileReader(file5);
-		Scanner read5 = new Scanner(file5);
-		System.out.println("This Product After offer");
-		while (read5.hasNext()) {
-			line0 = read5.nextLine();
-			line1 = read5.nextLine();
-			if (line0.equalsIgnoreCase(product)) {
-				System.out.println("the product price is :");
-				System.out.println(line1 + " L.E");
-
-				break;
-			}
 		}
 	}
 
@@ -136,5 +120,5 @@ public class Buy_Offer {
 		}
 		return 0;
 	}
-
+	
 }

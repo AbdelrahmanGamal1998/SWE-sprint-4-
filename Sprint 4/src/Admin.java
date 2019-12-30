@@ -37,7 +37,7 @@ public class Admin {
 		brand.addbrands(brand_Name, brand_Category);
 	}
 
-	public void Admin_addProduct(Scanner name, Scanner price, Scanner brand, Scanner category) throws IOException {
+	public void Admin_addProduct(String name, String price, String brand, String category) throws IOException {
 		Products Add_product = new Products();
 		String file_Name = "AdminProducts.txt";
 		Add_product.addProduct(name, price, brand, category, file_Name);

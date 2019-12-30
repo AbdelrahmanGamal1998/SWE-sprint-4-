@@ -119,5 +119,23 @@ public class Offer {
 		OfferName = offerName;
 		Offerprice = offerprice;
 	}
+		
+	public void offer_File(String line0, String line1, String line2, String line3, String product) throws IOException {
+		File file5 = new File("Offers.txt");
+		FileReader freader = new FileReader(file5);
+		Scanner read5 = new Scanner(file5);
+		System.out.println("This Product After offer");
+		while (read5.hasNext()) {
+			line0 = read5.nextLine();
+			line1 = read5.nextLine();
+			if (line0.equalsIgnoreCase(product)) {
+				System.out.println("the product price is :");
+				System.out.println(line1 + " L.E");
+
+				break;
+			}
+		}
+	}
+
 
 }

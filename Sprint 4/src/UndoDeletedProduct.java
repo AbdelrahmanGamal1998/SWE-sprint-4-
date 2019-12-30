@@ -4,12 +4,6 @@ import java.util.Scanner;
 
 public class UndoDeletedProduct implements Command{
 	private StoreOwner StoreOwner;
-	Scanner name=null;
-	Scanner price=null;
-	Scanner brand=null;
-	Scanner Category=null;
-	//File file=new File("StoreProducts.txt");
-	//Buy_Offer storeownerbuy;
 
 	public UndoDeletedProduct(StoreOwner storeOwner) {
 		super();
@@ -18,7 +12,19 @@ public class UndoDeletedProduct implements Command{
 
 	@Override
 	public void execute() throws IOException {
-		StoreOwner.StoreOwner_addProduct(name, price, brand, Category);
+		System.out.println("Enter name");
+		Scanner input_name = new Scanner(System.in);
+		String name = input_name.next();
+		System.out.println("Enter price");
+		Scanner input_price = new Scanner(System.in);
+		String price = input_price.next();
+		System.out.println("Enter Brand");
+		Scanner input_brand = new Scanner(System.in);
+		String brand = input_brand.next();
+		System.out.println("Enter category");
+		Scanner input_category = new Scanner(System.in);
+		String category = input_category.next();
+		StoreOwner.StoreOwner_addProduct(name, price, brand,category);
 	
 		
 	}
