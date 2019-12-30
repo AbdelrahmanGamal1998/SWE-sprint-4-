@@ -16,7 +16,7 @@ public class Collaborator extends TimerTask {
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
 
-	public void addProduct_bycollaborator(Scanner name, Scanner price, Scanner brand, Scanner category)
+	public void addProduct_bycollaborator(String name, String price, String brand, String category)
 			throws IOException {
 		collaborator.StoreOwner_addProduct(name, price, brand, category);
 		String productadded_in_history_file[] = { "Product added by collaborator is " + collaborator.getProduct_Name(),
@@ -31,9 +31,7 @@ public class Collaborator extends TimerTask {
 	}
 
 	public void Updateproduct_by_collaborator() throws IOException {
-
 		collaborator.StoreOwner_Updateproduct();
-
 	}
 
 	public void Deleteproduct_by_collaborator() throws IOException {

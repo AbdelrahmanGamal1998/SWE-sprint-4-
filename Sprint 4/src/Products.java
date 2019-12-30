@@ -55,14 +55,13 @@ public class Products {
 		this.Category = category;
 	}
 
-	public String addProduct(Scanner name, Scanner price, Scanner brand, Scanner category, String file_Name)
-			throws IOException {
+	public String addProduct(String name, String price, String brand, String category, String file_Name)throws IOException {
 		Admin Approve_products = new Admin();
 		File file = new File(file_Name);
-		setName(name.next());
-		setPrice(price.next());
-		setBrand(brand.next());
-		setCategory(category.next().toLowerCase());
+		setName(name);
+		setPrice(price);
+		setBrand(brand);
+		setCategory(category.toLowerCase());
 		if (file_Name == "StoreProducts.txt") {
 			if (Approve_products.approveProduct(getName()) == true) {
 				String arr[] = { getName(), getPrice(), getBrand(), getCategory() };

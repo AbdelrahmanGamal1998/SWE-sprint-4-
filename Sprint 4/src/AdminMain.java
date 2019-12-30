@@ -16,13 +16,17 @@ public class AdminMain {
 			int button1 = button.nextInt();
 			if (button1 == 0) {
 				System.out.println("Enter name");
-				Scanner name = new Scanner(System.in);
+				Scanner input_name = new Scanner(System.in);
+				String name = input_name.next();
 				System.out.println("Enter price");
-				Scanner price = new Scanner(System.in);
+				Scanner input_price = new Scanner(System.in);
+				String price = input_price.next();
 				System.out.println("Enter Brand");
-				Scanner brand = new Scanner(System.in);
+				Scanner input_brand = new Scanner(System.in);
+				String brand = input_brand.next();
 				System.out.println("Enter category");
-				Scanner category = new Scanner(System.in);
+				Scanner input_category = new Scanner(System.in);
+				String category = input_category.next();
 				Admin.Admin_addProduct(name, price, brand, category);
 			} else if (button1 == 1) {
 				System.out.println("Enter Brand name");

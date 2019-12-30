@@ -50,9 +50,12 @@ public class StoreOwner extends User {
 		Add_store.IsOnline();
 	}
 
-	public void StoreOwner_addProduct(Scanner name, Scanner price, Scanner brand, Scanner category) throws IOException {
+	public void StoreOwner_addProduct(String name, String price, String brand, String category) throws IOException {
 		String file_Name = "StoreProducts.txt";
 		setProduct_Name(StoreOwner_Add.addProduct(name, price, brand, category, file_Name));
+	}
+	
+	public void StoreOwner_addprod_history() throws IOException {
 		String str[] = { "Product added by StoreOwner is " + getProduct_Name(), dtf.format(now) };
 		hist.write_Historyfile(str);
 	}
@@ -71,12 +74,6 @@ public class StoreOwner extends User {
 
 	public void View_History() throws IOException {
 		hist.Check_History();
-
 	}
+	
 }
-/*
- * public void StoreOwner_Undo() throws IOException { Products product = new
- * Products(); product.setName("coca"); product.setPrice("15");
- * product.setBrand(null); product.setCategory(null); update.undoEdit(product);
- * }
- */

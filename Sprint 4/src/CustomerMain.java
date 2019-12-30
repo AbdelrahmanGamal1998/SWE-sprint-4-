@@ -10,8 +10,8 @@ public void CustomerMain() throws IOException {
 		User customer = new Customer();
 		User curruse=new User();
 		curruse=customer.login();
-		int r=1;
-		while(r==1) {
+		int loop=1;
+		while(loop==1) {
 			System.out.println("Want to Buy Product? Press 1");
 			Scanner Bproduct = new Scanner(System.in);
 			  int choice = Bproduct.nextInt();
@@ -23,7 +23,7 @@ public void CustomerMain() throws IOException {
 			
 			 System.out.println("Do you Wish to Perform Another Operation? Press 1 / Exit? Press 2");
 			  Scanner AnotherOperation = new Scanner(System.in);
-					 r = AnotherOperation.nextInt();
+					 loop = AnotherOperation.nextInt();
 		}
 		System.out.println("Thanks For Using Our Website!!");
 	 }
