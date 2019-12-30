@@ -22,20 +22,19 @@ public class StoreOwnerMain {
 			Scanner StoreOwnerChoice = new Scanner(System.in);
 			int choice = StoreOwnerChoice.nextInt();
 			if (choice == 0) {
-				System.out.println("Enter name");
+				System.out.println("Enter product name");
 				Scanner input_name = new Scanner(System.in);
 				String name = input_name.next();
-				System.out.println("Enter price");
+				System.out.println("Enter product price");
 				Scanner input_price = new Scanner(System.in);
 				String price = input_price.next();
-				System.out.println("Enter Brand");
+				System.out.println("Enter product Brand");
 				Scanner input_brand = new Scanner(System.in);
 				String brand = input_brand.next();
-				System.out.println("Enter category");
+				System.out.println("Enter  product category");
 				Scanner input_category = new Scanner(System.in);
 				String category = input_category.next();
 				storeowner.StoreOwner_addProduct(name, price, brand, category);
-				storeowner.StoreOwner_addprod_history();
 			} else if (choice == 1) {
 				storeowner.addStore();
 			} else if (choice == 2) {

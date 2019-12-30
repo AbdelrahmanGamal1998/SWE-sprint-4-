@@ -14,7 +14,7 @@ public class StoreOwner_Edit {
 	Database_write_infile Filewrite = new Database_write_infile();
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
-	StoreOwner_History edit_History = new StoreOwner_History();
+	History edit_History = new History();
 	Edit_view Edit_view = new Edit_view();
 
 	public void UpdatedProductPrice() throws IOException {
@@ -72,7 +72,7 @@ public class StoreOwner_Edit {
 			Category_line = products.get(j).getCategory();
 			String str[] = { Name_line, Price_line, Brand_line, Category_line };
 			Filewrite.Write(file1, str);
-			edit_History.Edited_Prtoduct_StoreOwner(NameOfProduct);
+			edit_History.Edited_Prtoduct_History(NameOfProduct);
 
 		}
 		System.out.println("The Price Of This Product Is Updated Successfuly");

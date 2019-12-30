@@ -19,16 +19,16 @@ public class CollaboratorMain {
 			Scanner UserChoice = new Scanner(System.in);
 			int Choice = UserChoice.nextInt();
 			if (Choice == 0) {
-				System.out.println("Enter Name");
+				System.out.println("Enter product Name");
 				Scanner input_name = new Scanner(System.in);
 				String name = input_name.next();
-				System.out.println("Enter Price");
+				System.out.println("Enter product Price");
 				Scanner input_price = new Scanner(System.in);
 				String price = input_price.next();
-				System.out.println("Enter Brand");
+				System.out.println("Enter product Brand");
 				Scanner input_brand = new Scanner(System.in);
 				String brand = input_brand.next();
-				System.out.println("Enter Category");
+				System.out.println("Enter product Category");
 				Scanner input_category = new Scanner(System.in);
 				String category = input_category.next();
 				collaborator.addProduct_bycollaborator(name, price, brand, category);

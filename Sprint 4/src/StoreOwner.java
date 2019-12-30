@@ -24,7 +24,7 @@ public class StoreOwner extends User {
 	User StoreOwn = new User();
 	StoreOwner_Delete item = new StoreOwner_Delete();
 	StoreOwner_Edit update = new StoreOwner_Edit();
-	StoreOwner_History hist = new StoreOwner_History();
+	History hist = new History();
 	Buy_Offer buuy = new Buy_Offer();
 
 	public String getProduct_Name() {
@@ -53,13 +53,10 @@ public class StoreOwner extends User {
 	public void StoreOwner_addProduct(String name, String price, String brand, String category) throws IOException {
 		String file_Name = "StoreProducts.txt";
 		setProduct_Name(StoreOwner_Add.addProduct(name, price, brand, category, file_Name));
-	}
-	
-	public void StoreOwner_addprod_history() throws IOException {
-		String str[] = { "Product added by StoreOwner is " + getProduct_Name(), dtf.format(now) };
+		String str[] = { "Product added is " + getProduct_Name(), dtf.format(now) };
 		hist.write_Historyfile(str);
 	}
-
+	
 	public void StoreOwner_Deleteproduct() throws IOException {
 		item.deleteProduct();
 	}

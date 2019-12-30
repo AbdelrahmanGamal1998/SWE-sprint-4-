@@ -9,24 +9,19 @@ import java.util.Scanner;
 public class Collaborator extends TimerTask {
 	StoreOwner_Statistics Collaborator_stat = new StoreOwner_Statistics();
 	StoreOwner collaborator = new StoreOwner();
-	// UsersStatistics Collaborator_stat = new UsersStatistics();
-	// ProductsStatistics Collaboratorprod_stat = new ProductsStatistics();
 	Collaborator_controller Collaborator_cont = new Collaborator_controller();
-	StoreOwner_History storeOwner_History = new StoreOwner_History();
+	History history = new History();
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
 
 	public void addProduct_bycollaborator(String name, String price, String brand, String category)
 			throws IOException {
 		collaborator.StoreOwner_addProduct(name, price, brand, category);
-		String productadded_in_history_file[] = { "Product added by collaborator is " + collaborator.getProduct_Name(),
-				dtf.format(now) };
-		storeOwner_History.write_Historyfile(productadded_in_history_file);
 	}
 
 	public void Statistics_bycollaborator_writeinhistory() throws IOException {
 		String arr[] = { "Statistacs viewed by collaborator", dtf.format(now) };
-		storeOwner_History.write_Historyfile(arr);
+		history.write_Historyfile(arr);
 
 	}
 

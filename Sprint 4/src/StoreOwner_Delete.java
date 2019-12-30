@@ -13,7 +13,7 @@ public class StoreOwner_Delete {
 	Database_write_infile File = new Database_write_infile();
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
-	StoreOwner_History delete_History = new StoreOwner_History();
+	History delete_History = new History();
 	Delete_view Delete_view = new Delete_view();
 
 	public void deleteProduct() throws IOException {
@@ -46,7 +46,7 @@ public class StoreOwner_Delete {
 		reader.close();
 		inputFile.delete();
 		boolean successful = tempFile.renameTo(inputFile);
-		delete_History.Deleted_Prtoduct_StoreOwner(lineToRemove);
+		delete_History.Deleted_Prtoduct_History(lineToRemove);
 		System.out.println("Product Is deleted  Successfuly");
 	}
 
