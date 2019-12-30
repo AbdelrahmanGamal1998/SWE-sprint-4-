@@ -1,8 +1,8 @@
 pepsi
-45645
-iphone
-400
+4
 iwatch
-300
+100
 qewe
-22
+4
+chipsy
+7
