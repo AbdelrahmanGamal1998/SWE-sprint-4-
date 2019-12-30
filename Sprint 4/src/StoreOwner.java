@@ -22,9 +22,9 @@ public class StoreOwner extends User {
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
 	User StoreOwn = new User();
-	Delete item = new Delete();
-	Edit update = new Edit();
-	History hist = new History();
+	StoreOwner_Delete item = new StoreOwner_Delete();
+	StoreOwner_Edit update = new StoreOwner_Edit();
+	StoreOwner_History hist = new StoreOwner_History();
 	Buy_Offer buuy = new Buy_Offer();
 	
 	public String getProduct_Name() {
@@ -68,23 +68,17 @@ public class StoreOwner extends User {
 	public void StoreOwner_login() throws IOException {
 		StoreOwn.login();
 	}
-
-	public void Check_History() throws IOException {
-		File file = new File("History.txt");
-		String ReadLineInFile;
-		BufferedReader bReader = new BufferedReader(new FileReader(file));
-		while ((ReadLineInFile = bReader.readLine()) != null) {
-			System.out.println(ReadLineInFile);
-		}
-	}
+	public void View_History() throws IOException {
+	hist.Check_History();
 	
-	public void StoreOwner_Undo() throws IOException {
+	}
+}
+	/*public void StoreOwner_Undo() throws IOException {
 		 Products product = new Products();
 		 product.setName("coca");
 		 product.setPrice("15");
 		 product.setBrand(null);
 		 product.setCategory(null);
 		update.undoEdit(product);
-	}
+	}*/
 	
-}

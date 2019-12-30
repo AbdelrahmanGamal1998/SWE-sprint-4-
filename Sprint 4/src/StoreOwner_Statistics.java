@@ -5,12 +5,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.TimerTask;
 
-public class Statistics extends TimerTask{
+public class StoreOwner_Statistics extends TimerTask{
 	 private int products_views ;
      private int sold_products;
      private int orderd_Product;
-     UsersStatistics StoreOwn_stat = new UsersStatistics();
-     ProductsStatistics StoreOwnprod_stat = new  ProductsStatistics();
+     Admin StoreOwner_View_Statisitcs=new Admin();
  
  
 public int getOrderd_Product() {
@@ -37,25 +36,45 @@ public void setSold_products(int sold_products) {
 	this.sold_products =0;
 }
 
+public void view_Sold_Products_by_StoreOwner() throws IOException {
+	StoreOwner_View_Statisitcs.Sum_User_statistics();
+}
+
+
+public void  Most_Ordered_Product_by_StoreOwner() throws IOException {
+	
+	StoreOwner_View_Statisitcs.max_Products_statistics();
+	
+}
+   public void  average_Ordered_Product_by_StoreOwner() throws IOException {
+StoreOwner_View_Statisitcs.Average_Products_statistics();
+}
+
 @Override
 public void run() {
 
-System.out.println("the sold products Statistics");
+ System.out.println("the sold products Statistics");
 try {
-	System.out.println(StoreOwn_stat.sum_users());
+	view_Sold_Products_by_StoreOwner();
 } catch (IOException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();
 }
-System.out.println("the  Most Ordered Product Statistics");
+ System.out.println("the Most Ordered Product Statistics");
 try {
-	StoreOwnprod_stat.maxproduct();
+	Most_Ordered_Product_by_StoreOwner();
 } catch (IOException e) {
 	// TODO Auto-generated catch block
 	e.printStackTrace();
 }
-System.out.println("the products view Statistics");
-System.out.println(getProducts_views());
+
+
+try {    System.out.println("Average  Ordered products  in our websites Statistics");
+average_Ordered_Product_by_StoreOwner();
+} catch (IOException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
 
 }
 

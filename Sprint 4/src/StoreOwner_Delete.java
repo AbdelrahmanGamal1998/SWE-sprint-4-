@@ -8,12 +8,12 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
-public class Delete {
+public class StoreOwner_Delete {
 	
 	Database_write_infile File = new Database_write_infile();
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
-	History delete_History = new History();
+	StoreOwner_History delete_History = new StoreOwner_History();
 	Delete_view Delete_view =new Delete_view (); 
 
 	
@@ -47,7 +47,7 @@ public class Delete {
 		reader.close();
 		inputFile.delete();
 		boolean successful = tempFile.renameTo(inputFile);
-		delete_History.Deleted_Prtoduct_StoreOwner_write_in_history_file(lineToRemove);
+		delete_History.Deleted_Prtoduct_StoreOwner(lineToRemove);
 		System.out.println("Product Is deleted  Successfuly");
 }
 
