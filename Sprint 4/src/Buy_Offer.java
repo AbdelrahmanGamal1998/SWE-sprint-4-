@@ -17,9 +17,9 @@ public class Buy_Offer {
 	public void setUser_type(String user_type) {
 		this.User_type = user_type;
 	}
-	
-public void BuyProduct(User user) throws IOException {
-	    ArrayList<String> to_beWritten = new ArrayList<String>();
+
+	public void BuyProduct(User user) throws IOException {
+		ArrayList<String> to_beWritten = new ArrayList<String>();
 		int result = 0;
 		String line0 = null;
 		String line1 = null;
@@ -56,24 +56,24 @@ public void BuyProduct(User user) throws IOException {
 			if (agree == 1) {
 				System.out.println("we will send you a confirmation mail ");
 				System.out.println("the product will be shipping 2 Working days Thanks for Using Our Website  ");
-				String arr[] = { user.getName(), product, Dis,to_beWritten.get(1) ,to_beWritten.get(2) };
+				String arr[] = { user.getName(), product, Dis, to_beWritten.get(1), to_beWritten.get(2) };
 				write.Write(file2, arr);
 				System.out.println("The Product On The Cart ");
 			} else
 				System.out.println("The product is discareded ,THANKS FOR USING OUR WEBSITE");
 		} else
 			System.out.println("THANKS FOR USING OUR WEBSITE");
-}
+	}
 
-public void view_Products(String line0, String line1, String line2, String line3) throws IOException {
+	public void view_Products(String line0, String line1, String line2, String line3) throws IOException {
 		System.out.println("Our Products are   ........ ");
 		File file = new File("StoreProducts.txt");
 		BufferedReader breader = new BufferedReader(new FileReader(file));
-		while ((line0 = breader.readLine()) != null & (line1 = breader.readLine()) != null & (line2 = breader.readLine()) != null
-				& (line3 = breader.readLine()) != null) {
+		while ((line0 = breader.readLine()) != null & (line1 = breader.readLine()) != null
+				& (line2 = breader.readLine()) != null & (line3 = breader.readLine()) != null) {
 			System.out.println(line0);
 		}
-}
+	}
 
 	public void offer_File(String line0, String line1, String line2, String line3, String product) throws IOException {
 		File file5 = new File("Offers.txt");
@@ -90,10 +90,11 @@ public void view_Products(String line0, String line1, String line2, String line3
 				break;
 			}
 		}
-}
-	
-	public ArrayList<String> StoreProducts_file(String line0, String line1, String line2, String line3, String product)throws IOException {
-		ArrayList<String> info = new ArrayList<String>();	
+	}
+
+	public ArrayList<String> StoreProducts_file(String line0, String line1, String line2, String line3, String product)
+			throws IOException {
+		ArrayList<String> info = new ArrayList<String>();
 		File fille = new File("StoreProducts.txt");
 		FileReader Freader = new FileReader(fille);
 		Scanner read = new Scanner(fille);
@@ -112,16 +113,16 @@ public void view_Products(String line0, String line1, String line2, String line3
 				info.add(1, line2);
 				System.out.println(line2);
 				System.out.println("the product category is :");
-				info.add(2,line3);
+				info.add(2, line3);
 				System.out.println(line3);
 				System.out.println("------------------------");
 				return info;
 			}
 		}
 		return null;
-}
-	
-public int Calculate_offer(int result, int amount) {
+	}
+
+	public int Calculate_offer(int result, int amount) {
 		if (getUser_type() == "User") {
 			if (amount == 1) {
 				return (int) (result - (result * 0.05));

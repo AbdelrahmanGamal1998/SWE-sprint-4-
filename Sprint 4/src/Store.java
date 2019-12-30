@@ -52,8 +52,8 @@ public class Store {
 			this.setStoreType(Stype.next());
 			Approve_store.approveStore(this.getStoreType());
 			if (Approve_store.approveStore(this.getStoreType()) == true) {
-				String  Store_info[] = { this.getStoreName(), this.getStoreType() };
-				Database1.Write(file,Store_info);
+				String Store_info[] = { this.getStoreName(), this.getStoreType() };
+				Database1.Write(file, Store_info);
 
 				System.out.println("Store Created!");
 
@@ -73,7 +73,7 @@ public class Store {
 			Approve_store.approveStore(this.getStoreType());
 			if (Approve_store.approveStore(this.getStoreType()) == true) {
 				String Store_info[] = { this.getStoreName(), this.getStoreType(), this.getStoreAddress() };
-				Database1.Write(file,Store_info );
+				Database1.Write(file, Store_info);
 
 				System.out.println("Store Created!");
 

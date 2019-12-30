@@ -9,14 +9,13 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class StoreOwner_Delete {
-	
+
 	Database_write_infile File = new Database_write_infile();
 	DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
 	LocalDateTime now = LocalDateTime.now();
 	StoreOwner_History delete_History = new StoreOwner_History();
-	Delete_view Delete_view =new Delete_view (); 
+	Delete_view Delete_view = new Delete_view();
 
-	
 	public void deleteProduct() throws IOException {
 		File inputFile = new File("StoreProducts.txt");
 		File tempFile = new File("newFile.txt");
@@ -30,8 +29,8 @@ public class StoreOwner_Delete {
 		String line2;
 		String line3;
 
-		while ((line0 = reader.readLine()) != null & (line1 = reader.readLine()) != null & (line2 = reader.readLine()) != null
-				& (line3 = reader.readLine()) != null) {
+		while ((line0 = reader.readLine()) != null & (line1 = reader.readLine()) != null
+				& (line2 = reader.readLine()) != null & (line3 = reader.readLine()) != null) {
 			// trim newline when comparing with lineToRemove
 			String trimmedLine0 = line0.trim();
 			String trimmedLine1 = line1.trim();
@@ -49,7 +48,6 @@ public class StoreOwner_Delete {
 		boolean successful = tempFile.renameTo(inputFile);
 		delete_History.Deleted_Prtoduct_StoreOwner(lineToRemove);
 		System.out.println("Product Is deleted  Successfuly");
-}
+	}
 
-	
 }

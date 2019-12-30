@@ -6,16 +6,15 @@ import java.util.Scanner;
 public class ProductController {
 	Database_verification Databaseverify = new Database_verification();
 
-public boolean VerifyProduct(String i) throws IOException {
+	public boolean VerifyProduct(String i) throws IOException {
 		File file = new File("AdminProducts.txt");
-		String arr[]= {i};
-		int value=Databaseverify.verify(file, arr);
-		
-		if(value==1) {
-			
+		String arr[] = { i };
+		int value = Databaseverify.verify(file, arr);
+
+		if (value == 1) {
+
 			return true;
-		}
-		else  
+		} else
 			return false;
-}
+	}
 }

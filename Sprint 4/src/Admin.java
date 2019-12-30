@@ -13,7 +13,6 @@ import java.util.Scanner;
 
 public class Admin {
 
-
 	StoreController Admin_controller = new StoreController();
 	User Admin_log = new User();
 	ProductController AdminProd_Controller = new ProductController();
@@ -21,10 +20,6 @@ public class Admin {
 	ProductsStatistics products = new ProductsStatistics();
 	Brands brand = new Brands();
 	Offer offer = new Offer();
-
-
-
-	
 
 	public void Add_offer(String name, String price) throws IOException {
 		offer.add_Offers(name, price);
@@ -34,9 +29,9 @@ public class Admin {
 		offer.deleteOffer();
 	}
 
-	
-	 public void Update_offer() throws IOException { offer.UpdatedOfferPrice(); }
-	
+	public void Update_offer() throws IOException {
+		offer.UpdatedOfferPrice();
+	}
 
 	public void Admin_brands(Scanner brand_Name, Scanner brand_Category) throws IOException {
 		brand.addbrands(brand_Name, brand_Category);
@@ -61,7 +56,7 @@ public class Admin {
 	}
 
 	public void Sum_User_statistics() throws IOException {
-		
+
 		System.out.println(user.sum_users());
 	}
 
@@ -70,7 +65,7 @@ public class Admin {
 	}
 
 	public void Average_User_statistics() throws IOException {
-		
+
 		System.out.println(user.avg_users());
 	}
 
@@ -80,12 +75,12 @@ public class Admin {
 	}
 
 	public void Sum_Products_statistics() throws IOException {
-		
+
 		System.out.println(user.sum_users());
 	}
 
 	public void Average_Products_statistics() throws IOException {
-	
+
 		System.out.println(user.avg_users());
 	}
 
