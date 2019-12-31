@@ -15,13 +15,9 @@ public User verify(String type ,String uName,String upassword) throws IOExceptio
 		User user=new User();
 		user.setName(uName);
 		
-		if(value==1) {
-			
+		if(value==1) {		
 			 System.out.println("Access Granted! Welcome!");
-			 return user;
-		
-
-			
+			 return user;		
 		}
 		else {
 			System.out.println("Invalid Username & Password!");

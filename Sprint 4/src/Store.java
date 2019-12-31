@@ -12,7 +12,7 @@ public class Store {
 	private String storeType;
 	private String storeAddress;
 	Admin Approve_store = new Admin();
-	Database_write_infile Database1 = new Database_write_infile();
+	Database_write_infile File_Writer = new Database_write_infile();
 
 	public String getStoreType() {
 		return storeType;
@@ -53,7 +53,7 @@ public class Store {
 			Approve_store.approveStore(this.getStoreType());
 			if (Approve_store.approveStore(this.getStoreType()) == true) {
 				String Store_info[] = { this.getStoreName(), this.getStoreType() };
-				Database1.Write(file, Store_info);
+				File_Writer.Write(file, Store_info);
 
 				System.out.println("Store Created!");
 
@@ -73,7 +73,7 @@ public class Store {
 			Approve_store.approveStore(this.getStoreType());
 			if (Approve_store.approveStore(this.getStoreType()) == true) {
 				String Store_info[] = { this.getStoreName(), this.getStoreType(), this.getStoreAddress() };
-				Database1.Write(file, Store_info);
+				File_Writer.Write(file, Store_info);
 
 				System.out.println("Store Created!");
 

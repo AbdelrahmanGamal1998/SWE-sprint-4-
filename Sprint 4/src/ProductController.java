@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ProductController {
+	
 	Database_verification Databaseverify = new Database_verification();
 
 	public boolean VerifyProduct(String i) throws IOException {

@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class StoreController {
+	
 	Database_verification Databaseverify = new Database_verification();
+	
 public boolean VerifyStore(String check_storetype) throws IOException {
 		File file = new File("Types.txt");
 		String storetype[]= {check_storetype};

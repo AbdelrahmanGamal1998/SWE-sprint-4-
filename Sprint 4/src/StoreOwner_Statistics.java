@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.TimerTask;
 
 public class StoreOwner_Statistics extends TimerTask {
+	
 	private int products_views;
 	private int sold_products;
 	private int orderd_Product;
@@ -36,17 +37,15 @@ public class StoreOwner_Statistics extends TimerTask {
 	}
 
 	public void view_Sold_Products_by_StoreOwner() throws IOException {
-		StoreOwner_View_Statisitcs.Sum_User_statistics();
+		StoreOwner_View_Statisitcs.Sum_User__product_statistics();
 	}
 
 	public void Most_Ordered_Product_by_StoreOwner() throws IOException {
-
 		StoreOwner_View_Statisitcs.max_Products_statistics();
-
 	}
 
 	public void average_Ordered_Product_by_StoreOwner() throws IOException {
-		StoreOwner_View_Statisitcs.Average_Products_statistics();
+		StoreOwner_View_Statisitcs.Average_User_product_Statistics();
 	}
 
 	@Override
