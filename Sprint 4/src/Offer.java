@@ -33,8 +33,6 @@ public class Offer {
 		Offerprice = offerprice;
 	}
 
-	Edit_view Edit_view = new Edit_view();
-
 	public void add_Offers(String name, String price) throws IOException {
 		File file = new File("Offers.txt");
 		String arr[] = { name, price };

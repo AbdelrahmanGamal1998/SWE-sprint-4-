@@ -55,8 +55,7 @@ public class Admin {
 		Admin_log.login();
 	}
 
-	public void Sum_User_statistics() throws IOException {
-
+	public void Sum_User__product_statistics() throws IOException {
 		System.out.println(user.sum_users());
 	}
 
@@ -64,24 +63,12 @@ public class Admin {
 		user.max();
 	}
 
-	public void Average_User_statistics() throws IOException {
-
+	public void Average_User_product_Statistics() throws IOException {
 		System.out.println(user.avg_users());
 	}
 
 	public void Min_User_statistics() throws IOException {
-
 		user.min();
-	}
-
-	public void Sum_Products_statistics() throws IOException {
-
-		System.out.println(user.sum_users());
-	}
-
-	public void Average_Products_statistics() throws IOException {
-
-		System.out.println(user.avg_users());
 	}
 
 	public void min_Products_statistics() throws IOException {
@@ -89,7 +76,6 @@ public class Admin {
 	}
 
 	public void max_Products_statistics() throws IOException {
-
 		products.maxproduct();
 	}
 

@@ -4,7 +4,8 @@ import java.io.FileReader;
 import java.util.Scanner;
 
 public class Collaborator_verification {
-	public int verify_collaborator(File file1, String[] arr1) throws FileNotFoundException {
+	
+	public int check_collaborator_database(File file1, String[] arr1) throws FileNotFoundException {
 
 		FileReader FReader = new FileReader(file1);
 		Scanner read = new Scanner(file1);

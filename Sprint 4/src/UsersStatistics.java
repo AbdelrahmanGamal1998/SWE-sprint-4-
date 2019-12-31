@@ -7,7 +7,9 @@ import java.util.Map;
 import java.util.TimerTask;
 
 public class UsersStatistics  {
+	
 	Database_map_file databasemap=new Database_map_file();
+	
 public int sum_users() throws IOException {
 		File file = new File("SoldProducts.txt"); 
 	 
@@ -42,4 +44,5 @@ public void min() throws IOException {
 	File file=new File("SoldProducts.txt");
 	System.out.println("Min Users : \n " + databasemap.Sort(0, file, "min"));
 }
+
 }

@@ -36,17 +36,15 @@ public class AdminMain {
 				Admin.Admin_brands(brand_Name, brand_Category);
 			} else if (button1 == 2) {
 				System.out.println("Sum Users: ");
-				Admin.Sum_User_statistics();
+				Admin.Sum_User__product_statistics();
 				System.out.println("Average Users : ");
-				Admin.Average_User_statistics();
-
+				Admin.Average_User_product_Statistics();
 				Admin.Maxiumum_User_statistics();
-
 				Admin.Min_User_statistics();
 				System.out.println("Sum products: ");
-				Admin.Sum_Products_statistics();
+				Admin.Sum_User__product_statistics();
 				System.out.println("Average Products : ");
-				Admin.Average_Products_statistics();
+				Admin.Average_User_product_Statistics();
 				Admin.max_Products_statistics();
 				Admin.min_Products_statistics();
 
